@@ -1,0 +1,15 @@
+@use './sections/hero.scss' as *;
+@use './sections/passion.scss' as *;
+@use './sections/dignity.scss' as *;
+
+section {
+    max-width: 1312px;
+    margin: auto;
+
+    &.full-width {
+        padding-left: calc(50vw - calc(1312px / 2));
+        padding-right: calc(50vw - calc(1312px / 2));
+        margin: unset;
+        max-width: unset;
+    }
+}

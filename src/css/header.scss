@@ -1,0 +1,33 @@
+header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    .header__top-container {
+        height: 64px;
+        background-color: white;
+        transition: background-color 0.2s ease;
+        transition-delay: 0.1s;
+    }
+    
+    .header__bottom-container {
+        height: 48px;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+        background-color: #8B645A;
+        transition: background-color 0.2s ease;
+        transition-delay: 0.1s;
+    }
+
+    &.at-top {
+        
+        .header__top-container {
+            background-color: transparent;
+        }
+
+        .header__bottom-container {
+            background-color: transparent;
+        }
+    }
+}

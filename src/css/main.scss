@@ -1,0 +1,14 @@
+@use './variables.scss' as *;
+@use './typography.scss' as *;
+@use './utilities.scss' as *;
+@use './cw_grid.scss' as *;
+@use './sections.scss' as *;
+@use './header.scss' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter Display';
+    color: var(--cw-dark-brown-accent);
+    background-color: var(--cw-bg-color);
+}

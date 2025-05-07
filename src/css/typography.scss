@@ -1,0 +1,42 @@
+@use './fonts' as *;
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1, .h1 {
+    font-size: 78px;
+    font-weight: 300;
+    font-family: 'ivypresto';
+    line-height: 1;
+}
+
+h2, .h2 {
+
+}
+
+h3, .h3 {
+
+}
+
+h4, .h4 {
+
+}
+
+h5, .h5 {
+
+}
+
+h6, .h6 {
+
+}
+
+p, .p {
+    font-family: 'Inter Display';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.text-white {
+    color: white;
+}

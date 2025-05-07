@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import '@/css/main.scss'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  title: 'Wacko - Tidlös elegans i äkta skinn',
+  description: '',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
