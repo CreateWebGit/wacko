@@ -6,9 +6,14 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { en } from '@payloadcms/translations/languages/en'
+import { sv } from '@payloadcms/translations/languages/sv'
 
 import { Users } from './collections/Users'
+import { Products } from './collections/Products'
 import { Media } from './collections/Media'
+import { News } from './collections/News'
+import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Products, News, Media],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -31,7 +36,36 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    uploadthingStorage({
+      collections: {
+        media: { disablePayloadAccessControl: true },
+      },
+      options: {
+        token: process.env.UPLOADTHING_TOKEN || '',
+      },
+    }),
   ],
+  localization: {
+    locales: [
+      {
+        label: {
+          en: 'English',
+          sv: 'Engelska',
+        },
+        code: 'eng',
+      },
+      {
+        label: {
+          en: 'Swedish',
+          sv: 'Svenska',
+        },
+        code: 'sve',
+      },
+    ], // required
+    defaultLocale: 'eng',
+    fallback: true,
+  },
+  i18n: {
+    supportedLanguages: { en, sv },
+  },
 })
