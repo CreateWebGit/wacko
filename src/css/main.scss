@@ -4,6 +4,10 @@
 @use './cw_grid.scss' as *;
 @use './sections.scss' as *;
 @use './header.scss' as *;
+@use './buttons.scss' as *;
+
+html {
+}
 
 body {
     margin: 0;
@@ -11,4 +15,5 @@ body {
     font-family: 'Inter Display';
     color: var(--cw-dark-brown-accent);
     background-color: var(--cw-bg-color);
+    overscroll-behavior: none;
 }

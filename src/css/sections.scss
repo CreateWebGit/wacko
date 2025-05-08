@@ -12,4 +12,10 @@ section {
         margin: unset;
         max-width: unset;
     }
+
+    &.no-padding {
+        margin: unset;
+        max-width: unset;
+        width: 100%;
+    }
 }

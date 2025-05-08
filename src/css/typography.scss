@@ -12,7 +12,11 @@ h1, .h1 {
 }
 
 h2, .h2 {
-
+    font-size: 48px;
+    font-weight: 300;
+    font-family: 'ivypresto';
+    line-height: 1;
+    color: var(--cw-brown-accent);
 }
 
 h3, .h3 {

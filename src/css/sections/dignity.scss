@@ -1,3 +1,19 @@
 .cw-section--dignity {
-    
+    min-height: 588px;
+    display: grid;
+    grid-template-columns: 1fr 588px;
+
+    .dignity__text-container {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 2rem;
+        text-align: right;
+    }
+
+    .dignity__image-container {
+        background-color: #d7d7d7;
+    }
 }

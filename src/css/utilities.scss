@@ -2,6 +2,7 @@
     --cw-padding-multiplier: 1;
     --cw-padding-xs-multiplier: 1;
     --cw-margin-multiplier: 1;
+    --cw-gap-multiplier: 1;
 }
 
 
@@ -102,45 +103,52 @@
 //--------------MARGIN------------
 @for $i from 1 through 10 {
     .my-#{$i} {
-        --i: #{$i};
-        margin-top: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
-        margin-bottom: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        --margin: #{$i};
+        margin-top: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+        margin-bottom: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
     }
 }
 
 @for $i from 1 through 10 {
     .mx-#{$i} {
-        --i: #{$i};
-        margin-left: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
-        margin-right: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        --margin: #{$i};
+        margin-left: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+        margin-right: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
     }
 }
 
 @for $i from 1 through 10 {
     .mt-#{$i} {
-        --i: #{$i};
-        margin-top: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        --margin: #{$i};
+        margin-top: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
     }
 }
 
 @for $i from 1 through 10 {
     .mb-#{$i} {
-        --i: #{$i};
-        margin-bottom: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        --margin: #{$i};
+        margin-bottom: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
     }
 }
 
 @for $i from 1 through 10 {
     .ml-#{$i} {
-        --i: #{$i};
-        margin-left: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        --margin: #{$i};
+        margin-left: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
     }
 }
 
 @for $i from 1 through 10 {
     .mr-#{$i} {
+        --margin: #{$i};
+        margin-right: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .gap-#{$i} {
         --i: #{$i};
-        margin-right: calc(var(--i) * 1rem * var(--cw-margin-multiplier));
+        gap: calc(var(--i) * 1rem * var(--cw-gap-multiplier));
     }
 }
 
@@ -162,4 +170,8 @@
     @media (min-width: 768px) {
         display: none !important;
     }
+}
+
+.d-flex {
+    display: flex;
 }

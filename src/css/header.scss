@@ -4,30 +4,113 @@ header {
     left: 0;
     right: 0;
     top: 0;
+    transition: transform 0.3s ease;
 
     .header__top-container {
         height: 64px;
         background-color: white;
         transition: background-color 0.2s ease;
         transition-delay: 0.1s;
+        padding-left: calc(50vw - calc(1312px / 2));
+        padding-right: calc(50vw - calc(1312px / 2));
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .header__logo-container {
+            display: flex;
+            align-items: center;
+            
+            img {
+                max-width: 116px;
+                transition: filter 0.2s ease;
+            }
+        }
+
+        .header__navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                gap: 1rem;
+
+                li {
+                    font-family: 'Inter Display';
+                    color: black;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 600;
+                    transition: color 0.2s ease;
+                }
+            }
+        }
+
+        .header__menu {
+
+        }
+        
     }
     
     .header__bottom-container {
         height: 48px;
         border-top: 1px solid rgba(255, 255, 255, 0.10);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
         background-color: #8B645A;
         transition: background-color 0.2s ease;
         transition-delay: 0.1s;
+        padding-left: calc(50vw - calc(1312px / 2));
+        padding-right: calc(50vw - calc(1312px / 2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                gap: 1rem;
+
+                li {
+                    font-family: 'Inter Display';
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 600;
+                    transition: color 0.2s ease;
+                }
+            }
     }
 
     &.at-top {
         
         .header__top-container {
             background-color: transparent;
+
+            img {
+                filter: invert(1);
+            }
+
+            .header__navigation {
+                ul {
+                    li {
+                        color: white;
+                    }
+                }
+            }
         }
 
         .header__bottom-container {
             background-color: transparent;
         }
+    }
+
+    &.scrolled {
+        transform: translateY(-64px);
     }
 }

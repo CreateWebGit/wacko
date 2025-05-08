@@ -1,3 +1,17 @@
 .cw-section--passion {
-    
+    min-height: 588px;
+    display: grid;
+    grid-template-columns: 588px 1fr;
+
+    .passion__text-container {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .passion__image-container {
+        background-color: #e3e3e3;
+    }
 }

@@ -8,6 +8,8 @@ export default function Home() {
         <>
             <Header/>
             <Hero/>
+            <Passion/>
+            <Dignity/>
         </>
     )
 }
