@@ -5,9 +5,10 @@ header {
     right: 0;
     top: 0;
     transition: transform 0.3s ease;
+    z-index: 1;
 
     .header__top-container {
-        height: 64px;
+        height: 4rem;
         background-color: white;
         transition: background-color 0.2s ease;
         transition-delay: 0.1s;
@@ -22,7 +23,7 @@ header {
             align-items: center;
             
             img {
-                max-width: 116px;
+                max-width: 6.75rem;
                 transition: filter 0.2s ease;
             }
         }
@@ -43,7 +44,7 @@ header {
                     font-family: 'Inter Display';
                     color: black;
                     text-transform: uppercase;
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     font-weight: 600;
                     transition: color 0.2s ease;
                 }
@@ -51,13 +52,20 @@ header {
         }
 
         .header__menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
 
+            button {
+                background: var(--cw-dark-brown-accent);
+                color: white;
+            }
         }
         
     }
     
     .header__bottom-container {
-        height: 48px;
+        height: 3rem;
         border-top: 1px solid rgba(255, 255, 255, 0.10);
         border-bottom: 1px solid rgba(255, 255, 255, 0.10);
         background-color: #8B645A;
@@ -80,7 +88,7 @@ header {
                     font-family: 'Inter Display';
                     color: white;
                     text-transform: uppercase;
-                    font-size: 12px;
+                    font-size: 0.75rem;
                     font-weight: 600;
                     transition: color 0.2s ease;
                 }
@@ -103,6 +111,13 @@ header {
                     }
                 }
             }
+
+            .header__menu {
+                button {
+                    background-color: white;
+                    color: black;
+                }
+            }
         }
 
         .header__bottom-container {
@@ -111,6 +126,6 @@ header {
     }
 
     &.scrolled {
-        transform: translateY(-64px);
+        transform: translateY(-4rem);
     }
 }

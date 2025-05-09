@@ -8,6 +8,11 @@ export default function Header() {
             //hide header on scroll
             let prevScrollpos = window.scrollY;
             const header = headerRef.current;
+
+            if (window.scrollY !== 0) {
+                header.classList.add('scrolled')
+                header.classList.remove('at-top')
+            }
     
             if (!header) return;
     
@@ -35,7 +40,7 @@ export default function Header() {
     return (
         <header ref={headerRef} className="at-top">
             <div className="header__top-container">
-                <div className="header__logo-container">
+                <div className="header__logo-container pl-4">
                     <img src="img/wacko_logo_black.svg"></img>
                 </div>
                 <div className="header__navigation">
@@ -46,7 +51,9 @@ export default function Header() {
                         <li>Om oss</li>
                     </ul>
                 </div>
-                <div className="header__menu"></div>
+                <div className="header__menu pr-4">
+                    <button className="secondary sm">Hitta hit</button>
+                </div>
             </div>
             <div className="header__bottom-container">
                 <ul>

@@ -1,4 +1,15 @@
 .cw-section--hero {
-    min-height: 768px;
-    background-color: #101010;
+    min-height: 53rem;
+    background-color: #171212c2;
+    position: relative;
+    
+    video {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 }

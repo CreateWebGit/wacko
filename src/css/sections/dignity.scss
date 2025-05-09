@@ -1,13 +1,14 @@
 .cw-section--dignity {
-    min-height: 588px;
+    min-height: 36.75rem;
     display: grid;
-    grid-template-columns: 1fr 588px;
+    grid-template-columns: 1fr 36.75rem;
+    background-color: var(--cw-bg-secondary);
 
     .dignity__text-container {
         padding: 4rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: flex-end;
         gap: 2rem;
         text-align: right;
@@ -15,5 +16,11 @@
 
     .dignity__image-container {
         background-color: #d7d7d7;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
     }
 }

@@ -7,6 +7,27 @@
 @use './buttons.scss' as *;
 
 html {
+    font-size: 16px;
+
+    @media (min-width: 1920px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1312px) {
+        font-size: 1.12vw;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        touch-action: pan-y;
+    }
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
