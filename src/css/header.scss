@@ -47,6 +47,14 @@ header {
                     font-size: 0.875rem;
                     font-weight: 600;
                     transition: color 0.2s ease;
+
+                    a {
+                        color: black;
+
+                        &::after {
+                            background-color: black;
+                        }
+                    }
                 }
             }
         }
@@ -91,6 +99,14 @@ header {
                     font-size: 0.75rem;
                     font-weight: 600;
                     transition: color 0.2s ease;
+
+                    a {
+                        color: white;
+
+                        &::after {
+                            background-color: white;
+                        }
+                    }
                 }
             }
     }
@@ -108,6 +124,14 @@ header {
                 ul {
                     li {
                         color: white;
+
+                        a {
+                            color: white;
+    
+                            &::after {
+                                background-color: white;
+                            }
+                        }
                     }
                 }
             }
@@ -122,6 +146,16 @@ header {
 
         .header__bottom-container {
             background-color: transparent;
+
+            li {
+                a {
+                    color: white;
+
+                    &::after {
+                        background-color: white;
+                    }
+                }
+            }
         }
     }
 

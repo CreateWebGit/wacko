@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import { useEffect, useRef } from "react"
 
 export default function Header() {
@@ -41,14 +42,24 @@ export default function Header() {
         <header ref={headerRef} className="at-top">
             <div className="header__top-container">
                 <div className="header__logo-container pl-4">
-                    <img src="img/wacko_logo_black.svg"></img>
+                    <Link className="image-link" href="/">
+                        <img src="img/wacko_logo_black.svg"></img>
+                    </Link>
                 </div>
                 <div className="header__navigation">
                     <ul>
-                        <li>Kollektion</li>
-                        <li>Skötselråd</li>
-                        <li>Nyheter</li>
-                        <li>Om oss</li>
+                        <li>
+                            <Link href="/kollektion">Kollektion</Link>
+                        </li>
+                        <li>
+                            <Link href="/skotselrad">Skötselråd</Link>
+                        </li>
+                        <li>
+                            <Link href="/nyheter">Nyheter</Link>
+                        </li>
+                        <li>
+                            <Link href="/om-oss">Om oss</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="header__menu pr-4">
@@ -57,13 +68,24 @@ export default function Header() {
             </div>
             <div className="header__bottom-container">
                 <ul>
-                    <li>Jackor</li>
-                    <li>Herr</li>
-                    <li>Dam</li>
-                    <li>Barn</li>
-                    <li>Väskor</li>
-                    <li>Handskar</li>
-                    <li>Accessoarer</li>
+                    <li>
+                        <Link href="/herr">Herr</Link>
+                    </li>
+                    <li>
+                        <Link href="/dam">Dam</Link>
+                    </li>
+                    <li>
+                        <Link href="/barn">Barn</Link>
+                    </li>
+                    <li>
+                        <Link href="/vaskor">Väskor</Link>
+                    </li>
+                    <li>
+                        <Link href="/handskar">Handskar</Link>
+                    </li>
+                    <li>
+                        <Link href="/accessoarer">Accessoarer</Link>
+                    </li>
                 </ul>   
             </div>
         </header>

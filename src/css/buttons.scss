@@ -8,9 +8,17 @@ button, .button {
     width: fit-content;
     padding: 1rem 1.5rem;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 
     &.sm {
         padding: 0.75rem 1rem;
+    }
+
+    &.fixed-width {
+        width: 12.5rem;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     &.primary {

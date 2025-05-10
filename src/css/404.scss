@@ -1,0 +1,42 @@
+.error-wrapper {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: white;
+            opacity: 0.50;
+            max-width: 50rem;
+            text-align: center;
+        }
+    }
+}
+
+.banner {
+    height: 3rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: white;
+    font-weight: 600;
+}
