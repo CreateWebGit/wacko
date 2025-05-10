@@ -12,7 +12,7 @@ export default function SectionHero() {
                 </div>
             </div>
             <div className="cw-col-6 cw-col-xs-12 "></div>
-            <video src="/img/hero_bg_movie_placeholder.mp4" autoPlay playsInline muted loop></video>
+            {/* <video src="/img/hero_bg_movie_placeholder.mp4" autoPlay playsInline muted loop></video> */}
         </section>
     )
 }
