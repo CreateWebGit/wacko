@@ -9,6 +9,10 @@ h1, .h1 {
     font-weight: 300;
     font-family: 'ivypresto';
     line-height: 1;
+
+    @media (max-width: 768px) {
+        font-size: 48px;
+    }
 }
 
 h2, .h2 {
@@ -17,6 +21,10 @@ h2, .h2 {
     font-family: 'ivypresto';
     line-height: 1;
     color: var(--cw-brown-accent);
+
+    @media (max-width: 768px) {
+        font-size: 32px;
+    }
 }
 
 h3, .h3 {
@@ -64,6 +72,12 @@ a:not(.button, .image-link) {
 
         &::after {
             background-color: var(--cw-light-brown-accent);
+        }
+    }
+
+    &.active {
+        &::after {
+            width: 100%;
         }
     }
 

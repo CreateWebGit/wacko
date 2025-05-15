@@ -4,6 +4,11 @@
     grid-template-columns: 1fr 36.75rem;
     background-color: var(--cw-bg-secondary);
 
+    @media (max-width: 768px) {
+        min-height: unset;
+        grid-template-columns: 1fr;
+    }
+
     .dignity__text-container {
         padding: 4rem;
         display: flex;
@@ -12,10 +17,19 @@
         align-items: flex-end;
         gap: 2rem;
         text-align: right;
+
+        @media (max-width: 768px) {
+            padding: 1rem;
+            padding-bottom: 8rem;
+        }
     }
 
     .dignity__image-container {
         background-color: #d7d7d7;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
 
         img {
             object-fit: cover;

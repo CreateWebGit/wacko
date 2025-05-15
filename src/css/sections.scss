@@ -10,6 +10,12 @@ section {
     padding-right: 4rem;
     margin: auto;
 
+    @media (max-width: 768px) {
+        width: 100%;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
     &.full-width {
         padding-left: calc(50vw - calc(1312px / 2));
         padding-right: calc(50vw - calc(1312px / 2));
