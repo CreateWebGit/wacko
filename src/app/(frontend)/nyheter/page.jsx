@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 
 import config from '@/payload.config'
 import Link from 'next/link'
+import Newsletters from '@/components/Newsletters'
 
 const page = async () => {
   const payloadConfig = await config
@@ -13,24 +14,9 @@ const page = async () => {
   })
   console.log('my post', post.docs[0])
 
-  const helpFunc = (str) => {
-    str = str.replace(/\s+/g, '-').toLowerCase()
-    return str
-  }
-
   return (
     <div>
-      {post.docs.map((item) => (
-        <div key={item.link}>
-          <Link
-            href={{
-              pathname: 'nyheter/' + helpFunc(item.title),
-            }}
-          >
-            {item.title}
-          </Link>
-        </div>
-      ))}
+      <Newsletters post={post} />
     </div>
   )
 }

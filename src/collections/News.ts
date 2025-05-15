@@ -22,6 +22,7 @@ export const News: CollectionConfig = {
               name: 'title',
               label: 'Titel',
               type: 'text',
+              localized: true,
               required: true,
             },
             {
@@ -42,32 +43,6 @@ export const News: CollectionConfig = {
               relationTo: 'media',
               required: true,
               hasMany: true,
-            },
-            {
-              name: 'categories',
-              label: 'Kategorier',
-              type: 'select', // required
-              hasMany: true,
-              localized: true,
-              admin: {
-                isClearable: true,
-                isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
-              },
-              options: [
-                {
-                  label: {
-                    eng: 'Skinnnjackets',
-                    sve: 'Skinnjacka',
-                  },
-                  value: 'skinnjacka',
-                },
-              ],
-            },
-            {
-              name: 'link',
-              label: 'Länknamn',
-              type: 'text',
-              required: true,
             },
           ],
         },

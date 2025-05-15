@@ -241,8 +241,6 @@ export interface News {
   title: string;
   date?: string | null;
   images: (string | Media)[];
-  categories?: 'skinnjacka'[] | null;
-  link: string;
   tabTwo: {
     news: string;
   };
@@ -349,8 +347,6 @@ export interface NewsSelect<T extends boolean = true> {
   title?: T;
   date?: T;
   images?: T;
-  categories?: T;
-  link?: T;
   tabTwo?:
     | T
     | {

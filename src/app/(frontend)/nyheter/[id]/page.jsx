@@ -15,17 +15,19 @@ const page = async ({ params }) => {
     return str
   }
 
-  //console.log('haha', encoded)
+  console.log('iii', helpFunc(decodedID))
 
   const result = await payload.find({
     collection: 'news',
-    depth: 8, // required
+    locale: 'all',
 
     where: {
       title: {
-        equals: helpFunc(decodedID),
+        sve: {
+          equals: helpFunc(decodedID),
+        },
       },
-    }, // pass a `where` query here
+    },
   })
 
   console.log('results', result)
