@@ -7,6 +7,12 @@
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 768px) {
+        height: 100dvh;
+        padding: 0 2rem;
+        padding-top: 112px;
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -39,4 +45,12 @@
     font-size: 0.875rem;
     color: white;
     font-weight: 600;
+
+    @media (max-width: 768px) {
+        // display: none;
+        width: 100vw;
+        font-size: 12px;
+        padding: 0 1rem;
+        justify-content: space-between;
+    }
 }

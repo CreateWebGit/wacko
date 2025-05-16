@@ -6,6 +6,10 @@ import Banner from '@/components/Banner';
 import Smakprov from '@/components/sections/Smakprov';
 import CategoryButtons from '@/components/sections/CategoryButtons';
 
+export const viewport = {
+    themeColor: '#8B645A'
+}
+
 export default function Home() {
     return (
         <>

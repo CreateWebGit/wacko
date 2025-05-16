@@ -32,4 +32,12 @@
             background-image: url('/img/category_accessoarer.jpg')
         }
     } 
+
+    @media (max-width: 768px) {
+        gap: 1rem;
+
+        .cw-col-3 {
+            min-height: 4rem;
+        }
+    }
 }

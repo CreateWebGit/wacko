@@ -3,17 +3,35 @@
     display: grid;
     grid-template-columns: 36.75rem 1fr;
 
+    @media (max-width: 768px) {
+        min-height: unset;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
     .smakprov__text-container {
         padding: 4rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            padding: 1rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            
+        }
     }
 
     .smakprov__product-container {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width: 768px) {
+            // display: none;
+        }
 
         p {
             font-size: 20px;

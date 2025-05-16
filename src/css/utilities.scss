@@ -160,6 +160,12 @@
     text-align: center;
 }
 
+.text-center-xs {
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+
 .hide-mobile {
     @media (max-width: 768px) {
         display: none !important;
@@ -174,4 +180,14 @@
 
 .d-flex {
     display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-column-xs {
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 }
