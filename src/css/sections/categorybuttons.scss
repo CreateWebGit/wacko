@@ -1,0 +1,35 @@
+.cw-section--categorybuttons {
+    .cw-col-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 5.125rem;
+        border-radius: 2px;
+        background-color: #b9b9b9;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-0.5rem);
+        }
+
+        &.herr {
+            background-image: url('/img/category_herr.jpg')
+        }
+
+        &.dam {
+            background-image: url('/img/category_dam.jpg')
+        }
+
+        &.jackor {
+            background-image: url('/img/category_jackor.jpg')
+        }
+
+        &.accessoarer {
+            background-image: url('/img/category_accessoarer.jpg')
+        }
+    } 
+}

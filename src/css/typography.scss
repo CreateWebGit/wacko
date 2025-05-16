@@ -1,0 +1,85 @@
+@use './fonts' as *;
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1, .h1 {
+    font-size: 4.875rem;
+    font-weight: 300;
+    font-family: 'ivypresto';
+    line-height: 1;
+}
+
+h2, .h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: 'ivypresto';
+    line-height: 1;
+    color: var(--cw-brown-accent);
+}
+
+h3, .h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'ivypresto';
+    line-height: 1;
+    color: var(--cw-brown-accent);
+}
+
+h4, .h4 {
+
+}
+
+h5, .h5 {
+
+}
+
+h6, .h6 {
+
+}
+
+a:not(.button, .image-link) {
+    font-family: 'Inter Display';
+    text-decoration: none;
+    color: var(--cw-brown-accent);
+    font-weight: 600;
+    display: inline;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+        position: absolute;
+        height: 1px;
+        background-color: var(--cw-brown-accent);
+        width: 0%;
+        content: "";
+        left: 0;
+        bottom: -2px;
+        transition: width 0.2s ease;
+    }
+
+    &.light {
+        color: var(--cw-light-brown-accent);
+
+        &::after {
+            background-color: var(--cw-light-brown-accent);
+        }
+    }
+
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+p, .p {
+    font-family: 'Inter Display';
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.text-white {
+    color: white;
+}

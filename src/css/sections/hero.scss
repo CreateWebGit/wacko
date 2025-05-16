@@ -1,0 +1,18 @@
+.cw-section--hero {
+    min-height: 53rem;
+    background-color: #171212c2;
+    position: relative;
+    background-image: url('/img/hero_bg_placeholder.png');
+    background-position: center center;
+    background-size: cover;
+    
+    video {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}

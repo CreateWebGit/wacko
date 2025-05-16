@@ -1,0 +1,177 @@
+:root {
+    --cw-padding-multiplier: 1;
+    --cw-padding-xs-multiplier: 1;
+    --cw-margin-multiplier: 1;
+    --cw-gap-multiplier: 1;
+}
+
+
+//--------------PADDING------------
+@media (min-width: 768px) {
+    @for $i from 1 through 10 {
+        .py-#{$i} {
+            --i: #{$i};
+            padding-top: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .px-#{$i} {
+            --i: #{$i};
+            padding-left: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            padding-right: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pt-#{$i} {
+            --i: #{$i};
+            padding-top: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pb-#{$i} {
+            --i: #{$i};
+            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pl-#{$i} {
+            --i: #{$i};
+            padding-left: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pr-#{$i} {
+            --i: #{$i};
+            padding-right: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+        }
+    }
+}
+
+//--------------PADDING XS------------
+@media (max-width: 768px) {
+    @for $i from 1 through 10 {
+        .py-xs-#{$i} {
+            --i: #{$i};
+            padding-top: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .px-xs-#{$i} {
+            --i: #{$i};
+            padding-left: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            padding-right: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pt-xs-#{$i} {
+            --i: #{$i};
+            padding-top: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pb-xs-#{$i} {
+            --i: #{$i};
+            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pl-xs-#{$i} {
+            --i: #{$i};
+            padding-left: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+    
+    @for $i from 1 through 10 {
+        .pr-xs-#{$i} {
+            --i: #{$i};
+            padding-right: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+        }
+    }
+}
+
+//--------------MARGIN------------
+@for $i from 1 through 10 {
+    .my-#{$i} {
+        --margin: #{$i};
+        margin-top: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+        margin-bottom: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .mx-#{$i} {
+        --margin: #{$i};
+        margin-left: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+        margin-right: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .mt-#{$i} {
+        --margin: #{$i};
+        margin-top: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .mb-#{$i} {
+        --margin: #{$i};
+        margin-bottom: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .ml-#{$i} {
+        --margin: #{$i};
+        margin-left: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .mr-#{$i} {
+        --margin: #{$i};
+        margin-right: calc(var(--margin) * 1rem * var(--cw-margin-multiplier));
+    }
+}
+
+@for $i from 1 through 10 {
+    .gap-#{$i} {
+        --i: #{$i};
+        gap: calc(var(--i) * 1rem * var(--cw-gap-multiplier));
+    }
+}
+
+.aspect-ratio-1-1 {
+    aspect-ratio: 1 / 1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hide-mobile {
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+}
+
+.hide-desktop {
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}
+
+.d-flex {
+    display: flex;
+}

@@ -1,0 +1,381 @@
+/*
+    emils fett coola grid system™ 2022
+        12 kolumner för närvarande, skulle kunna utökas med scss och göra kolumnantal till variabel
+        och sedan ha for-loopar som genererar klasserna under sett till antal kolumner
+    
+    SPAN KOLUMNER:
+        "cw-col" hänvisar till kolumner, "cw-col-xs" overridas i mobil
+
+    HÅRDA KOLUMNER
+        "cw-col-cs" (cw col column-start) hänvisar till vart kolumnen ska starta
+        "cw-col-ce" (cw col column-end) hänvisar till vart kolumnen ska sluta
+*/
+
+.cw-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@media (max-width: 768px) {
+    .cw-col-xs-1 {
+        grid-column: span 1;
+    }
+    
+    .cw-col-xs-2 {
+        grid-column: span 2;
+    }
+    
+    .cw-col-xs-3 {
+        grid-column: span 3;
+    }
+    
+    .cw-col-xs-4 {
+        grid-column: span 4;
+    }
+    
+    .cw-col-xs-5 {
+        grid-column: span 5;
+    }
+    
+    .cw-col-xs-6 {
+        grid-column: span 6;
+    }
+    
+    .cw-col-xs-7 {
+        grid-column: span 7;
+    }
+    
+    .cw-col-xs-8 {
+        grid-column: span 8;
+    }
+    
+    .cw-col-xs-9 {
+        grid-column: span 9;
+    }
+    
+    .cw-col-xs-10 {
+        grid-column: span 10;
+    }
+    
+    .cw-col-xs-11 {
+        grid-column: span 11;
+    }
+    
+    .cw-col-xs-12 {
+        grid-column: span 12;
+    }
+    
+    .cw-col-auto {
+        grid-column: auto;
+    }
+    
+    .cw-cs-xs-1 {
+        grid-column-start: 1;
+    }
+    
+    .cw-cs-xs-2 {
+        grid-column-start: 2;
+    }
+    
+    .cw-cs-xs-3 {
+        grid-column-start: 3;
+    }
+    
+    .cw-cs-xs-4 {
+        grid-column-start: 4;
+    }
+    
+    .cw-cs-xs-5 {
+        grid-column-start: 5;
+    }
+    
+    .cw-cs-xs-6 {
+        grid-column-start: 6;
+    }
+    
+    .cw-cs-xs-7 {
+        grid-column-start: 7;
+    }
+    
+    .cw-cs-xs-8 {
+        grid-column-start: 8;
+    }
+    
+    .cw-cs-xs-9 {
+        grid-column-start: 9;
+    }
+    
+    .cw-cs-xs-10 {
+        grid-column-start: 10;
+    }
+    
+    .cw-cs-xs-11 {
+        grid-column-start: 11;
+    }
+    
+    .cw-cs-xs-12 {
+        grid-column-start: 12;
+    }
+    
+    .cw-cs-xs-13 {
+        grid-column-start: 13;
+    }
+    
+    .cw-ce-xs-1 {
+        grid-column-end: 1;
+    }
+    
+    .cw-ce-xs-2 {
+        grid-column-end: 2;
+    }
+    
+    .cw-ce-xs-3 {
+        grid-column-end: 3;
+    }
+    
+    .cw-ce-xs-4 {
+        grid-column-end: 4;
+    }
+    
+    .cw-ce-xs-5 {
+        grid-column-end: 5;
+    }
+    
+    .cw-ce-xs-6 {
+        grid-column-end: 6;
+    }
+    
+    .cw-ce-xs-7 {
+        grid-column-end: 7;
+    }
+    
+    .cw-ce-xs-8 {
+        grid-column-end: 8;
+    }
+    
+    .cw-ce-xs-9 {
+        grid-column-end: 9;
+    }
+    
+    .cw-ce-xs-10 {
+        grid-column-end: 10;
+    }
+    
+    .cw-ce-xs-11 {
+        grid-column-end: 11;
+    }
+    
+    .cw-ce-xs-12 {
+        grid-column-end: 12;
+    }
+    
+    .cw-ce-xs-13 {
+        grid-column-end: 13;
+    }
+}
+
+@media (min-width: 768px) {
+    .cw-col-1 {
+        grid-column: span 1;
+    }
+    
+    .cw-col-2 {
+        grid-column: span 2;
+    }
+    
+    .cw-col-3 {
+        grid-column: span 3;
+    }
+    
+    .cw-col-4 {
+        grid-column: span 4;
+    }
+    
+    .cw-col-5 {
+        grid-column: span 5;
+    }
+    
+    .cw-col-6 {
+        grid-column: span 6;
+    }
+    
+    .cw-col-7 {
+        grid-column: span 7;
+    }
+    
+    .cw-col-8 {
+        grid-column: span 8;
+    }
+    
+    .cw-col-9 {
+        grid-column: span 9;
+    }
+    
+    .cw-col-10 {
+        grid-column: span 10;
+    }
+    
+    .cw-col-11 {
+        grid-column: span 11;
+    }
+    
+    .cw-col-12 {
+        grid-column: span 12;
+    }
+    
+    .cw-col-auto {
+        grid-column: auto;
+    }
+    
+    .cw-cs-1 {
+        grid-column-start: 1;
+    }
+    
+    .cw-cs-2 {
+        grid-column-start: 2;
+    }
+    
+    .cw-cs-3 {
+        grid-column-start: 3;
+    }
+    
+    .cw-cs-4 {
+        grid-column-start: 4;
+    }
+    
+    .cw-cs-5 {
+        grid-column-start: 5;
+    }
+    
+    .cw-cs-6 {
+        grid-column-start: 6;
+    }
+    
+    .cw-cs-7 {
+        grid-column-start: 7;
+    }
+    
+    .cw-cs-8 {
+        grid-column-start: 8;
+    }
+    
+    .cw-cs-9 {
+        grid-column-start: 9;
+    }
+    
+    .cw-cs-10 {
+        grid-column-start: 10;
+    }
+    
+    .cw-cs-11 {
+        grid-column-start: 11;
+    }
+    
+    .cw-cs-12 {
+        grid-column-start: 12;
+    }
+    
+    .cw-cs-13 {
+        grid-column-start: 13;
+    }
+    
+    .cw-ce-1 {
+        grid-column-end: 1;
+    }
+    
+    .cw-ce-2 {
+        grid-column-end: 2;
+    }
+    
+    .cw-ce-3 {
+        grid-column-end: 3;
+    }
+    
+    .cw-ce-4 {
+        grid-column-end: 4;
+    }
+    
+    .cw-ce-5 {
+        grid-column-end: 5;
+    }
+    
+    .cw-ce-6 {
+        grid-column-end: 6;
+    }
+    
+    .cw-ce-7 {
+        grid-column-end: 7;
+    }
+    
+    .cw-ce-8 {
+        grid-column-end: 8;
+    }
+    
+    .cw-ce-9 {
+        grid-column-end: 9;
+    }
+    
+    .cw-ce-10 {
+        grid-column-end: 10;
+    }
+    
+    .cw-ce-11 {
+        grid-column-end: 11;
+    }
+    
+    .cw-ce-12 {
+        grid-column-end: 12;
+    }
+    
+    .cw-ce-13 {
+        grid-column-end: 13;
+    }
+}
+
+.cw-grid-reverse {
+    direction: rtl;
+
+    * {
+        direction: ltr;
+    }
+}
+
+.cw-c-justify-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cw-c-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.cw-c-justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cw-c-align-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+.cw-c-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.cw-c-align-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+.cw-flex-column {
+    flex-direction: column;
+}
+
+.debug {
+    * {
+        outline: 1px solid rgba(255,255,255,0.25);
+    }
+}
