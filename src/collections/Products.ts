@@ -10,7 +10,13 @@ export const Products: CollectionConfig = {
   fields: [
     {
       name: 'title',
-      label: 'titel',
+      label: 'Titel',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'price',
+      label: 'Pris',
       type: 'text',
       required: true,
     },
@@ -18,7 +24,7 @@ export const Products: CollectionConfig = {
       name: 'categories',
       label: 'Kategorier',
       type: 'select', // required
-      hasMany: true,
+      hasMany: false,
       localized: true,
       admin: {
         isClearable: true,
@@ -26,11 +32,24 @@ export const Products: CollectionConfig = {
       },
       options: [
         {
-          label: {
-            eng: 'Skinnnjackets',
-            sve: 'Skinnjacka',
-          },
-          value: 'skinnjacka',
+          label: 'Herr',
+          value: 'herr',
+        },
+        {
+          label: 'Dam',
+          value: 'dam',
+        },
+        {
+          label: 'Väskor',
+          value: 'vaskor',
+        },
+        {
+          label: 'Handskar',
+          value: 'handskar',
+        },
+        {
+          label: 'Accessoarer',
+          value: 'accessoarer',
         },
       ],
     },
@@ -43,6 +62,7 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'images',
+      label: 'Bilder',
       type: 'upload',
       relationTo: 'media',
       required: true,

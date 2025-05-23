@@ -2,7 +2,6 @@ import React from 'react'
 import { getPayload } from 'payload'
 
 import config from '@/payload.config'
-import Link from 'next/link'
 import Newsletters from '@/components/Newsletters'
 
 const page = async () => {

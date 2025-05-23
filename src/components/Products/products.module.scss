@@ -1,0 +1,75 @@
+.container {
+  width: 1200px;
+  height: 100vh;
+  margin: auto;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: 'ivypresto';
+    color: #763009 !important;
+  }
+
+  .labelContainer {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .label {
+    padding: 10px;
+    color: #333;
+    background-color: #f9f7f6;
+  }
+
+  .productsHeader {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .prodContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .productsHeader {
+    color: #763009;
+
+    span {
+      color: gray;
+    }
+  }
+
+  .prodIntro {
+    width: 350px;
+    display: inline-block;
+    h2 {
+      font-family: 'Inter Display' !important;
+      text-transform: uppercase;
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    p {
+      font-size: 14px;
+      white-space: pre-line;
+    }
+  }
+
+  .btn {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+}

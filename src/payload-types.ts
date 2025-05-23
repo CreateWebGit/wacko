@@ -141,7 +141,8 @@ export interface User {
 export interface Product {
   id: string;
   title: string;
-  categories?: 'skinnjacka'[] | null;
+  price: string;
+  categories?: ('herr' | 'dam' | 'vaskor' | 'handskar' | 'accessoarer') | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;
@@ -333,6 +334,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface ProductsSelect<T extends boolean = true> {
   title?: T;
+  price?: T;
   categories?: T;
   metaDescription?: T;
   images?: T;
