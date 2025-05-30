@@ -19,7 +19,7 @@ const Productitem = ({ data, category }) => {
 
   console.log('daaaata', data)
   return (
-    <div className={style.container} onClick={test}>
+    <div className={`cw-col-4 ${style.container}`} onClick={test}>
       {data.damcategories === category ? (
         <div>
           <div className={style.imgWrapper}>

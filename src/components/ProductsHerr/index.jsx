@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import style from './products.module.scss'
 import Link from 'next/link'
-import ProductItem from '@/components/ProductsHerr/ProductItem'
+import ProductItem from '@/components/ProductsHerr/Productitem'
 import { cn } from '@/utils/utils'
 
 const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {

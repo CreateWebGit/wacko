@@ -21,6 +21,12 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
+      name: 'articleNumber',
+      label: 'Artikel nummer',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'categories',
       label: 'Kategorier',
       type: 'select', // required

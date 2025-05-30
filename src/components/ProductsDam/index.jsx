@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import style from './products.module.scss'
 import Link from 'next/link'
-import Productitem from '@/components/ProductsDam/ProductItem'
+import Productitem from '@/components/ProductsDam/Productitem'
 import { cn } from '@/utils/utils'
 
 const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
@@ -27,11 +27,9 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
         KLÄDER / <span>{categories}</span>
       </div>
 
-      <section>
-        <div className={style.prodContainer}>
-          <div>
-            <h1>{title}</h1>
-            <div className={style.labelContainer}>
+      <section className={`cw-grid ${style.prodContainer}`}>
+            <h1 className="cw-col-12">{title}</h1>
+            <div className={`cw-col-12 ${style.labelContainer}`}>
               <div
                 className={cn('', isCategory === 'jackor' ? style.activeLabel : style.label)}
                 onClick={() => setCategory('jackor')}
@@ -63,15 +61,14 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
                 HATTAR
               </div>
             </div>
-            <div className={style.productsHeader}>
+            <div className={`cw-col-12 ${style.productsHeader}`}>
               <div>44 produkter</div>
               <div>
                 <span>Sortera efter </span>Popularitet ∨
               </div>
             </div>
-            <hr className={style.line} />
-            <div className={style.prodContent}>
-              <div className={style.prodIntro}>
+            <hr className={`cw-col-12 ${style.line}`} />
+              <div className={`cw-col-4 ${style.prodIntro}`}>
                 <h2>{prodTitle}</h2>
 
                 {isWidth > 800 ? (
@@ -95,13 +92,10 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
                 )}
               </div>
               {post.docs.map((item, index) => (
-                <div key={index}>
+                <div key={index} className="cw-col-4">
                   <Productitem data={item} category={isCategory} />
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
       </section>
     </>
   )

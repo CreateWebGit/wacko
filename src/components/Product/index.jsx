@@ -13,42 +13,41 @@ const Product = ({ data }) => {
         KLÄDER / {product.categories.sve} / <span>{product.title}</span>
       </div>
 
-      <section>
-        <div className={style.container}>
-          <div className={style.imagesContainer}>
-            <div className={style.img}>
-              <Image
-                src={isImage}
-                fill={true}
-                layout="fill"
-                objectFit="cover"
-                alt="wacko skinnjackor"
-              />
+      <section className="cw-grid">
+        <div className={`cw-col-6 cw-col-xs-12 ${style.imagesContainer}`}>
+          <div className={style.img}>
+            <Image
+              src={isImage}
+              width={435}
+              height={580}
+              alt="wacko skinnjackor"
+            />
+          </div>
+          {product.images.length > 1 ? (
+            <div className={style.thumbContainer}>
+              {product.images.map((item) => (
+                <div key={item.url} className={style.thumbImg} onClick={() => setImage(item.url)}>
+                  <Image
+                    src={item.url}
+                    style={{objectPosition: 'top'}}
+                    fill={true}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="wacko skinnjackor"
+                  />
+                </div>
+              ))}
             </div>
-            {product.images.length > 1 ? (
-              <div className={style.thumbContainer}>
-                {product.images.map((item) => (
-                  <div key={item.url} className={style.thumbImg} onClick={() => setImage(item.url)}>
-                    <Image
-                      src={item.url}
-                      fill={true}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="wacko skinnjackor"
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className={style.textContainer}>
-            <h1 className={style.title}>{product.title}</h1>
-            <div className={style.price}>{product.price} SEK</div>
-            <div className={style.descriptionTitle}>BESKRIVNING</div>
-            <p className={style.dprice}>{product.metaDescription.sve}</p>
-          </div>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className="cw-col-1 cw-col-xs-12 " />
+        <div className={`cw-col-5 cw-col-xs-12  ${style.textContainer}`}>
+          <h1 className={style.title}>{product.title}</h1>
+          <div className={style.price}>{product.price} SEK</div>
+          <div className={style.descriptionTitle}>BESKRIVNING</div>
+          <p className={style.dprice}>{product.metaDescription.sve}</p>
         </div>
       </section>
     </>

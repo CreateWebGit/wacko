@@ -14,8 +14,8 @@
 }
 
 .prodContainer {
-  display: flex;
-  position: relative;
+  // display: flex;
+  // position: relative;
   @media (max-width: 768px) {
     justify-content: left;
     width: 100%;
@@ -47,9 +47,9 @@
   }
 
   .prodContent {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 15px;
 
     @media (max-width: 768px) {
       margin: auto;
