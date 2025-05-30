@@ -5,41 +5,42 @@
 @use './sections/categorybuttons.scss' as *;
 
 section {
-    max-width: 1312px;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin: auto;
+  max-width: 1312px;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin: auto;
 
-    @media (max-width: 768px) {
-        width: 100%;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow: hidden;
+  }
 
-    &.full-width {
-        padding-left: calc(50vw - calc(1312px / 2));
-        padding-right: calc(50vw - calc(1312px / 2));
-        margin: unset;
-        max-width: unset;
-    }
+  &.full-width {
+    padding-left: calc(50vw - calc(1312px / 2));
+    padding-right: calc(50vw - calc(1312px / 2));
+    margin: unset;
+    max-width: unset;
+  }
 
-    &.no-padding {
-        margin: unset;
-        max-width: unset;
-        width: 100%;
-    }
+  &.no-padding {
+    margin: unset;
+    max-width: unset;
+    width: 100%;
+  }
 
-    &.padding-left {
-        max-width: unset;
-        padding-left: calc(50vw - calc(1312px / 2));
-        padding-right: 0;
-        margin: unset;
-    }
+  &.padding-left {
+    max-width: unset;
+    padding-left: calc(50vw - calc(1312px / 2));
+    padding-right: 0;
+    margin: unset;
+  }
 
-    &.padding-right {
-        max-width: unset;
-        padding-right: calc(50vw - calc(1312px / 2));
-        padding-left: 0;
-        margin: unset;
-    }
+  &.padding-right {
+    max-width: unset;
+    padding-right: calc(50vw - calc(1312px / 2));
+    padding-left: 0;
+    margin: unset;
+  }
 }

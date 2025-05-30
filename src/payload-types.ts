@@ -143,6 +143,8 @@ export interface Product {
   title: string;
   price: string;
   categories?: ('herr' | 'dam' | 'vaskor' | 'handskar' | 'accessoarer') | null;
+  herrcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar') | null;
+  damcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker') | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;
@@ -336,6 +338,8 @@ export interface ProductsSelect<T extends boolean = true> {
   title?: T;
   price?: T;
   categories?: T;
+  herrcategories?: T;
+  damcategories?: T;
   metaDescription?: T;
   images?: T;
   updatedAt?: T;

@@ -75,7 +75,7 @@ export default function HeaderLight() {
       <div className="header__top-container">
         <div className="header__logo-container pl-4">
           <NavLink className="image-link" href="/">
-            <img src="img/wacko_logo_black.svg"></img>
+            <img src="/img/wacko_logo_black.svg"></img>
           </NavLink>
         </div>
         <div className="header__navigation">

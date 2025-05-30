@@ -19,8 +19,6 @@ const page = async ({ params }) => {
     return str
   }
 
-  console.log('haha', helpFunc(decodedID))
-
   const result = await payload.find({
     collection: 'products',
     locale: 'all',

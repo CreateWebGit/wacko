@@ -1,0 +1,76 @@
+.breadCrumbs {
+  margin-top: 110px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  border: 1px solid #b1b1b1;
+  padding-left: 8rem;
+  width: 100vw !important;
+  color: grey;
+
+  span {
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+.container {
+  display: flex;
+}
+
+.imagesContainer {
+  display: flex;
+  flex-basis: 50%;
+  gap: 0px;
+
+  .img {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .thumbContainer {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 80px;
+
+    .thumbImg {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+    }
+  }
+}
+
+.textContainer {
+  flex-basis: 50%;
+  padding-left: 20px;
+  margin-top: 80px;
+
+  h1 {
+    font-family: 'Inter Display';
+  }
+
+  p {
+    margin-top: 20px;
+  }
+
+  .price {
+    font-family: 'ivypresto';
+    color: #763009;
+    font-size: 32px;
+    margin-top: 30px;
+  }
+
+  .descriptionTitle {
+    margin-top: 30px;
+  }
+}

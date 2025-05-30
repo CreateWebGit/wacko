@@ -54,6 +54,84 @@ export const Products: CollectionConfig = {
       ],
     },
     {
+      name: 'herrcategories',
+      label: 'Under kategorier',
+      type: 'select', // required
+      hasMany: false,
+      localized: true,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+        condition: (data, siblingData, { blockData, path, user }) => {
+          console.log('hihi', data.categories)
+          if (data.categories === 'herr') {
+            return true
+          } else {
+            return false
+          }
+        },
+      },
+      options: [
+        {
+          label: 'Jackor',
+          value: 'jackor',
+        },
+        {
+          label: 'Handskar',
+          value: 'handskar',
+        },
+        {
+          label: 'Bälten',
+          value: 'bälten',
+        },
+        {
+          label: 'Plånböcker',
+          value: 'plånböcker',
+        },
+        {
+          label: 'Hattar',
+          value: 'hattar',
+        },
+      ],
+    },
+    {
+      name: 'damcategories',
+      label: 'Under kategorier',
+      type: 'select', // required
+      hasMany: false,
+      localized: true,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+        condition: (data, siblingData, { blockData, path, user }) => {
+          console.log('hihi', data.categories)
+          if (data.categories === 'dam') {
+            return true
+          } else {
+            return false
+          }
+        },
+      },
+      options: [
+        {
+          label: 'Jackor',
+          value: 'jackor',
+        },
+        {
+          label: 'Handskar',
+          value: 'handskar',
+        },
+        {
+          label: 'Bälten',
+          value: 'bälten',
+        },
+        {
+          label: 'Plånböcker',
+          value: 'plånböcker',
+        },
+      ],
+    },
+    {
       name: 'metaDescription',
       label: 'Broduktbeskrivning',
       type: 'textarea',
