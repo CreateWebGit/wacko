@@ -90,7 +90,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: 'eng' | 'sve';
+  locale: 'en' | 'sv';
   user: User & {
     collection: 'users';
   };
@@ -149,6 +149,7 @@ export interface Product {
   categories?: ('herr' | 'dam' | 'vaskor' | 'handskar' | 'accessoarer') | null;
   herrcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar') | null;
   damcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker') | null;
+  accessoarercategories?: ('halsdukar' | 'bälten' | 'skinnbyxor' | 'plånböcker' | 'nyckelfodral') | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;
@@ -348,6 +349,7 @@ export interface ProductsSelect<T extends boolean = true> {
   categories?: T;
   herrcategories?: T;
   damcategories?: T;
+  accessoarercategories?: T;
   metaDescription?: T;
   images?: T;
   updatedAt?: T;

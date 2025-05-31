@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 import style from './products.module.scss'
 import Link from 'next/link'
-import Productitem from '@/components/ProductsDam/Productitem'
+import Productitem from '@/components/ProductsAccessoarer/Productitem'
 import { cn } from '@/utils/utils'
 
-const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
+const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) => {
   const [isCategory, setCategory] = useState('jackor')
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
@@ -101,4 +101,4 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
   )
 }
 
-export default ProductsDam
+export default ProductsAccessoarer

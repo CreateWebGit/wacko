@@ -52,17 +52,17 @@ export default buildConfig({
           en: 'English',
           sv: 'Engelska',
         },
-        code: 'eng',
+        code: 'en',
       },
       {
         label: {
           en: 'Swedish',
           sv: 'Svenska',
         },
-        code: 'sve',
+        code: 'sv',
       },
     ], // required
-    defaultLocale: 'eng',
+    defaultLocale: 'sv',
     fallback: true,
   },
   i18n: {

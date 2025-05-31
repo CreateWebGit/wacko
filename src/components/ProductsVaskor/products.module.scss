@@ -1,0 +1,125 @@
+.breadCrumbs {
+  margin-top: 110px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  border: 1px solid #b1b1b1;
+  padding-left: 8rem;
+  width: 100vw !important;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+.prodContainer {
+  // display: flex;
+  // position: relative;
+  @media (max-width: 768px) {
+    justify-content: left;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: 'ivypresto';
+    color: #763009 !important;
+  }
+
+  .labelContainer {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .label {
+    padding: 10px;
+    color: #333;
+    background-color: #f9f7f6;
+    cursor: pointer;
+  }
+
+  .activeLabel {
+    padding: 10px;
+    color: red;
+    background-color: #f9f7f6;
+    cursor: pointer;
+  }
+
+  .prodContent {
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 15px;
+
+    @media (max-width: 768px) {
+      margin: auto;
+      gap: 5px;
+    }
+  }
+
+  .productsHeader {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #763009;
+    @media (max-width: 768px) {
+      width: 75%;
+    }
+
+    span {
+      color: gray;
+    }
+  }
+
+  .line {
+    width: 100%;
+    @media (max-width: 768px) {
+      position: absolute;
+      width: 100%;
+      text-align: left !important;
+    }
+  }
+
+  .prodIntro {
+    width: 350px;
+    display: inline-block;
+    @media (max-width: 768px) {
+      width: 93vw;
+    }
+    h2 {
+      font-family: 'Inter Display' !important;
+      text-transform: uppercase;
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 15px 0;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      white-space: pre-line;
+      @media (max-width: 768px) {
+        margin-top: 20px;
+      }
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  .btn {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+}

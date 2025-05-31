@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 import style from './products.module.scss'
 import Link from 'next/link'
-import Productitem from '@/components/ProductsDam/Productitem'
+import Productitem from '@/components/ProductsHandskar/Productitem'
 import { cn } from '@/utils/utils'
 
-const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
+const ProductsHandskar = ({ title, categories, prodTitle, prodText, post }) => {
   const [isCategory, setCategory] = useState('jackor')
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
@@ -29,38 +29,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
 
       <section className={`cw-grid ${style.prodContainer}`}>
         <h1 className="cw-col-12 cw-col-xs-12">{title}</h1>
-        <div className={`cw-col-12 cw-col-xs-12 ${style.labelContainer}`}>
-          <div
-            className={cn('', isCategory === 'jackor' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('jackor')}
-          >
-            JACKOR
-          </div>
-          <div
-            className={cn('', isCategory === 'handskar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('handskar')}
-          >
-            HANDSKAR
-          </div>
-          <div
-            className={cn('', isCategory === 'bälten' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('bälten')}
-          >
-            BÄLTEN
-          </div>
-          <div
-            className={cn('', isCategory === 'plånböcker' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('plånböcker')}
-          >
-            PLÅNBÖCKER
-          </div>
-          <div
-            className={cn('', isCategory === 'hattar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('hattar')}
-          >
-            HATTAR
-          </div>
-        </div>
+
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
           <div>44 produkter</div>
           <div>
@@ -101,4 +70,4 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
   )
 }
 
-export default ProductsDam
+export default ProductsHandskar

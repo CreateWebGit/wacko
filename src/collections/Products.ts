@@ -29,12 +29,12 @@ export const Products: CollectionConfig = {
     {
       name: 'categories',
       label: 'Kategorier',
-      type: 'select', // required
+      type: 'select',
       hasMany: false,
       localized: true,
       admin: {
         isClearable: true,
-        isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
+        isSortable: true,
       },
       options: [
         {
@@ -62,14 +62,13 @@ export const Products: CollectionConfig = {
     {
       name: 'herrcategories',
       label: 'Under kategorier',
-      type: 'select', // required
+      type: 'select',
       hasMany: false,
       localized: true,
       admin: {
         isClearable: true,
         isSortable: true,
         condition: (data, siblingData, { blockData, path, user }) => {
-          console.log('hihi', data.categories)
           if (data.categories === 'herr') {
             return true
           } else {
@@ -103,14 +102,13 @@ export const Products: CollectionConfig = {
     {
       name: 'damcategories',
       label: 'Under kategorier',
-      type: 'select', // required
+      type: 'select',
       hasMany: false,
       localized: true,
       admin: {
         isClearable: true,
         isSortable: true,
         condition: (data, siblingData, { blockData, path, user }) => {
-          console.log('hihi', data.categories)
           if (data.categories === 'dam') {
             return true
           } else {
@@ -134,6 +132,46 @@ export const Products: CollectionConfig = {
         {
           label: 'Plånböcker',
           value: 'plånböcker',
+        },
+      ],
+    },
+    {
+      name: 'accessoarercategories',
+      label: 'Under kategorier',
+      type: 'select',
+      hasMany: false,
+      localized: true,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+        condition: (data, siblingData, { blockData, path, user }) => {
+          if (data.categories === 'accessoarer') {
+            return true
+          } else {
+            return false
+          }
+        },
+      },
+      options: [
+        {
+          label: 'Halsdukar',
+          value: 'halsdukar',
+        },
+        {
+          label: 'Bälten',
+          value: 'bälten',
+        },
+        {
+          label: 'Skinnbyxor',
+          value: 'skinnbyxor',
+        },
+        {
+          label: 'Plånböcker',
+          value: 'plånböcker',
+        },
+        {
+          label: 'Nyckelfodral',
+          value: 'nyckelfodral',
         },
       ],
     },
