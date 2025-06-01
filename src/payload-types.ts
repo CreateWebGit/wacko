@@ -147,9 +147,13 @@ export interface Product {
   price: string;
   articleNumber: string;
   categories?: ('herr' | 'dam' | 'vaskor' | 'handskar' | 'accessoarer') | null;
-  herrcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar') | null;
+  herrcategories?:
+    | ('jackor' | 'skinnväst' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar' | 'kepsar' | 'mössor')
+    | null;
   damcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker') | null;
-  accessoarercategories?: ('halsdukar' | 'bälten' | 'skinnbyxor' | 'plånböcker' | 'nyckelfodral') | null;
+  accessoarercategories?:
+    | ('halsdukar' | 'bälten' | 'skinnbyxor' | 'plånböcker' | 'nyckelfodral' | 'korthållare')
+    | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;

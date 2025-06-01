@@ -15,7 +15,7 @@ const page = async () => {
   const payload = await getPayload({ config: payloadConfig })
   const postHerr = await payload.find({
     collection: 'products',
-    locale: 'sve',
+    locale: 'sv',
 
     where: {
       categories: {

@@ -10,18 +10,13 @@ const Product = ({ data }) => {
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / {product.categories.sve} / <span>{product.title}</span>
+        KLÄDER / {product.categories.sv} / <span>{product.title}</span>
       </div>
 
       <section className="cw-grid">
         <div className={`cw-col-6 cw-col-xs-12 ${style.imagesContainer}`}>
           <div className={style.img}>
-            <Image
-              src={isImage}
-              width={435}
-              height={580}
-              alt="wacko skinnjackor"
-            />
+            <Image src={isImage} width={435} height={580} alt="wacko skinnjackor" />
           </div>
           {product.images.length > 1 ? (
             <div className={style.thumbContainer}>
@@ -29,7 +24,7 @@ const Product = ({ data }) => {
                 <div key={item.url} className={style.thumbImg} onClick={() => setImage(item.url)}>
                   <Image
                     src={item.url}
-                    style={{objectPosition: 'top'}}
+                    style={{ objectPosition: 'top' }}
                     fill={true}
                     layout="fill"
                     objectFit="cover"
@@ -47,7 +42,7 @@ const Product = ({ data }) => {
           <h1 className={style.title}>{product.title}</h1>
           <div className={style.price}>{product.price} SEK</div>
           <div className={style.descriptionTitle}>BESKRIVNING</div>
-          <p className={style.dprice}>{product.metaDescription.sve}</p>
+          <p className={style.dprice}>{product.metaDescription.sv}</p>
         </div>
       </section>
     </>

@@ -82,6 +82,10 @@ export const Products: CollectionConfig = {
           value: 'jackor',
         },
         {
+          label: 'Skinnväst',
+          value: 'skinnväst',
+        },
+        {
           label: 'Handskar',
           value: 'handskar',
         },
@@ -96,6 +100,14 @@ export const Products: CollectionConfig = {
         {
           label: 'Hattar',
           value: 'hattar',
+        },
+        {
+          label: 'Kepsar',
+          value: 'kepsar',
+        },
+        {
+          label: 'Mössor',
+          value: 'mössor',
         },
       ],
     },
@@ -172,6 +184,10 @@ export const Products: CollectionConfig = {
         {
           label: 'Nyckelfodral',
           value: 'nyckelfodral',
+        },
+        {
+          label: 'Korthållare',
+          value: 'korthållare',
         },
       ],
     },

@@ -112,7 +112,7 @@ export default function Header() {
           </li>
 
           <li>
-            <NavLink href="/barn">Barn</NavLink>
+            <NavLink href="/dam">Dam</NavLink>
           </li>
           <li>
             <NavLink href="/vaskor">Väskor</NavLink>

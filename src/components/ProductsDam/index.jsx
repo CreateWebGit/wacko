@@ -6,7 +6,7 @@ import Productitem from '@/components/ProductsDam/Productitem'
 import { cn } from '@/utils/utils'
 
 const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
-  const [isCategory, setCategory] = useState('jackor')
+  const [isCategory, setCategory] = useState('handskar')
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
   const [isReadmore, setReadmore] = useState(false)
@@ -92,9 +92,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
           )}
         </div>
         {post.docs.map((item, index) => (
-          <div key={index} className="cw-col-4 cw-col-xs-6">
-            <Productitem data={item} category={isCategory} />
-          </div>
+          <Productitem data={item} category={isCategory} key={index} />
         ))}
       </section>
     </>

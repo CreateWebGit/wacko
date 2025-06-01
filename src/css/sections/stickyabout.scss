@@ -1,0 +1,79 @@
+.cw-section--aboutsticky {
+    // display: grid;
+    // grid-template-columns: 600px 1fr;
+
+    .sticky-container {
+        padding: 3.75rem;
+        border-right: 1px solid #e3e3e3;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 0;
+        max-height: calc(100vh);
+
+        .timeline-year-container {
+            width: 100%;
+            height: fit-content;
+            border-left: 1px solid var(--cw-brown-accent);
+            padding-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+
+            .year-text {
+                font-size: 1.5rem;
+                font-family: 'ivypresto';
+                color: var(--cw-brown-accent);
+                opacity: 0.25;
+                transition: opacity 0.1s ease, padding-left 0.1s ease;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 1;
+                }
+                
+                &.active {
+                    font-size: 3rem;
+                    opacity: 1;
+                    padding-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .timeline-container {
+        padding: 3.75rem 2rem;
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 12.25rem;
+
+            .timeline-image {
+                height: 20.4375rem;
+                width: 100%;
+                // background: #e3e3e3;
+                border: 1px solid #e3e3e3;
+                border-radius: 0.5rem;
+                margin-bottom: 3.5rem;
+                overflow: hidden;
+                box-shadow: 0px 100px 123px rgba(58, 58, 58, 0.07), 0px 41.7776px 51.3865px rgba(58, 58, 58, 0.0503198), 0px 22.3363px 27.4737px rgba(58, 58, 58, 0.0417275), 0px 12.5216px 15.4015px rgba(58, 58, 58, 0.035), 0px 6.6501px 8.17963px rgba(58, 58, 58, 0.0282725), 0px 2.76726px 3.40373px rgba(58, 58, 58, 0.0196802);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            h1, p {
+                padding: 0 2rem;
+            }
+        }
+    }
+}

@@ -48,3 +48,10 @@
         z-index: -1;
     }
 }
+
+.cw-section--heroAbout {
+    @extend .cw-section--hero;
+    background-image: url('/img/abdo_about_bg.jpg');
+    background-position: top center;
+    background-color: black;
+}
