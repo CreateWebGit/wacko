@@ -47,7 +47,7 @@ h6, .h6 {
 
 }
 
-a:not(.button, .image-link) {
+a:not(.button, .image-link, .news-item) {
     font-family: 'Inter Display';
     text-decoration: none;
     color: var(--cw-brown-accent);
@@ -96,4 +96,8 @@ p, .p {
 
 .text-white {
     color: white;
+}
+
+.text-accent {
+    color: var(--cw-brown-accent);
 }

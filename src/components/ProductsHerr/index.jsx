@@ -10,6 +10,7 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
   const [isReadmore, setReadmore] = useState(false)
+  const [isProductsCount, setProductsCount] = useState(0)
   const helpFunc = (str) => {
     str = str.replace(/\s+/g, '-').toLowerCase()
     return str
@@ -83,7 +84,7 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
           </div>
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
-          <div>44 produkter</div>
+          <div>{isProductsCount} produkter</div>
           <div>
             <span>Sortera efter </span>Popularitet ∨
           </div>
@@ -113,7 +114,13 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
           )}
         </div>
         {post.docs.map((item, index) => (
-          <Productitem data={item} category={isCategory} key={index} />
+          <Productitem
+            data={item}
+            category={isCategory}
+            setProductsCount={setProductsCount}
+            index={index}
+            key={index}
+          />
         ))}
       </section>
     </>

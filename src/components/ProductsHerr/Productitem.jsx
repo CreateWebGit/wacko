@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-const Productitem = ({ data, category }) => {
+const Productitem = ({ data, category, setProductsCount }) => {
   const router = useRouter()
   const [isImage, setImage] = useState(data.images[0].url)
 
@@ -12,6 +12,9 @@ const Productitem = ({ data, category }) => {
     str = str.replace(/\s+/g, '-')
     return str
   }
+
+  setProductsCount(data.length)
+  console.log('jojojo', data)
 
   const test = (e) => {
     router.push(data.categories + '/' + helpFunc(data.title))

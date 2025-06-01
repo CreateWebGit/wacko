@@ -47,7 +47,7 @@ export default function AboutSticky() {
 
     return (
         <section className="cw-section--aboutsticky cw-grid full-width">
-            <div className="sticky-container cw-col-5">
+            <div className="sticky-container cw-col-5 hide-mobile">
                 <h1 className="h3">Fyrtio år av form, funktion och förtroende</h1>
                 <p className="mt-1">Sedan starten på 80-talet har Wacko vuxit från ett litet skrädderi till ett etablerat namn inom svenskt skinnmode. Genom tid, trender och teknik har vi behållit vårt fokus: kompromisslös kvalitet, äkta material och stil som håller över tid. Följ vår utveckling – från första butiken till nästa digitala kapitel.</p>
                 <div className="timeline-year-container mt-3">
@@ -60,7 +60,7 @@ export default function AboutSticky() {
                     <div className="year-text">Nutid</div>
                 </div>            
             </div>
-            <div className="timeline-container cw-col-7">
+            <div className="timeline-container cw-col-7 cw-col-xs-12">
                 <div id="timeline-1978" className="timeline-item">
                     <div className="timeline-image">
                         <Image src="/img/wacko_timeline_1978.jpg" width="802" height="327" alt=""/>
@@ -68,6 +68,7 @@ export default function AboutSticky() {
                     <h1 className="h3">En ny början i ett nytt land</h1>
                     <p>Abdo anländer till Sverige, driven av en vilja att skapa något eget. Men vägen dit är inte spikrak. De första tre åren präglas av väntan &mdash; på arbetstillstånd, på möjligheter, på att få börja bygga sitt liv på riktigt. 
                     <br/> <br/>Trots utmaningarna tappar han aldrig riktningen. Istället börjar han planera. Tyst men målmedvetet.</p>
+                    <hr />
                 </div>
                 <div id="timeline-1982" className="timeline-item">
                     <div className="timeline-image">

@@ -50,6 +50,10 @@ export const Products: CollectionConfig = {
           value: 'vaskor',
         },
         {
+          label: 'Mössor',
+          value: 'mossor',
+        },
+        {
           label: 'Handskar',
           value: 'handskar',
         },
@@ -86,6 +90,10 @@ export const Products: CollectionConfig = {
           value: 'skinnväst',
         },
         {
+          label: 'Skinnbyxor',
+          value: 'skinnbyxor',
+        },
+        {
           label: 'Handskar',
           value: 'handskar',
         },
@@ -117,6 +125,7 @@ export const Products: CollectionConfig = {
       type: 'select',
       hasMany: false,
       localized: true,
+
       admin: {
         isClearable: true,
         isSortable: true,
@@ -132,6 +141,10 @@ export const Products: CollectionConfig = {
         {
           label: 'Jackor',
           value: 'jackor',
+        },
+        {
+          label: 'Västar',
+          value: 'västar',
         },
         {
           label: 'Handskar',
@@ -174,8 +187,8 @@ export const Products: CollectionConfig = {
           value: 'bälten',
         },
         {
-          label: 'Skinnbyxor',
-          value: 'skinnbyxor',
+          label: 'Necessär',
+          value: 'necessar',
         },
         {
           label: 'Plånböcker',

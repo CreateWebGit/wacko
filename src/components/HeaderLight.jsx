@@ -117,6 +117,9 @@ export default function HeaderLight() {
           <li>
             <NavLink href="/vaskor">Väskor</NavLink>
           </li>
+          <li>
+            <NavLink href="/mossor">Mössor</NavLink>
+          </li>
           <li className="hide-mobile">
             <NavLink href="/handskar">Handskar</NavLink>
           </li>

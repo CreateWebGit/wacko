@@ -146,14 +146,12 @@ export interface Product {
   title: string;
   price: string;
   articleNumber: string;
-  categories?: ('herr' | 'dam' | 'vaskor' | 'handskar' | 'accessoarer') | null;
+  categories?: ('herr' | 'dam' | 'vaskor' | 'mossor' | 'handskar' | 'accessoarer') | null;
   herrcategories?:
-    | ('jackor' | 'skinnväst' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar' | 'kepsar' | 'mössor')
+    | ('jackor' | 'skinnväst' | 'skinnbyxor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar' | 'kepsar' | 'mössor')
     | null;
-  damcategories?: ('jackor' | 'handskar' | 'bälten' | 'plånböcker') | null;
-  accessoarercategories?:
-    | ('halsdukar' | 'bälten' | 'skinnbyxor' | 'plånböcker' | 'nyckelfodral' | 'korthållare')
-    | null;
+  damcategories?: ('jackor' | 'västar' | 'handskar' | 'bälten' | 'plånböcker') | null;
+  accessoarercategories?: ('halsdukar' | 'bälten' | 'necessar' | 'plånböcker' | 'nyckelfodral' | 'korthållare') | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;
@@ -251,6 +249,8 @@ export interface Media {
 export interface News {
   id: string;
   title: string;
+  slug?: string | null;
+  ingress: string;
   date?: string | null;
   images: (string | Media)[];
   tabTwo: {
@@ -365,6 +365,8 @@ export interface ProductsSelect<T extends boolean = true> {
  */
 export interface NewsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  ingress?: T;
   date?: T;
   images?: T;
   tabTwo?:

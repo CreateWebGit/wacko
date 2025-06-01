@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import slugify from 'slugify'
 
 export const News: CollectionConfig = {
   slug: 'news',
@@ -24,6 +25,44 @@ export const News: CollectionConfig = {
               type: 'text',
               localized: true,
               required: true,
+            },
+            {
+            name: 'slug',
+            label: 'Slug',
+            type: 'text',
+            localized: true,
+            required: false,
+            unique: true,
+            admin: {
+                position: 'sidebar',
+                readOnly: true, // Set to true if you want it locked
+            },
+            hooks: {
+                  beforeValidate: [
+                      ({ value, data, locale }) => {
+                          const title = typeof data?.title === 'object'
+                              ? data.title?.[locale]
+                              : data?.title
+
+                          if (!value && title) {
+                              return slugify(title, { lower: true, strict: true })
+                          }
+
+                          return value
+                      }
+                  ]
+              }
+          },
+          {
+              name: 'ingress',
+              label: 'Ingress',
+              type: 'textarea',
+              required: true,
+              localized: true,
+
+              admin: {
+                rows: 5,
+              },
             },
             {
               name: 'date',
@@ -58,7 +97,7 @@ export const News: CollectionConfig = {
               localized: true,
 
               admin: {
-                rows: 10,
+                rows: 30,
                 style: { height: '500px' },
               },
             },

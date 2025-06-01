@@ -1,9 +1,7 @@
 import React from 'react'
 import { getPayload } from 'payload'
-
 import config from '@/payload.config'
-
-import ProductsHerr from '@/components/ProductsHerr'
+import ProductsMossor from '@/components/ProductsMossor'
 import HeaderLight from '@/components/HeaderLight'
 
 export const viewport = {
@@ -13,28 +11,27 @@ export const viewport = {
 const page = async () => {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
-  const postHerr = await payload.find({
+  const postDam = await payload.find({
     collection: 'products',
     locale: 'sv',
-    limit: 100,
 
     where: {
       categories: {
-        equals: 'herr',
+        equals: 'mossor',
       },
     },
   })
-  console.log('my post', postHerr)
+  console.log('my post', postDam.docs[0])
 
   return (
     <div>
       <HeaderLight />
-      <ProductsHerr
-        title="Herrkläder"
-        categories="Herr"
-        prodTitle="Tidlös stil för honom"
+      <ProductsMossor
+        title="Mössor"
+        categories="Mössor"
+        prodTitle="Tidlös stil för henne"
         prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
-        post={postHerr}
+        post={postDam}
       />
     </div>
   )

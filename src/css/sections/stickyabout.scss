@@ -48,11 +48,19 @@
     .timeline-container {
         padding: 3.75rem 2rem;
 
+        @media (max-width: 768px) {
+            padding: 2rem 1rem;
+        }
+
         .timeline-item {
             display: flex;
             flex-direction: column;
             gap: 40px;
             margin-bottom: 12.25rem;
+
+            @media (max-width: 768px) {
+                margin-bottom: 6rem;
+            }
 
             .timeline-image {
                 height: 20.4375rem;
@@ -73,6 +81,10 @@
 
             h1, p {
                 padding: 0 2rem;
+
+                @media (max-width: 768px) {
+                    padding: 0;
+                }
             }
         }
     }

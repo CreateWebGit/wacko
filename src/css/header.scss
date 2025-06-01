@@ -248,3 +248,37 @@ header {
         }
     }
 }
+
+.cw-breadcrumbs-container {
+    display: flex;
+    gap: 0.5rem;
+    font-family: 'Inter Display';
+    font-weight: 600;
+    align-items: center;
+    padding-left: calc(50vw - calc(1312px / 2));
+    padding-right: calc(50vw - calc(1312px / 2));
+    height: 3rem;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+
+    &.margin {
+        margin-top: 7rem;
+    }
+
+    a {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: black;
+        opacity: 0.45;
+
+        &::after {
+            background-color: black;
+        }
+    }
+
+    span {
+        text-transform: uppercase;
+        color: black;
+        font-size: 0.75rem;
+    }
+}
