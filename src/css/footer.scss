@@ -1,0 +1,114 @@
+footer {
+    
+    border-top: 1px solid #e3e3e3;
+    padding-top: 4rem;
+    
+    .top-container {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 4rem;
+        padding-left: calc(50vw - calc(1312px / 2));
+        padding-right: calc(50vw - calc(1312px / 2));
+
+        .wacko-container {
+            padding-left: 4rem;
+
+            img {
+                width: 10rem;
+                position: relative;
+                top: -0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .item-title {
+                margin-bottom: 0;
+                letter-spacing: normal;
+            }
+
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+        }
+        
+        .link-container {
+            display: flex;
+            gap: 8rem;
+            justify-content: flex-end;
+            padding-right: 4rem;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-title {
+                font-size: 0.875rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.10em;
+                margin-bottom: 2rem;
+            }
+
+            .item-list {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                gap: 1.25rem;
+
+                .item {
+                    text-transform: uppercase;
+                    font-size: 0.875rem;
+                }   
+            }
+    }
+
+    .bottom-container {
+        height: 48px;
+        border-top: 1px solid #e3e3e3;
+        padding-left: calc(50vw - calc(1312px / 2));
+        padding-right: calc(50vw - calc(1312px / 2));
+
+        .content {
+            padding: 0 4rem;
+            height: 48px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            .createweb {
+                font-weight: 600;
+                font-size: 14px;
+                letter-spacing: normal;
+                align-self: center;
+                justify-self: center;
+
+                a {
+                    color: black;
+
+                    &::after {
+                        background-color: black;
+                    }
+                }
+            }
+
+            .copyright-notice {
+                font-size: 14px;
+                font-weight: 600;
+                
+                &:first-of-type {
+                    align-self: center;
+                    justify-self: flex-start;
+                }
+
+                &:last-of-type {
+                    align-self: center;
+                    justify-self: flex-end;
+                }
+            }
+        }
+    }
+}

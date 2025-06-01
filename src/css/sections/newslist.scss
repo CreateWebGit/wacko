@@ -130,3 +130,7 @@
         margin-right: auto;
     }
 }
+
+.cw-section--newslisthome {
+    @extend .cw-section--newslist;
+}

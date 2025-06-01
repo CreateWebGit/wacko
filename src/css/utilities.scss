@@ -10,45 +10,45 @@
 @media (min-width: 768px) {
     @for $i from 1 through 10 {
         .py-#{$i} {
-            --i: #{$i};
-            padding-top: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
-            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-y: #{$i};
+            padding-top: calc(var(--padding-y) * 1rem * var(--cw-padding-multiplier));
+            padding-bottom: calc(var(--padding-y) * 1rem * var(--cw-padding-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .px-#{$i} {
-            --i: #{$i};
-            padding-left: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
-            padding-right: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-x: #{$i};
+            padding-left: calc(var(--padding-x) * 1rem * var(--cw-padding-multiplier));
+            padding-right: calc(var(--padding-x) * 1rem * var(--cw-padding-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pt-#{$i} {
-            --i: #{$i};
-            padding-top: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-t: #{$i};
+            padding-top: calc(var(--padding-t) * 1rem * var(--cw-padding-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pb-#{$i} {
-            --i: #{$i};
-            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-b: #{$i};
+            padding-bottom: calc(var(--padding-b) * 1rem * var(--cw-padding-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pl-#{$i} {
-            --i: #{$i};
-            padding-left: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-l: #{$i};
+            padding-left: calc(var(--padding-l) * 1rem * var(--cw-padding-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pr-#{$i} {
-            --i: #{$i};
-            padding-right: calc(var(--i) * 1rem * var(--cw-padding-multiplier));
+            --padding-r: #{$i};
+            padding-right: calc(var(--padding-r) * 1rem * var(--cw-padding-multiplier));
         }
     }
 }
@@ -57,45 +57,45 @@
 @media (max-width: 768px) {
     @for $i from 1 through 10 {
         .py-xs-#{$i} {
-            --i: #{$i};
-            padding-top: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
-            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-y-xs: #{$i};
+            padding-top: calc(var(--padding-y-xs) * 1rem * var(--cw-padding-xs-multiplier));
+            padding-bottom: calc(var(--padding-y-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .px-xs-#{$i} {
-            --i: #{$i};
-            padding-left: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
-            padding-right: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-x-xs: #{$i};
+            padding-left: calc(var(--padding-x-xs) * 1rem * var(--cw-padding-xs-multiplier));
+            padding-right: calc(var(--padding-x-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pt-xs-#{$i} {
-            --i: #{$i};
-            padding-top: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-t-xs: #{$i};
+            padding-top: calc(var(--padding-t-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pb-xs-#{$i} {
-            --i: #{$i};
-            padding-bottom: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-b-xs: #{$i};
+            padding-bottom: calc(var(--padding-b-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pl-xs-#{$i} {
-            --i: #{$i};
-            padding-left: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-l-xs: #{$i};
+            padding-left: calc(var(--padding-l-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
     
     @for $i from 1 through 10 {
         .pr-xs-#{$i} {
-            --i: #{$i};
-            padding-right: calc(var(--i) * 1rem * var(--cw-padding-xs-multiplier));
+            --padding-r-xs: #{$i};
+            padding-right: calc(var(--padding-r-xs) * 1rem * var(--cw-padding-xs-multiplier));
         }
     }
 }
@@ -147,8 +147,8 @@
 
 @for $i from 1 through 10 {
     .gap-#{$i} {
-        --i: #{$i};
-        gap: calc(var(--i) * 1rem * var(--cw-gap-multiplier));
+        --gap: #{$i};
+        gap: calc(var(--gap) * 1rem * var(--cw-gap-multiplier));
     }
 }
 

@@ -5,6 +5,8 @@ import Header from '@/components/Header';
 import Banner from '@/components/Banner';
 import Smakprov from '@/components/sections/Smakprov';
 import CategoryButtons from '@/components/sections/CategoryButtons';
+import NewsListHome from '@/components/sections/NewsListHome'
+import Footer from '@/components/Footer'
 
 export const viewport = {
     themeColor: '#8B645A'
@@ -19,7 +21,9 @@ export default function Home() {
             <Dignity/>
             <Smakprov/>
             <CategoryButtons/>
-            <Banner/>
+            <NewsListHome/>
+            <Footer/>
+            {/* <Banner/> */}
         </>
     )
 }
