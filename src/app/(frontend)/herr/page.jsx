@@ -1,43 +1,39 @@
-import React from 'react'
 import { getPayload } from 'payload'
-
 import config from '@/payload.config'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import ProductsHerr from '@/components/ProductsHerr'
 import HeaderLight from '@/components/HeaderLight'
+import HeroNews from '@/components/sections/HeroNews'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
-export const viewport = {
-  themeColor: '#8B645A',
+import ProductList from '@/components/ProductList'
+
+
+export default async function Herr() {
+	const payloadConfig = await config
+	const payload = await getPayload({ config: payloadConfig })
+	const products = await payload.find({
+		collection: 'products',
+		locale: 'sv',
+		limit: 100,
+		where: {
+			categories: {
+				equals: 'dam'
+			}
+		}
+	})
+
+	const urlFormatter = (url) => {
+		url = url.replace(/\s+/g, '-').toLowerCase()
+		return url
+	}
+
+	console.log(products)
+
+	return (
+		<>
+			<ProductList products={products}/>
+		</>
+	)
 }
-
-const page = async () => {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const postHerr = await payload.find({
-    collection: 'products',
-    locale: 'sv',
-    limit: 100,
-
-    where: {
-      categories: {
-        equals: 'herr',
-      },
-    },
-  })
-  console.log('my post', postHerr)
-
-  return (
-    <div>
-      <HeaderLight />
-      <ProductsHerr
-        title="Herrkläder"
-        categories="Herr"
-        prodTitle="Tidlös stil för honom"
-        prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
-        post={postHerr}
-      />
-    </div>
-  )
-}
-
-export default page
