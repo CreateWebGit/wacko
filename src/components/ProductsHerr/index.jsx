@@ -10,11 +10,14 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
   const [isReadmore, setReadmore] = useState(false)
-  const [isProductsCount, setProductsCount] = useState(0)
+  // const [isProductsCount, setProductsCount] = useState(0)
   const helpFunc = (str) => {
     str = str.replace(/\s+/g, '-').toLowerCase()
     return str
   }
+
+  const shownProducts = post.docs.filter(item => item.herrcategories === isCategory)
+  const isProductsCount = shownProducts.length
 
   React.useEffect(() => {
     // window is accessible here.
@@ -117,7 +120,6 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
           <Productitem
             data={item}
             category={isCategory}
-            setProductsCount={setProductsCount}
             index={index}
             key={index}
           />

@@ -15,6 +15,9 @@ const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) =
     return str
   }
 
+  const shownProducts = post.docs.filter(item => item.accessoarercategories === isCategory)
+  const isProductsCount = shownProducts.length
+
   React.useEffect(() => {
     // window is accessible here.
     console.log('window.innerHeight', window.innerHeight)
@@ -68,7 +71,7 @@ const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) =
           </div>
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
-          <div>44 produkter</div>
+          <div>{isProductsCount} produkter</div>
           <div>
             <span>Sortera efter </span>Popularitet ∨
           </div>

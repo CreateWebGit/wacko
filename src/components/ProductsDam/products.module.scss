@@ -34,6 +34,14 @@
     display: flex;
     gap: 15px;
     margin-top: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      overflow-x: scroll;
+    }
   }
 
   .label {
@@ -79,7 +87,6 @@
   .line {
     width: 100%;
     @media (max-width: 768px) {
-      position: absolute;
       width: 100%;
       text-align: left !important;
     }

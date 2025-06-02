@@ -15,6 +15,8 @@ const ProductsMossor = ({ title, categories, prodTitle, prodText, post }) => {
     return str
   }
 
+  const isProductsCount = post.docs.length
+
   React.useEffect(() => {
     // window is accessible here.
     console.log('window.innerHeight', window.innerHeight)
@@ -31,7 +33,7 @@ const ProductsMossor = ({ title, categories, prodTitle, prodText, post }) => {
         <h1 className="cw-col-12 cw-col-xs-12">{title}</h1>
 
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
-          <div>44 produkter</div>
+          <div>{isProductsCount} produkter</div>
           <div>
             <span>Sortera efter </span>Popularitet ∨
           </div>

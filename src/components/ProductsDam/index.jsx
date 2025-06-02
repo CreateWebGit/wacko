@@ -6,7 +6,7 @@ import Productitem from '@/components/ProductsDam/Productitem'
 import { cn } from '@/utils/utils'
 
 const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
-  const [isCategory, setCategory] = useState('handskar')
+  const [isCategory, setCategory] = useState('jackor')
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
   const [isReadmore, setReadmore] = useState(false)
@@ -14,6 +14,9 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
     str = str.replace(/\s+/g, '-').toLowerCase()
     return str
   }
+
+  const shownProducts = post.docs.filter((item) => item.damcategories === isCategory)
+  const isProductsCount = shownProducts.length
 
   React.useEffect(() => {
     // window is accessible here.
@@ -62,7 +65,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
           </div>
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
-          <div>44 produkter</div>
+          <div>{isProductsCount} produkter</div>
           <div>
             <span>Sortera efter </span>Popularitet ∨
           </div>
