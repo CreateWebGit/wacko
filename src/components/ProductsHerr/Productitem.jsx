@@ -3,6 +3,7 @@ import style from './productitem.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { KnownArgumentNamesOnDirectivesRule } from 'graphql/validation/rules/KnownArgumentNamesRule'
 
 const Productitem = ({ data, category, setProductsCount }) => {
   const router = useRouter()
@@ -25,19 +26,16 @@ const Productitem = ({ data, category, setProductsCount }) => {
     <>
       {data.herrcategories === category ? (
         <div className={`cw-col-4 cw-col-xs-6 ${style.container}`} onClick={test}>
-          <div>
             <div className={style.imgWrapper}>
-              <div>
                 <div className={style.img}>
                   <Image
                     src={isImage}
-                    fill={true}
-                    layout="fill"
-                    objectFit="cover"
+                    width={281}
+                    height={335}
                     alt="wacko skinnjackor"
                   />
                 </div>
-                <div className={style.thumbContainer}>
+              <div className={style.thumbContainer}>
                   {data.images.map((item) => (
                     <div
                       className={style.thumbImg}
@@ -49,19 +47,16 @@ const Productitem = ({ data, category, setProductsCount }) => {
                     >
                       <Image
                         src={item.url}
-                        fill={true}
-                        layout="fill"
-                        objectFit="cover"
+                        height={50}
+                        width={50}
                         alt="wacko skinnjackor"
                       />
                     </div>
                   ))}
                 </div>
-              </div>
             </div>
-            <div className={style.prodTitle}>Läderjacka</div>
+            <div className={style.prodTitle}>{data.title}</div>
             <div className={style.prodPrice}>{data.price} SEK</div>
-          </div>
         </div>
       ) : (
         ''
@@ -71,3 +66,4 @@ const Productitem = ({ data, category, setProductsCount }) => {
 }
 
 export default Productitem
+

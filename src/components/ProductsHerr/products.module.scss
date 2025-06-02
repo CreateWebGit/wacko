@@ -20,6 +20,7 @@
 .prodContainer {
   // display: flex;
   // position: relative;
+  column-gap: 2rem;
   @media (max-width: 768px) {
     justify-content: left;
     width: 100%;
@@ -93,16 +94,17 @@
   }
 
   .prodIntro {
-    width: 350px;
     display: inline-block;
     @media (max-width: 768px) {
-      width: 93vw;
+      // width: 93vw;
+      padding: 1rem 0;
+      padding-bottom: 2rem;
     }
     h2 {
       font-family: 'Inter Display' !important;
       text-transform: uppercase;
       color: #000;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: bold;
       margin: 15px 0;
       @media (max-width: 768px) {
@@ -111,7 +113,7 @@
     }
 
     p {
-      font-size: 14px;
+      font-size: 0.875rem;
       white-space: pre-line;
       @media (max-width: 768px) {
         margin-top: 20px;

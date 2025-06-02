@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import ProductsMossor from '@/components/ProductsMossor'
 import HeaderLight from '@/components/HeaderLight'
+import Footer from '@/components/Footer'
 
 export const viewport = {
   themeColor: '#8B645A',
@@ -33,6 +34,7 @@ const page = async () => {
         prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
         post={postDam}
       />
+      <Footer />
     </div>
   )
 }

@@ -6,7 +6,7 @@
     @media (max-width: 768px) {
         min-height: unset;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: auto 1fr;
     }
 
     .smakprov__text-container {
@@ -27,10 +27,100 @@
     .smakprov__product-container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        overflow: hidden;
+        position: relative;
 
-        @media (max-width: 768px) {
-            // display: none;
+            &::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                content: "";
+                background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 75%);
+                width: 6rem;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+        .product-wrapper {
+            overflow-x: scroll;
+            display: flex;
+            gap: 1rem;
+            padding-right: 2rem;
+            position: relative;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .product-item {
+                flex: 1 0 auto;
+                width: auto;
+                border-radius: 0.5rem;
+                cursor: pointer;
+
+                .product-image-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid #e3e3e3;
+                    border-radius: 0.5rem;
+                    
+                    .product-image-container {
+                        max-width: 100%;
+                        width: 18.75rem;
+                        height: 21.875rem;
+                        padding: 1rem;
+                        overflow: hidden;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 0.25rem;
+                        }
+                    }
+
+                    .product-thumbnail-wrapper {
+                        padding: 0 1rem 1rem 1rem;
+                        display: flex;
+                        gap: 0.5rem;
+                        
+                        .product-thumbnail-container {
+                            height: 3.125rem;
+                            width: 3.125rem;
+                            border-radius: 4px;
+                            border: 1px solid #e3e3e3;
+                            padding: 0.5rem;
+                        
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                                border-radius: 2px;
+                            }
+                        }
+                    }
+                }
+
+                .product-text-container {
+                    margin-top: 1rem;
+
+                    .product-name {
+                        font-size: 14px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        letter-spacing: 0.10em;
+                    }
+
+                    .product-price {
+                        color: var(--cw-brown-accent);
+                        font-family: 'ivypresto';
+                        font-size: 1.5rem;
+                    }
+                }
+            }
         }
 
         p {

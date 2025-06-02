@@ -20,6 +20,7 @@
 .prodContainer {
   // display: flex;
   // position: relative;
+  column-gap: 2rem;
   @media (max-width: 768px) {
     justify-content: left;
     width: 100%;

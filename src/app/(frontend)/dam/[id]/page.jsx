@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import HeaderLight from '@/components/HeaderLight'
 import Product from '@/components/Product'
+import Footer from '@/components/Footer'
 
 export const viewport = {
   themeColor: '#8B645A',
@@ -35,6 +36,7 @@ const page = async ({ params }) => {
     <div>
       <HeaderLight />
       <Product data={result} />
+      <Footer />
     </div>
   )
 }
