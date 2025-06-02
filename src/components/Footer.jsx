@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div className="top-container cw-grid">
         <div className="wacko-container cw-col-6 cw-col-xs-12">
-          <img src="img/wacko_logo_black.svg" />
+          <img src="/img/wacko_logo_black.svg" />
           <div className="contact-container">
             <div className="item-title">Götgatan 35, 116 21 Stockholm</div>
             <div className="item-title">
