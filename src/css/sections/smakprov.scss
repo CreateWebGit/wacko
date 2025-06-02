@@ -30,6 +30,11 @@
         overflow: hidden;
         position: relative;
 
+        @media (max-width: 768px) {
+            margin-right: -1rem;
+            margin-left: -1rem;
+        }
+
             &::after {
                 position: absolute;
                 top: 0;
@@ -50,6 +55,11 @@
             gap: 1rem;
             padding-right: 2rem;
             position: relative;
+
+            @media (max-width: 768px) {
+                padding-left: 2rem;
+                padding-bottom: 4rem;
+            }
 
             &::-webkit-scrollbar {
                 display: none;

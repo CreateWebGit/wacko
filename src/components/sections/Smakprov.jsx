@@ -44,7 +44,7 @@ export default async function SectionSmakprov() {
 							<div className="product-thumbnail-wrapper">
 								{post.images.map((img) => (
 									<div className="product-thumbnail-container">
-										<img src={img.url}/>
+										<img key={img.url} src={img.url}/>
 									</div>
 								))}
 							</div>
