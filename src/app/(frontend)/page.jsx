@@ -6,6 +6,7 @@ import Banner from '@/components/Banner';
 import Smakprov from '@/components/sections/Smakprov';
 import CategoryButtons from '@/components/sections/CategoryButtons';
 import NewsListHome from '@/components/sections/NewsListHome'
+import Butiker from '@/components/sections/Butiker'
 import Footer from '@/components/Footer'
 
 export const viewport = {
@@ -22,6 +23,7 @@ export default function Home() {
             <Smakprov/>
             <CategoryButtons/>
             <NewsListHome/>
+            <Butiker/>
             <Footer/>
             {/* <Banner/> */}
         </>

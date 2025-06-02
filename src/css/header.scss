@@ -242,9 +242,95 @@ header {
         transition: height 0.2s ease;
         height: 0;
         width: 100vw;
+
+        > div {
+            display: none;
+            opacity: 0;
+            transform: translateY(1rem);
+        }
+
+        .link-container {
+            padding: 2rem 1rem;
+            
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+                li {
+                    font-size: 18px;
+                    letter-spacing: 0.10em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .sublink-container {
+            padding: 2rem 1rem;
+            background-color: #F9F7F7;
+            
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+                li {
+                    font-size: 14;
+                    letter-spacing: 0.10em;
+                    text-transform: uppercase;
+
+                    a {
+                        color: black;
+
+                        &::after {
+                            background-color: black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .button-container {
+            padding: 2rem 1rem;
+            
+            a {
+                display: block;
+            }
+        }
         
         &.open {
             height: calc(100dvh - 64px);
+
+            > div {
+                display: block;
+                animation: contentAnimation 0.5s ease forwards;
+                // animation-delay: 200ms;
+            }
+
+            .link-container {
+                animation-delay: 200ms;
+            }
+
+            .sublink-container {
+                animation-delay: 300ms;
+            }
+
+            .button-container {
+                animation-delay: 400ms;
+            }
+        }
+
+        @keyframes contentAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
 }

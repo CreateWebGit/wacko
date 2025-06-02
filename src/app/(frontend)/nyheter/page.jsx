@@ -6,6 +6,7 @@ import Image from 'next/image'
 import HeaderLight from '@/components/HeaderLight'
 import HeroNews from '@/components/sections/HeroNews'
 import Breadcrumbs from '@/components/Breadcrumbs'
+import Footer from '@/components/Footer'
 
 
 export default async function Nyheter() {
@@ -46,6 +47,7 @@ export default async function Nyheter() {
 				))}
 				
 			</section>
+			<Footer/>
 		</>
 	)
 }

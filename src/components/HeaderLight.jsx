@@ -17,18 +17,10 @@ export default function HeaderLight() {
     if (window.scrollY !== 0) {
       header.classList.add('scrolled')
       setThemeColor('#ffffff')
-      header.classList.remove('at-top')
     }
 
     window.addEventListener('scroll', () => {
       const currentScrollPos = window.scrollY
-
-      if (window.scrollY === 0) {
-        header.classList.add('at-top')
-        setThemeColor('#8B645A')
-      } else {
-        header.classList.remove('at-top')
-      }
 
       if (prevScrollpos <= currentScrollPos) {
         header.classList.add('scrolled')
@@ -60,18 +52,12 @@ export default function HeaderLight() {
     if (slideMenuOpen === true) {
       console.log('slidemenu closing')
       header.classList.remove('slide_menu--open')
-
-      if (window.scrollY !== 0) {
-        header.classList.add('scrolled')
-      } else {
-        header.classList.add('at-top')
-      }
     }
     setSlideMenuOpen((prev) => !prev)
   }
 
   return (
-    <header ref={headerRef} className="at-toppen">
+    <header ref={headerRef} className="light">
       <div className="header__top-container">
         <div className="header__logo-container pl-4">
           <NavLink className="image-link" href="/">
@@ -81,10 +67,7 @@ export default function HeaderLight() {
         <div className="header__navigation">
           <ul>
             <li>
-              <NavLink href="/kollektion">Kollektion</NavLink>
-            </li>
-            <li>
-              <NavLink href="/skotselrad">Skötselråd</NavLink>
+              <NavLink href="/herr">Kollektion</NavLink>
             </li>
             <li>
               <NavLink href="/nyheter">Nyheter</NavLink>
@@ -128,7 +111,46 @@ export default function HeaderLight() {
           </li>
         </ul>
       </div>
-      <div className={`header__slide_menu ${slideMenuOpen ? 'open' : ''}`}></div>
+      <div className={`header__slide_menu ${slideMenuOpen ? 'open' : ''}`}>
+        <div className="link-container">
+          <ul>
+            <li>
+              <NavLink href="/herr">Kollektion</NavLink>
+            </li>
+            <li>
+              <NavLink href="/nyheter">Nyheter</NavLink>
+            </li>
+            <li>
+              <NavLink href="/om-oss">Om oss</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="sublink-container">
+          <ul>
+          <li>
+            <NavLink href="/herr">Herr</NavLink>
+          </li>
+          <li>
+            <NavLink href="/dam">Dam</NavLink>
+          </li>
+          <li>
+            <NavLink href="/vaskor">Väskor</NavLink>
+          </li>
+          <li>
+            <NavLink href="/mossor">Mössor</NavLink>
+          </li>
+          <li className="hide-mobile">
+            <NavLink href="/handskar">Handskar</NavLink>
+          </li>
+          <li>
+            <NavLink href="/accessoarer">Accessoarer</NavLink>
+          </li>
+        </ul>
+        </div>
+        <div className="button-container">
+          <a className="button full-width primary">Hitta hit</a>
+        </div>
+      </div>
     </header>
   )
 }

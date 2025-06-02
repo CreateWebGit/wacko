@@ -14,6 +14,7 @@ const page = async () => {
   const postDam = await payload.find({
     collection: 'products',
     locale: 'sv',
+    limit: 100,
 
     where: {
       categories: {

@@ -3,6 +3,9 @@ import HeroAbout from "@/components/sections/HeroAbout"
 import AboutSticky from "@/components/sections/AboutSticky"
 import Smakprov from '@/components/sections/Smakprov';
 import CategoryButtons from '@/components/sections/CategoryButtons';
+import Butiker from '@/components/sections/Butiker'
+import Footer from '@/components/Footer'
+
 
 
 export const viewport = {
@@ -17,6 +20,7 @@ export default function OmOss() {
             <AboutSticky/>
             <Smakprov/>
             <CategoryButtons/>
+            <Footer/>
         </>
     )
 }

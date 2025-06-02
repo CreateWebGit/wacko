@@ -21,6 +21,11 @@ button, .button {
         padding-right: 0;
     }
 
+    &.full-width {
+        width: 100%;
+        padding: 1.35rem;
+    }
+
     &.primary {
         color: white;
         transition: background-color 0.2s ease, color 0.2s ease;

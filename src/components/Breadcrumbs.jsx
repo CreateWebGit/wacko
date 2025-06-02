@@ -36,7 +36,7 @@ export default function Breadcrumbs({ margin }) {
                 <div key={crumb.href}>
                     {index < crumbs.length - 1 ? (
                         <>
-                            <Link href={crumb.href} className="hover:underline text-blue-600">
+                            <Link href={crumb.href} className="pl-4">
                                 {crumb.label}
                             </Link>
                             <span style={{marginLeft: '0.5rem'}}>/</span>

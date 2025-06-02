@@ -27,33 +27,35 @@ export const News: CollectionConfig = {
               required: true,
             },
             {
-            name: 'slug',
-            label: 'Slug',
-            type: 'text',
-            localized: true,
-            required: false,
-            unique: true,
-            admin: {
+              name: 'slug',
+              label: 'Slug',
+              type: 'text',
+              localized: true,
+              required: false,
+              unique: true,
+              admin: {
                 position: 'sidebar',
                 readOnly: true, // Set to true if you want it locked
+              },
+              hooks: {
+                beforeValidate: [
+                  (args) => {
+                    const { value, data } = args
+                    const locale = (args as any).locale // 👈 override the type if needed
+
+                    const title =
+                      typeof data?.title === 'object' ? data.title?.[locale] : data?.title
+
+                    if (!value && title) {
+                      return slugify(title, { lower: true, strict: true })
+                    }
+
+                    return value
+                  },
+                ],
+              },
             },
-            hooks: {
-                  beforeValidate: [
-                      ({ value, data, locale }) => {
-                          const title = typeof data?.title === 'object'
-                              ? data.title?.[locale]
-                              : data?.title
-
-                          if (!value && title) {
-                              return slugify(title, { lower: true, strict: true })
-                          }
-
-                          return value
-                      }
-                  ]
-              }
-          },
-          {
+            {
               name: 'ingress',
               label: 'Ingress',
               type: 'textarea',

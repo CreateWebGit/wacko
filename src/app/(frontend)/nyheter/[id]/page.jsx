@@ -2,6 +2,7 @@ import { getPayload } from "payload";
 import config from '@/payload.config'
 import slugify from 'slugify'
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Footer from '@/components/Footer'
 
 import HeaderLight from "@/components/HeaderLight";
 import Image from "next/image";
@@ -70,6 +71,7 @@ export default async function NyheterPage({ params }) {
 					<div className="news-divider-line mt-4 mb-5"></div>
 				</div>
 			</section>
+			<Footer/>
 		</>
 	)
 }

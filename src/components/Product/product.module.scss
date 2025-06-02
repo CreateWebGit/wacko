@@ -22,6 +22,11 @@
   display: flex;
 }
 
+.myLink {
+  color: grey !important;
+  text-decoration: underline !important;
+}
+
 .imagesContainer {
   display: flex;
   flex-basis: 50%;

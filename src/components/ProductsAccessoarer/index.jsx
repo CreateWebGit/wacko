@@ -6,7 +6,7 @@ import Productitem from '@/components/ProductsAccessoarer/Productitem'
 import { cn } from '@/utils/utils'
 
 const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) => {
-  const [isCategory, setCategory] = useState('jackor')
+  const [isCategory, setCategory] = useState('halsdukar')
   const [isProducts, setProducts] = useState('')
   const [isWidth, setWidth] = useState()
   const [isReadmore, setReadmore] = useState(false)
@@ -24,23 +24,17 @@ const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) =
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / <span>{categories}</span>
+        KLÄDER / {categories.toUpperCase()} / <span>{isCategory.toUpperCase()}</span>
       </div>
 
       <section className={`cw-grid ${style.prodContainer}`}>
         <h1 className="cw-col-12 cw-col-xs-12">{title}</h1>
         <div className={`cw-col-12 cw-col-xs-12 ${style.labelContainer}`}>
           <div
-            className={cn('', isCategory === 'jackor' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('jackor')}
+            className={cn('', isCategory === 'halsdukar' ? style.activeLabel : style.label)}
+            onClick={() => setCategory('halsdukar')}
           >
-            JACKOR
-          </div>
-          <div
-            className={cn('', isCategory === 'handskar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('handskar')}
-          >
-            HANDSKAR
+            HALSDUKAR
           </div>
           <div
             className={cn('', isCategory === 'bälten' ? style.activeLabel : style.label)}
@@ -49,16 +43,28 @@ const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) =
             BÄLTEN
           </div>
           <div
+            className={cn('', isCategory === 'necessar' ? style.activeLabel : style.label)}
+            onClick={() => setCategory('necessar')}
+          >
+            NECESSÄR
+          </div>
+          <div
             className={cn('', isCategory === 'plånböcker' ? style.activeLabel : style.label)}
             onClick={() => setCategory('plånböcker')}
           >
             PLÅNBÖCKER
           </div>
           <div
-            className={cn('', isCategory === 'hattar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('hattar')}
+            className={cn('', isCategory === 'nyckelfodral' ? style.activeLabel : style.label)}
+            onClick={() => setCategory('nyckelfodral')}
           >
-            HATTAR
+            NYCKELFODRAL
+          </div>
+          <div
+            className={cn('', isCategory === 'korthållare' ? style.activeLabel : style.label)}
+            onClick={() => setCategory('korthållare')}
+          >
+            KORTHÅLLARE
           </div>
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
@@ -92,9 +98,7 @@ const ProductsAccessoarer = ({ title, categories, prodTitle, prodText, post }) =
           )}
         </div>
         {post.docs.map((item, index) => (
-          <div key={index} className="cw-col-4 cw-col-xs-6">
-            <Productitem data={item} category={isCategory} />
-          </div>
+          <Productitem data={item} category={isCategory} key={index} />
         ))}
       </section>
     </>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import style from './product.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Product = ({ data }) => {
   const product = data.docs[0]
@@ -10,7 +11,11 @@ const Product = ({ data }) => {
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / {product.categories.sv} / <span>{product.title}</span>
+        KLÄDER /{' '}
+        <Link className={`mylink ${style.myLink}`} href={`/${product.categories.sv}`}>
+          {product.categories.sv.toUpperCase()}
+        </Link>{' '}
+        / <span>{product.title.toUpperCase()}</span>
       </div>
 
       <section className="cw-grid">

@@ -13,7 +13,7 @@ const Productitem = ({ data, category, setProductsCount }) => {
     return str
   }
 
-  setProductsCount(data.length)
+  //setProductsCount(data.length)
   console.log('jojojo', data)
 
   const test = (e) => {

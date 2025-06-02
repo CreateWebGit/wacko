@@ -81,10 +81,7 @@ export default function Header() {
         <div className="header__navigation">
           <ul>
             <li>
-              <NavLink href="/kollektion">Kollektion</NavLink>
-            </li>
-            <li>
-              <NavLink href="/skotselrad">Skötselråd</NavLink>
+              <NavLink href="/herr">Kollektion</NavLink>
             </li>
             <li>
               <NavLink href="/nyheter">Nyheter</NavLink>
@@ -110,12 +107,14 @@ export default function Header() {
           <li>
             <NavLink href="/herr">Herr</NavLink>
           </li>
-
           <li>
             <NavLink href="/dam">Dam</NavLink>
           </li>
           <li>
             <NavLink href="/vaskor">Väskor</NavLink>
+          </li>
+          <li>
+            <NavLink href="/mossor">Mössor</NavLink>
           </li>
           <li className="hide-mobile">
             <NavLink href="/handskar">Handskar</NavLink>
@@ -125,7 +124,46 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <div className={`header__slide_menu ${slideMenuOpen ? 'open' : ''}`}></div>
+      <div className={`header__slide_menu ${slideMenuOpen ? 'open' : ''}`}>
+        <div className="link-container">
+          <ul>
+            <li>
+              <NavLink href="/herr">Kollektion</NavLink>
+            </li>
+            <li>
+              <NavLink href="/nyheter">Nyheter</NavLink>
+            </li>
+            <li>
+              <NavLink href="/om-oss">Om oss</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="sublink-container">
+          <ul>
+          <li>
+            <NavLink href="/herr">Herr</NavLink>
+          </li>
+          <li>
+            <NavLink href="/dam">Dam</NavLink>
+          </li>
+          <li>
+            <NavLink href="/vaskor">Väskor</NavLink>
+          </li>
+          <li>
+            <NavLink href="/mossor">Mössor</NavLink>
+          </li>
+          <li className="hide-mobile">
+            <NavLink href="/handskar">Handskar</NavLink>
+          </li>
+          <li>
+            <NavLink href="/accessoarer">Accessoarer</NavLink>
+          </li>
+        </ul>
+        </div>
+        <div className="button-container">
+          <a className="button full-width primary">Hitta hit</a>
+        </div>
+      </div>
     </header>
   )
 }

@@ -27,7 +27,7 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / <span>{categories}</span>
+        KLÄDER / {categories.toUpperCase()} / <span>{isCategory.toUpperCase()}</span>
       </div>
 
       <section className={`cw-grid ${style.prodContainer}`}>
@@ -74,13 +74,13 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
             className={cn('', isCategory === 'kepsar' ? style.activeLabel : style.label)}
             onClick={() => setCategory('kepsar')}
           >
-            Kepsar
+            KEPSAR
           </div>
           <div
             className={cn('', isCategory === 'mössor' ? style.activeLabel : style.label)}
             onClick={() => setCategory('mössor')}
           >
-            Mössor
+            MÖSSOR
           </div>
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>

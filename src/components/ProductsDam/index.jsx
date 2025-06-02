@@ -24,7 +24,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / <span>{categories}</span>
+        KLÄDER / {categories.toUpperCase()} / <span>{isCategory.toUpperCase()}</span>
       </div>
 
       <section className={`cw-grid ${style.prodContainer}`}>

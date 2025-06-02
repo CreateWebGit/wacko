@@ -5,6 +5,10 @@
   border: 1px solid #b1b1b1;
   padding-left: 8rem;
   width: 100vw !important;
+  color: grey;
+  span {
+    color: black;
+  }
 
   @media (max-width: 768px) {
     width: 100%;

@@ -20,47 +20,43 @@ const Productitem = ({ data, category }) => {
   console.log('daaaata', data)
   return (
     <div className={` ${style.container}`} onClick={test}>
-      {data.damcategories === category ? (
-        <div>
-          <div className={style.imgWrapper}>
-            <div>
-              <div className={style.img}>
-                <Image
-                  src={isImage}
-                  fill={true}
-                  layout="fill"
-                  objectFit="cover"
-                  alt="wacko skinnjackor"
-                />
-              </div>
-              <div className={style.thumbContainer}>
-                {data.images.map((item) => (
-                  <div
-                    className={style.thumbImg}
-                    key={item.url}
-                    onClick={(e) => {
-                      setImage(item.url)
-                      e.stopPropagation()
-                    }}
-                  >
-                    <Image
-                      src={item.url}
-                      fill={true}
-                      layout="fill"
-                      objectFit="cover"
-                      alt="wacko skinnjackor"
-                    />
-                  </div>
-                ))}
-              </div>
+      <div>
+        <div className={style.imgWrapper}>
+          <div>
+            <div className={style.img}>
+              <Image
+                src={isImage}
+                fill={true}
+                layout="fill"
+                objectFit="cover"
+                alt="wacko skinnjackor"
+              />
+            </div>
+            <div className={style.thumbContainer}>
+              {data.images.map((item) => (
+                <div
+                  className={style.thumbImg}
+                  key={item.url}
+                  onClick={(e) => {
+                    setImage(item.url)
+                    e.stopPropagation()
+                  }}
+                >
+                  <Image
+                    src={item.url}
+                    fill={true}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="wacko skinnjackor"
+                  />
+                </div>
+              ))}
             </div>
           </div>
-          <div className={style.prodTitle}>Läderjacka</div>
-          <div className={style.prodPrice}>{data.price} SEK</div>
         </div>
-      ) : (
-        ''
-      )}
+        <div className={style.prodTitle}>Läderjacka</div>
+        <div className={style.prodPrice}>{data.price} SEK</div>
+      </div>
     </div>
   )
 }

@@ -24,7 +24,7 @@ const ProductsVaskor = ({ title, categories, prodTitle, prodText, post }) => {
   return (
     <>
       <div className={style.breadCrumbs}>
-        KLÄDER / <span>{categories}</span>
+        KLÄDER / <span>{categories.toUpperCase()} </span>
       </div>
 
       <section className={`cw-grid ${style.prodContainer}`}>
