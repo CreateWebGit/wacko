@@ -1,6 +1,6 @@
 export default function Butiker() {
     return (
-        <section className="cw-section--butiker cw-grid gap-2 pt-xs-5 py-5 mb-5">
+        <section id="hitta-hit" className="cw-section--butiker cw-grid gap-2 pt-xs-5 py-5 mb-5">
             <div className="cw-col-12 cw-col-xs-12 mb-2">
                 <h1 className="h2 text-center">Våra butiker</h1>
                 <p className="text-center mt-1">Du hittar Wacko Skinnmode på två adresser i hjärtat av Södermalm</p>

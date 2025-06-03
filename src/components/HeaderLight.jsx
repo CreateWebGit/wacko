@@ -41,6 +41,14 @@ export default function HeaderLight() {
     }
   }, [themeColor])
 
+  useEffect(() => {
+    if (slideMenuOpen) {
+      document.querySelector('html').style.overflow = 'hidden';
+    } else {
+      document.querySelector('html').removeAttribute('style');
+    }
+  }, [slideMenuOpen])
+
   const toggleSlideMenu = () => {
     let header = headerRef.current
 
@@ -78,7 +86,8 @@ export default function HeaderLight() {
           </ul>
         </div>
         <div className="header__menu pr-4">
-          <button className="secondary sm hide-mobile">Hitta hit</button>
+          {/* <button className="secondary sm hide-mobile">Hitta hit</button> */}
+          <a href="/#hitta-hit" className="button dark sm hide-mobile">Hitta hit</a>
           <div
             onClick={() => toggleSlideMenu()}
             className={`button-container hide-desktop ${slideMenuOpen ? 'open' : ''}`}
@@ -148,7 +157,7 @@ export default function HeaderLight() {
         </ul>
         </div>
         <div className="button-container">
-          <a className="button full-width primary">Hitta hit</a>
+          <a onClick={toggleSlideMenu} href="/#hitta-hit" className="button full-width primary">Hitta hit</a>
         </div>
       </div>
     </header>

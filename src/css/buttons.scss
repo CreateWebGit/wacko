@@ -46,6 +46,11 @@ button, .button {
         }
     }
 
+    &.dark {
+        background-color: var(--cw-dark-brown-accent);
+        color: white;
+    }
+
     &.stroked {
         border: 0.0625rem solid white;
         color: white;

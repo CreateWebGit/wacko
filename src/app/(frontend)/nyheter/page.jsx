@@ -29,7 +29,7 @@ export default async function Nyheter() {
 			
 			<HeaderLight/>
 			<HeroNews/>
-			<section className="cw-section--newslist cw-grid gap-2">
+			<section className="cw-section--newslist cw-grid gap-2 pb-4 pt-2">
 				{posts.docs.map((post) => (
 					<Link className="cw-col-4 cw-col-xs-12 news-item" href={{pathname: '/nyheter/' + urlFormatter(post.title)}} key={post.title} >
 						<div className="image-container">

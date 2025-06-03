@@ -68,6 +68,10 @@
     min-height: unset;
     margin-top: 7rem;
 
+    @media (max-width: 768px) {
+        padding-top: 64px;
+    }
+
     hr {
         border: none;
         border-top: 1px solid #e3e3e3;

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function SectionHeroAbout() {
     return (
         <section className="cw-section--heroAbout cw-grid full-width">
@@ -8,9 +10,9 @@ export default function SectionHeroAbout() {
 
                 </p>
                 <div className="d-flex gap-1 mt-4 button-container">
-                    <button className="primary">Utforska kollektionen</button>
-                    <button className="stroked hide-mobile">Hitta din närmaste butik</button>
-                    <a className="text-white hide-desktop" href="">Hitta din närmaste butik -&gt;</a>
+                    <Link href="/herr" className="button primary">Utforska kollektionen</Link>
+                    <Link href="/#hitta-hit" className="button stroked hide-mobile">Hitta din närmaste butik</Link>
+                    <a className="text-white hide-desktop" href="/#hitta-hit">Hitta din närmaste butik -&gt;</a>
                 </div>
             </div>
             <div className="cw-col-4 cw-col-xs-12 empty-col"></div>
