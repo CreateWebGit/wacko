@@ -18,6 +18,36 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
   const shownProducts = post.docs.filter((item) => item.damcategories === isCategory)
   const isProductsCount = shownProducts.length
 
+  const subCategoryMap = {
+        Dam: [
+            'jackor', 'västar', 'handskar',
+            'bälten', 'plånböcker'
+        ],
+    }
+
+    const renderSubcategoryButtons = () => {
+    if (!subCategoryMap[categories]) return null
+
+    // Get subcategories that exist in the data
+    const availableSubs = subCategoryMap[categories].filter((sub) =>
+        post.docs.some(p => p.damcategories === sub)
+    )
+
+    return (
+        <div className={`cw-col-12 cw-col-xs-12 ${style.labelContainer}`}>
+            {availableSubs.map((sub) => (
+                <div
+                    key={sub}
+                    className={cn('', isCategory === sub ? style.activeLabel : style.label)}
+                    onClick={() => setCategory(sub)}
+                >
+                    {sub.toUpperCase()}
+                </div>
+            ))}
+        </div>
+    )
+  }
+
   React.useEffect(() => {
     // window is accessible here.
     console.log('window.innerHeight', window.innerHeight)
@@ -32,38 +62,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
 
       <section className={`cw-grid ${style.prodContainer}`}>
         <h1 className="cw-col-12 cw-col-xs-12">{title}</h1>
-        <div className={`cw-col-12 cw-col-xs-12 ${style.labelContainer}`}>
-          <div
-            className={cn('', isCategory === 'jackor' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('jackor')}
-          >
-            JACKOR
-          </div>
-          <div
-            className={cn('', isCategory === 'handskar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('handskar')}
-          >
-            HANDSKAR
-          </div>
-          <div
-            className={cn('', isCategory === 'bälten' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('bälten')}
-          >
-            BÄLTEN
-          </div>
-          <div
-            className={cn('', isCategory === 'plånböcker' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('plånböcker')}
-          >
-            PLÅNBÖCKER
-          </div>
-          <div
-            className={cn('', isCategory === 'hattar' ? style.activeLabel : style.label)}
-            onClick={() => setCategory('hattar')}
-          >
-            HATTAR
-          </div>
-        </div>
+        {renderSubcategoryButtons()}
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
           <div>{isProductsCount} produkter</div>
         </div>

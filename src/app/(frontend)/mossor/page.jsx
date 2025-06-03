@@ -30,8 +30,8 @@ const page = async () => {
       <ProductsMossor
         title="Mössor"
         categories="Mössor"
-        prodTitle="Tidlös stil för henne"
-        prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
+        prodTitle="Värme med karaktär"
+        prodText={`Våra mössor i skinn är både praktiska och uttrycksfulla – skapade för dig som vill ha något annat än det vanliga. \n\n  Här hittar du allt från fodrade pilotmössor till klassiska modeller med unik attityd, alltid tillverkade med fokus på komfort, funktion och stil. \n\n  Perfekta för kalla dagar, men lika mycket en del av helheten. En mössa som syns – på rätt sätt.`}
         post={postDam}
       />
       <Footer />

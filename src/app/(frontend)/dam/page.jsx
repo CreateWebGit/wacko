@@ -30,8 +30,8 @@ const page = async () => {
       <ProductsDam
         title="Damkläder"
         categories="Dam"
-        prodTitle="Tidlös stil för henne"
-        prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
+        prodTitle="Tidlös elegans för henne"
+        prodText={`Välkommen till vår damkollektion – där klassiskt skinn möter modern form. Här hittar du jackor, kjolar, väskor och accessoarer skapade med känsla för stil, passform och kvalitet. \n\n Oavsett om du söker en figursydd skinnjacka, en elegant handväska eller ett statementplagg med attityd, är varje produkt tillverkad i äkta skinn och designad för att hålla. \n\n Skinn utvecklas med dig – det får patina, personlighet och en historia. Upptäck din nya favorit och bär något som verkligen känns.`}
         post={postDam}
       />
       <Footer />

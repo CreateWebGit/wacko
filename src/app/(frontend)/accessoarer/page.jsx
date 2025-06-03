@@ -31,8 +31,8 @@ const page = async () => {
       <ProductsAccessoarer
         title="Accessoarer"
         categories="Accessoarer"
-        prodTitle="Tidlös stil för henne"
-        prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
+        prodTitle="Detaljer som definierar"
+        prodText={`Skärp, armband, småväskor – våra accessoarer i skinn är designade för att lyfta helheten med minsta möjliga medel. \n\n Varje produkt är tillverkad med samma noggrannhet som våra jackor och väskor – för att hålla, synas och användas om och om igen. \n\n Det handlar inte om att ha mycket – utan om att välja rätt. En accessoar med karaktär gör mer än man tror.`}
         post={postDam}
       />
       <Footer />

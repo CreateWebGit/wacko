@@ -22,16 +22,16 @@ export default function Footer() {
             <div className="item-title">SIDKARTA</div>
             <ul className="item-list">
               <li className="item">
-                <a href="">Kollektion</a>
+                <a href="/herr">Kollektion</a>
               </li>
               <li className="item">
-                <a href="">Nyheter</a>
+                <a href="/nyheter">Nyheter</a>
               </li>
               <li className="item">
-                <a href="">Om oss</a>
+                <a href="/om-oss">Om oss</a>
               </li>
               <li className="item">
-                <a href="">Hitta hit</a>
+                <a href="/#hitta-hit">Hitta hit</a>
               </li>
             </ul>
           </div>
@@ -39,25 +39,22 @@ export default function Footer() {
             <div className="item-title">SKINNKLÄDER</div>
             <ul className="item-list">
               <li className="item">
-                <a href="">Herr</a>
+                <a href="/herr">Herr</a>
               </li>
               <li className="item">
-                <a href="">Dam</a>
+                <a href="/dam">Dam</a>
               </li>
               <li className="item">
-                <a href="">Jackor</a>
+                <a href="/vaskor">Väskor</a>
               </li>
               <li className="item">
-                <a href="">Väskor</a>
+                <a href="/mossor">Mössor</a>
               </li>
               <li className="item">
-                <a href="">Handskar</a>
+                <a href="/handskar">Handskar</a>
               </li>
               <li className="item">
-                <a href="">Mössor</a>
-              </li>
-              <li className="item">
-                <a href="">Accessoarer</a>
+                <a href="/accessoarer">Accessoarer</a>
               </li>
             </ul>
           </div>
@@ -65,10 +62,17 @@ export default function Footer() {
             <div className="item-title">SOCIAL MEDIA</div>
             <ul className="item-list">
               <li className="item">
-                <a href="">Facebook</a>
+                <a
+                  href="https://www.facebook.com/people/Wacko-Leather-Fashion/100091742045220/"
+                  target="_blank"
+                >
+                  Facebook
+                </a>
               </li>
               <li className="item">
-                <a href="">Instagram</a>
+                <a href="https://www.instagram.com/wacko_outlet_stockholm/" target="_blank">
+                  Instagram
+                </a>
               </li>
             </ul>
           </div>

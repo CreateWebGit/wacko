@@ -30,8 +30,8 @@ const page = async () => {
       <ProductsHandskar
         title="Handskar"
         categories="Hanskar"
-        prodTitle="Tidlös stil för henne"
-        prodText={`Välkommen till vår herrkollektion – en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.  \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
+        prodTitle="Stil som sitter i handen"
+        prodText={`Våra handskar i äkta skinn är designade för både värme och uttryck. Med perfekt passform, mjukt foder och tidlös design är de en självklar del av garderoben. \n\n Här finns modeller för körning, vardag och kyla – alltid med fokus på kvalitet och hållbarhet. \n\n En skinnhandske säger mer än man tror. Den signalerar stil, känsla och klass – ända ut i fingertopparna.`}
         post={postDam}
       />
       <Footer />
