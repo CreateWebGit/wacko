@@ -50,6 +50,7 @@
 
         @media (max-width: 768px) {
             padding: 2rem 1rem;
+            border-left: 1px solid var(--cw-light-brown-accent);
         }
 
         .timeline-item {
@@ -84,8 +85,12 @@
                 text-transform: uppercase;
                 letter-spacing: 0.10em;
                 font-weight: 600;
-                margin-bottom: 0.35rem;
-                color: var(--cw-light-brown-accent);
+                margin-bottom: 1rem;
+                border-bottom: 1px solid var(--cw-light-brown-accent);
+                color: black;
+                margin-left: -1rem;
+                padding-left: 1rem;
+                width: fit-content;
 
                 @media (min-width: 768px) {
                     display: none;
