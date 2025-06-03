@@ -41,7 +41,7 @@ const Productitem = ({ data, category }) => {
               ))}
             </div>
           </div>
-          <div className={style.prodTitle}>Läderjacka</div>
+          <div className={style.prodTitle}>{data.title}</div>
           <div className={style.prodPrice}>{data.price} SEK</div>
         </div>
       ) : (
