@@ -34,9 +34,6 @@ const ProductsHandskar = ({ title, categories, prodTitle, prodText, post }) => {
 
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
           <div>{isProductsCount} produkter</div>
-          <div>
-            <span>Sortera efter </span>Popularitet ∨
-          </div>
         </div>
         <hr className={`cw-col-12  cw-col-xs-12 ${style.line}`} />
         <div className={`cw-col-4  cw-col-xs-12 ${style.prodIntro}`}>

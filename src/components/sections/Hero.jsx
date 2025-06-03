@@ -13,6 +13,7 @@ export default function SectionHero() {
                 </div>
             </div>
             <div className="cw-col-6 cw-col-xs-12 empty-col"></div>
+            <video src="/wacko_bg_video.mp4" autoPlay playsInline loop muted></video>
         </section>
     )
 }

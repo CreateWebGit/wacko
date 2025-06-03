@@ -16,7 +16,7 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
     return str
   }
 
-  const shownProducts = post.docs.filter(item => item.herrcategories === isCategory)
+  const shownProducts = post.docs.filter((item) => item.herrcategories === isCategory)
   const isProductsCount = shownProducts.length
 
   React.useEffect(() => {
@@ -88,9 +88,6 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
         </div>
         <div className={`cw-col-12 cw-col-xs-12 ${style.productsHeader}`}>
           <div>{isProductsCount} produkter</div>
-          <div>
-            <span>Sortera efter </span>Popularitet ∨
-          </div>
         </div>
         <hr className={`cw-col-12  cw-col-xs-12 ${style.line}`} />
         <div className={`cw-col-4  cw-col-xs-12 ${style.prodIntro}`}>
@@ -117,12 +114,7 @@ const ProductsHerr = ({ title, categories, prodTitle, prodText, post }) => {
           )}
         </div>
         {post.docs.map((item, index) => (
-          <Productitem
-            data={item}
-            category={isCategory}
-            index={index}
-            key={index}
-          />
+          <Productitem data={item} category={isCategory} index={index} key={index} />
         ))}
       </section>
     </>
