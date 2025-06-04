@@ -19,7 +19,7 @@ export default async function SectionSmakprov() {
 
 	console.log(posts)
 	return (
-		<section className="cw-section--smakprov padding-left">
+		<section className="cw-section--smakprov padding-left mb-2">
 		<div className="smakprov__text-container">
 			<div>
 			<h2>Ett smakprov ur kollektionen.</h2>

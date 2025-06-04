@@ -3,6 +3,7 @@
         background-color: #F9F7F7;
         border-radius: 4px;
         overflow: hidden;
+        transition: background-color 0.15s ease, border-radius 0.15s ease;
         display: flex;
         flex-direction: column;
         text-decoration: none;
@@ -46,6 +47,11 @@
                     opacity: 0.75;
                 }
             }
+        }
+
+        &:hover {
+            border-radius: 16px;
+            background-color: var(--cw-bg-secondary);
         }
     }
 }
