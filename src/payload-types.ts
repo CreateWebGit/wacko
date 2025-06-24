@@ -150,7 +150,7 @@ export interface Product {
   herrcategories?:
     | ('jackor' | 'skinnväst' | 'skinnbyxor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar' | 'kepsar' | 'mössor')
     | null;
-  damcategories?: ('jackor' | 'västar' | 'handskar' | 'bälten' | 'plånböcker') | null;
+  damcategories?: ('jackor' | 'västar' | 'skinnbyxor' | 'handskar' | 'bälten' | 'plånböcker') | null;
   accessoarercategories?: ('halsdukar' | 'bälten' | 'necessar' | 'plånböcker' | 'nyckelfodral' | 'korthållare') | null;
   metaDescription: string;
   images: (string | Media)[];

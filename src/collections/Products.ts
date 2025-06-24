@@ -147,6 +147,10 @@ export const Products: CollectionConfig = {
           value: 'västar',
         },
         {
+          label: 'Skinnbyxor',
+          value: 'skinnbyxor',
+        },
+        {
           label: 'Handskar',
           value: 'handskar',
         },

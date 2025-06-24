@@ -20,7 +20,7 @@ const ProductsDam = ({ title, categories, prodTitle, prodText, post }) => {
 
   const subCategoryMap = {
         Dam: [
-            'jackor', 'västar', 'handskar',
+            'jackor', 'västar', 'skinnbyxor', 'handskar',
             'bälten', 'plånböcker'
         ],
     }
