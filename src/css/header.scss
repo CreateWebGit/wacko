@@ -262,7 +262,7 @@ header {
 
     .header__slide_menu {
         position: absolute;
-        top: 64px;
+        top: calc(64px + 56px);
         left: 0;
         background: white;
         transition: height 0.2s ease;
