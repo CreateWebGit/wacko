@@ -65,7 +65,7 @@ export default function HeaderLight() {
   }
 
   return (
-    <header ref={headerRef} className="light">
+    <header ref={headerRef} className="header-light">
       <div className="header__top-container">
         <div className="header__logo-container pl-4">
           <NavLink className="image-link" href="/">

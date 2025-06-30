@@ -80,6 +80,9 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className="at-top">
+    <div className="header__banner">
+      <p><b>SOMMARREA</b> &mdash; Fynda skinn & mocka jackor från 999 SEK. <br className="hide-desktop"/><a href="/#hitta-hit">Hitta din närmaste butik.</a></p>
+    </div>
       <div className="header__top-container">
         <div className="header__logo-container pl-4">
           <NavLink className="image-link" href="/">

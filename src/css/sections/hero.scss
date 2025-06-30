@@ -6,6 +6,10 @@
     background-position: center center;
     background-size: cover;
 
+    .cw-col-6:first-of-type {
+        margin-top: 3rem;
+    }
+
     @media (max-width: 768px) {
         min-height: 90vh;
         background-position: 65%;
