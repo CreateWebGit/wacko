@@ -51,6 +51,11 @@
         left: 0;
         z-index: -1;
         pointer-events: none;
+        object-position: top;
+
+        @media (max-width: 768px) {
+            object-position: 75%;
+        }
     }
 }
 
