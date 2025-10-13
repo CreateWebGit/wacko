@@ -20,6 +20,8 @@ export const metadata = {
   ],
 }
 
+export const revalidate = 60
+
 export const viewport = {
   themeColor: '#8B645A',
 }
