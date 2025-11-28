@@ -88,8 +88,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    pages: Page;
+  };
+  globalsSelect: {
+    pages: PagesSelect<false> | PagesSelect<true>;
+  };
   locale: 'en' | 'sv';
   user: User & {
     collection: 'users';
@@ -146,12 +150,8 @@ export interface Product {
   title: string;
   price: string;
   articleNumber: string;
-  categories?: ('herr' | 'dam' | 'vaskor' | 'mossor' | 'handskar' | 'accessoarer') | null;
-  herrcategories?:
-    | ('jackor' | 'skinnväst' | 'skinnbyxor' | 'handskar' | 'bälten' | 'plånböcker' | 'hattar' | 'kepsar' | 'mössor')
-    | null;
-  damcategories?: ('jackor' | 'västar' | 'skinnbyxor' | 'handskar' | 'bälten' | 'plånböcker') | null;
-  accessoarercategories?: ('halsdukar' | 'bälten' | 'necessar' | 'plånböcker' | 'nyckelfodral' | 'korthållare') | null;
+  categories?: ('herr' | 'dam' | 'vaskor' | 'vinterdetaljer' | 'accessoarer') | null;
+  subCategory?: string | null;
   metaDescription: string;
   images: (string | Media)[];
   updatedAt: string;
@@ -351,9 +351,7 @@ export interface ProductsSelect<T extends boolean = true> {
   price?: T;
   articleNumber?: T;
   categories?: T;
-  herrcategories?: T;
-  damcategories?: T;
-  accessoarercategories?: T;
+  subCategory?: T;
   metaDescription?: T;
   images?: T;
   updatedAt?: T;
@@ -508,6 +506,154 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  indexPage?: {
+    hero?: {
+      title?: string | null;
+      subtitle?: string | null;
+      ctas?:
+        | {
+            text?: string | null;
+            href?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    twoStores?: {
+      heading?: string | null;
+      body?: string | null;
+      link?:
+        | {
+            text?: string | null;
+            href?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    agingLeather?: {
+      heading?: string | null;
+      body?: string | null;
+      link?:
+        | {
+            text?: string | null;
+            href?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    store?: {
+      'opening-hours'?: string | null;
+    };
+  };
+  aboutPage?: {
+    hero?: {
+      title?: string | null;
+      subtitle?: string | null;
+    };
+    introBlock?: {
+      heading?: string | null;
+      body?: string | null;
+    };
+    timeline?:
+      | {
+          year?: string | null;
+          title?: string | null;
+          body?: string | null;
+          image?: (string | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  indexPage?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              ctas?:
+                | T
+                | {
+                    text?: T;
+                    href?: T;
+                    id?: T;
+                  };
+            };
+        twoStores?:
+          | T
+          | {
+              heading?: T;
+              body?: T;
+              link?:
+                | T
+                | {
+                    text?: T;
+                    href?: T;
+                    id?: T;
+                  };
+            };
+        agingLeather?:
+          | T
+          | {
+              heading?: T;
+              body?: T;
+              link?:
+                | T
+                | {
+                    text?: T;
+                    href?: T;
+                    id?: T;
+                  };
+            };
+        store?:
+          | T
+          | {
+              'opening-hours'?: T;
+            };
+      };
+  aboutPage?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+            };
+        introBlock?:
+          | T
+          | {
+              heading?: T;
+              body?: T;
+            };
+        timeline?:
+          | T
+          | {
+              year?: T;
+              title?: T;
+              body?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

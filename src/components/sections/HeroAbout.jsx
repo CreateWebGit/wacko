@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import { DEFAULT_LOCALE, prefixPath, validateLocale } from '@/lib/locales'
 
-export default function SectionHeroAbout() {
+export default function SectionHeroAbout({ locale = DEFAULT_LOCALE }) {
+    const safeLocale = validateLocale(locale) ?? DEFAULT_LOCALE
     return (
         <section className="cw-section--heroAbout cw-grid full-width">
             <div className="cw-col-8 cw-col-xs-12 cw-c-justify-center cw-flex-column pl-4">
@@ -10,9 +12,9 @@ export default function SectionHeroAbout() {
 
                 </p>
                 <div className="d-flex gap-1 mt-4 button-container">
-                    <Link href="/herr" className="button primary">Utforska kollektionen</Link>
-                    <Link href="/#hitta-hit" className="button stroked hide-mobile">Hitta din närmaste butik</Link>
-                    <a className="text-white hide-desktop" href="/#hitta-hit">Hitta din närmaste butik -&gt;</a>
+                    <Link href={prefixPath(safeLocale, '/herr')} className="button primary">Utforska kollektionen</Link>
+                    <Link href={prefixPath(safeLocale, '/#hitta-hit')} className="button stroked hide-mobile">Hitta din närmaste butik</Link>
+                    <a className="text-white hide-desktop" href={prefixPath(safeLocale, '/#hitta-hit')}>Hitta din närmaste butik -&gt;</a>
                 </div>
             </div>
             <div className="cw-col-4 cw-col-xs-12 empty-col"></div>

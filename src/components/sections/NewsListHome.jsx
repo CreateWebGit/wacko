@@ -2,13 +2,15 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import Link from 'next/link'
 import Image from 'next/image'
+import { DEFAULT_LOCALE, prefixPath, validateLocale } from '@/lib/locales'
 
-export default async function NewsListHome() {
+export default async function NewsListHome({ locale = DEFAULT_LOCALE }) {
+    const safeLocale = validateLocale(locale) ?? DEFAULT_LOCALE
     const payloadConfig = await config
     const payload = await getPayload({ config: payloadConfig })
     const posts = await payload.find({
         collection: 'news',
-        locale: 'sv',
+        locale: safeLocale,
         limit: 3
     })
 
@@ -17,8 +19,6 @@ export default async function NewsListHome() {
         return url
     }
 
-    console.log(posts)
-
     return (
         <section className="cw-section--newslisthome cw-grid gap-2 py-5">
             <div className="cw-col-12 cw-col-xs-12">
@@ -26,7 +26,7 @@ export default async function NewsListHome() {
                 <p className="text-center mt-2">Vill du vara först med att veta när nya kollektioner landar i butik? Eller när vi fyller på lagret med <br/> efterfrågade modeller? Här delar vi nyheter, lanseringar, events och annat du inte vill missa.</p>
             </div>
             {posts.docs.map((post) => (
-                <Link className="cw-col-4 cw-col-xs-12 news-item mt-2" href={{pathname: '/nyheter/' + urlFormatter(post.title)}} key={post.title} >
+                <Link className="cw-col-4 cw-col-xs-12 news-item mt-2" href={prefixPath(safeLocale, `/nyheter/${urlFormatter(post.title)}`)} key={post.title} >
                     <div className="image-container">
                         <Image alt={post.title} src={post.images[0].url} width={373 * 2} height={199 * 2}/>
                     </div>

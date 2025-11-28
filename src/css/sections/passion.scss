@@ -1,11 +1,13 @@
 .cw-section--passion {
     min-height: 36.75rem;
+    max-height: 36.75rem;
     display: grid;
     grid-template-columns: 36.75rem 1fr;
     background-color: var(--cw-bg-secondary);
 
     @media (max-width: 768px) {
         min-height: unset;
+        max-height: unset;
         grid-template-columns: 1fr;
     }
 
@@ -23,6 +25,7 @@
 
     .passion__image-container {
         background-color: #e3e3e3;
+        max-height: 36.75rem;
 
         @media (max-width: 768px) {
             display: none;

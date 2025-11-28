@@ -65,6 +65,17 @@ a:not(.button, .image-link, .news-item, .mylink) {
   position: relative;
   width: fit-content;
 
+  &.no-line {
+    color: inherit;
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
   &::after {
     position: absolute;
     height: 1px;

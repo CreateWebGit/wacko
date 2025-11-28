@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import { DEFAULT_LOCALE, prefixPath } from '@/lib/locales'
  
 export default function NotFound() {
     return (
@@ -14,7 +15,7 @@ export default function NotFound() {
                     <Link className="button primary fixed-width" href="https://maps.app.goo.gl/ZNUQXJcHtTA9vpfA7" target='_blank'>
                         Visa på Google Maps
                     </Link>
-                    <Link className="button stroked fixed-width" href="/">
+                    <Link className="button stroked fixed-width" href={prefixPath(DEFAULT_LOCALE, '/')}>
                         Tillbaka hem
                     </Link>
                 </div>

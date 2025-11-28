@@ -1,5 +1,6 @@
 .cw-section--dignity {
     min-height: 36.75rem;
+    max-height: 36.75rem;
     display: grid;
     grid-template-columns: 1fr 36.75rem;
     background-color: var(--cw-bg-secondary);
@@ -26,6 +27,7 @@
 
     .dignity__image-container {
         background-color: #d7d7d7;
+        max-height: 36.75rem;
 
         @media (max-width: 768px) {
             display: none;

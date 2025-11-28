@@ -2,13 +2,12 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { getLocaleFromPathname, isLocale, prefixPath } from '@/lib/locales'
 
 const formatSegment = (segment) => {
     try {
         const decoded = decodeURIComponent(segment)
-        return decoded
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (char) => char.toUpperCase())
+        return decoded.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
     } catch (e) {
         return segment
     }
@@ -18,15 +17,20 @@ export default function Breadcrumbs({ margin }) {
     const pathname = usePathname()
     if (!pathname) return null
 
+    const locale = getLocaleFromPathname(pathname)
     const segments = pathname.split('/').filter(Boolean)
-
     if (segments.length === 0) return null
 
-    const crumbs = segments.map((segment, index) => {
-        const href = '/' + segments.slice(0, index + 1).join('/')
+    const filteredSegments = segments.filter((segment, index) => !(index === 0 && isLocale(segment)))
+
+    if (filteredSegments.length === 0) return null
+
+    const crumbs = filteredSegments.map((segment, index) => {
+        const partialSegments = filteredSegments.slice(0, index + 1)
+        const segmentPath = `/${partialSegments.join('/')}`
         return {
             label: formatSegment(segment),
-            href,
+            href: prefixPath(locale, segmentPath)
         }
     })
 
@@ -36,10 +40,10 @@ export default function Breadcrumbs({ margin }) {
                 <div key={crumb.href}>
                     {index < crumbs.length - 1 ? (
                         <>
-                            <Link href={crumb.href} className="pl-4">
+                            <Link href={crumb.href} className="">
                                 {crumb.label}
                             </Link>
-                            <span style={{marginLeft: '0.5rem'}}>/</span>
+                            <span style={{ marginLeft: '0.5rem' }}>/</span>
                         </>
                     ) : (
                         <span className="crumb-label">{crumb.label}</span>

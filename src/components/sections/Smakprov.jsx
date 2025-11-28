@@ -1,14 +1,14 @@
-import Link from 'next/link'
-
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import { DEFAULT_LOCALE, prefixPath, validateLocale } from '@/lib/locales'
 
-export default async function SectionSmakprov() {
+export default async function SectionSmakprov({ locale = DEFAULT_LOCALE }) {
+	const safeLocale = validateLocale(locale) ?? DEFAULT_LOCALE
 	const payloadConfig = await config
 	const payload = await getPayload({ config: payloadConfig })
 	const posts = await payload.find({
 		collection: 'products',
-		locale: 'sv',
+		locale: safeLocale,
 		limit: 5,
 		where: {
 			categories: {
@@ -17,7 +17,6 @@ export default async function SectionSmakprov() {
 		},
 	})
 
-	console.log(posts)
 	return (
 		<section className="cw-section--smakprov padding-left mb-2">
 		<div className="smakprov__text-container">
@@ -29,7 +28,7 @@ export default async function SectionSmakprov() {
 			</p>
 			</div>
 
-			<a className="hide-mobile" href="/herr">
+			<a className="hide-mobile" href={prefixPath(safeLocale, '/herr')}>
 			Se alla våra produkter -&gt;
 			</a>
 		</div>

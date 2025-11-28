@@ -15,57 +15,60 @@ import { Media } from './collections/Media'
 import { News } from './collections/News'
 import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 
+import { Pages } from './globals/pages'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  admin: {
-    user: Users.slug,
-    importMap: {
-      baseDir: path.resolve(dirname),
+    admin: {
+        user: Users.slug,
+        importMap: {
+            baseDir: path.resolve(dirname)
+        }
     },
-  },
-  collections: [Users, Products, News, Media],
-  editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
-  typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
-  },
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
-  }),
-  sharp,
-  plugins: [
-    uploadthingStorage({
-      collections: {
-        media: { disablePayloadAccessControl: true },
-      },
-      options: {
-        token: process.env.UPLOADTHING_TOKEN || '',
-      },
+    globals: [Pages],
+    collections: [Users, Products, News, Media],
+    editor: lexicalEditor(),
+    secret: process.env.PAYLOAD_SECRET || '',
+    typescript: {
+        outputFile: path.resolve(dirname, 'payload-types.ts')
+    },
+    db: mongooseAdapter({
+        url: process.env.DATABASE_URI || ''
     }),
-  ],
-  localization: {
-    locales: [
-      {
-        label: {
-          en: 'English',
-          sv: 'Engelska',
-        },
-        code: 'en',
-      },
-      {
-        label: {
-          en: 'Swedish',
-          sv: 'Svenska',
-        },
-        code: 'sv',
-      },
-    ], // required
-    defaultLocale: 'sv',
-    fallback: true,
-  },
-  i18n: {
-    supportedLanguages: { en, sv },
-  },
+    sharp,
+    plugins: [
+        uploadthingStorage({
+            collections: {
+                media: { disablePayloadAccessControl: true }
+            },
+            options: {
+                token: process.env.UPLOADTHING_TOKEN || ''
+            }
+        })
+    ],
+    localization: {
+        locales: [
+            {
+                label: {
+                    en: 'English',
+                    sv: 'Engelska'
+                },
+                code: 'en'
+            },
+            {
+                label: {
+                    en: 'Swedish',
+                    sv: 'Svenska'
+                },
+                code: 'sv'
+            }
+        ], // required
+        defaultLocale: 'sv',
+        fallback: true
+    },
+    i18n: {
+        supportedLanguages: { en, sv }
+    }
 })

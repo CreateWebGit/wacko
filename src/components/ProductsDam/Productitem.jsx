@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import style from './productitem.module.scss'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { getLocaleFromPathname, prefixPath } from '@/lib/locales'
 
 const Productitem = ({ data, category }) => {
   const router = useRouter()
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname || '/')
   const [isImage, setImage] = useState(data.images[0].url)
 
   const helpFunc = (str) => {
@@ -13,8 +15,8 @@ const Productitem = ({ data, category }) => {
     return str
   }
 
-  const test = (e) => {
-    router.push(data.categories + '/' + helpFunc(data.title))
+  const test = () => {
+    router.push(prefixPath(locale, `/${data.categories}/${helpFunc(data.title)}`))
   }
 
   console.log('daaaata', data)

@@ -1,19 +1,39 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import style from './product.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { DEFAULT_LOCALE, getLocaleFromPathname, prefixPath } from '@/lib/locales'
+
+const resolveLocalizedValue = (value, locale) => {
+  if (!value) return ''
+  if (typeof value === 'string') return value
+  if (typeof value === 'object') {
+    if (typeof value[locale] === 'string') return value[locale]
+    if (typeof value[DEFAULT_LOCALE] === 'string') return value[DEFAULT_LOCALE]
+    const fallback = Object.values(value).find((entry) => typeof entry === 'string' && entry.length > 0)
+    return fallback || ''
+  }
+  return ''
+}
 
 const Product = ({ data }) => {
   const product = data.docs[0]
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname || '/')
   const [isImage, setImage] = useState(product.images[0].url)
-  console.log('mydata', data)
+
+  const categorySlug = useMemo(() => resolveLocalizedValue(product.categories, locale), [product.categories, locale])
+  const metaDescription = resolveLocalizedValue(product.metaDescription, locale)
+  const categoryHref = categorySlug ? prefixPath(locale, `/${categorySlug}`) : prefixPath(locale, '/')
+
   return (
     <>
       <div className={style.breadCrumbs}>
         KLÄDER /{' '}
-        <Link className={`mylink ${style.myLink}`} href={`/${product.categories.sv}`}>
-          {product.categories.sv.toUpperCase()}
+        <Link className={`mylink ${style.myLink}`} href={categoryHref}>
+          {categorySlug?.toUpperCase()}
         </Link>{' '}
         / <span>{product.title.toUpperCase()}</span>
       </div>
@@ -47,7 +67,7 @@ const Product = ({ data }) => {
           <h1 className={style.title}>{product.title}</h1>
           <div className={style.price}>{product.price} SEK</div>
           <div className={style.descriptionTitle}>BESKRIVNING</div>
-          <p className={style.dprice}>{product.metaDescription.sv}</p>
+          <p className={style.dprice}>{metaDescription}</p>
         </div>
       </section>
     </>
