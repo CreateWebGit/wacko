@@ -4,12 +4,7 @@ import { SUPPORTED_LOCALES, validateLocale } from '@/lib/locales'
 
 export const revalidate = 60
 
-type RootLayoutProps = {
-  children: React.ReactNode
-  params: { locale?: string }
-}
-
-export default async function RootLayout({ children, params }: RootLayoutProps) {
+export default async function RootLayout({ children, params }) {
   const { locale: paramsLocale } = await params
   const locale = validateLocale(paramsLocale ?? '')
 

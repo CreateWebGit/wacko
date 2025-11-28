@@ -1,8 +1,7 @@
-import type { Metadata, Viewport } from 'next'
 import React from 'react'
 import '@/css/main.scss'
 
-export const metadata: Metadata = {
+export const metadata = {
     title: 'Wacko - Tidlös elegans i äkta skinn',
     description:
         'Upptäck Wacko - exklusiva skinnjackor, väskor och accessoarer i tidlös design. Kvalitet, stil och attityd sedan 1989.',
@@ -22,11 +21,11 @@ export const metadata: Metadata = {
     ]
 }
 
-export const viewport: Viewport = {
+export const viewport = {
     themeColor: '#8B645A'
 }
 
-export default function FrontendRootLayout({ children }: { children: React.ReactNode }) {
+export default function FrontendRootLayout({ children }) {
     return (
         <html lang="sv">
             <body>{children}</body>
