@@ -3,7 +3,10 @@
 import React from 'react'
 import { useField, useFormFields } from '@payloadcms/ui'
 
-const subcategoryOptions: Record<string, { label: string; value: string }[]> = {
+type SubcategoryOption = { label: string; value: string }
+type CategoryKey = 'herr' | 'dam' | 'accessoarer' | 'vinterdetaljer' | 'vaskor'
+
+const subcategoryOptions: Record<CategoryKey, SubcategoryOption[]> = {
     herr: [
         { label: 'Jackor', value: 'jackor' },
         { label: 'Skinnväst', value: 'skinnväst' },
@@ -45,18 +48,27 @@ const subcategoryOptions: Record<string, { label: string; value: string }[]> = {
     ]
 }
 
+const isCategoryKey = (value: string): value is CategoryKey => value in subcategoryOptions
+
 const DynamicSubcategory: React.FC = () => {
     //vi hämtar den nuvarande kategorin som är vald
-    const category = useFormFields(([fields]) => fields.categories?.value)
+    const category = useFormFields<string | undefined>(
+        React.useCallback(([fields]) => {
+            const field = fields?.['categories'] as { value?: unknown } | undefined
+
+            return typeof field?.value === 'string' ? field.value : undefined
+        }, [])
+    )
 
     //här hämtar vi subcategory fältet, så att vi kan manipulera det
-    const { path, value, setValue } = useField<string>({
+    const { value, setValue } = useField<string | null>({
         path: 'subCategory'
     })
 
     //här populerar vi options i subcategory fältet baserat på vilken
     //kategori som är vald
-    const options = subcategoryOptions[category] || []
+    const options: SubcategoryOption[] =
+        category && isCategoryKey(category) ? subcategoryOptions[category] : []
 
     //escape om inget finns
     if (!category || options.length === 0) {
@@ -65,11 +77,11 @@ const DynamicSubcategory: React.FC = () => {
 
     return (
         <div className="field-type">
-            <label htmlFor={path} style={{ display: 'block', marginBottom: '0.25rem' }}>
+            <label htmlFor="subCategory" style={{ display: 'block', marginBottom: '0.25rem' }}>
                 Underkategori
             </label>
             <select
-                id={path}
+                id="subCategory"
                 value={value || ''}
                 onChange={(e) => setValue(e.target.value)}
                 style={{
