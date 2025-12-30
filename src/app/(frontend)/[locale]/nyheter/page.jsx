@@ -42,13 +42,13 @@ export default async function Nyheter({ params }) {
     return (
         <>
             <Header lightHeader={true} />
-            <HeroNews />
+            <HeroNews locale={locale} />
             <section className="cw-section--newslist cw-grid gap-2 pb-4 pt-2">
                 {posts.docs.map((post) => (
                     <Link
                         className="cw-col-4 cw-col-xs-12 news-item"
-                        href={prefixPath(locale, `/nyheter/${urlFormatter(post.title)}`)}
-                        key={post.title}
+                        href={prefixPath(locale, `/nyheter/${urlFormatter(post.slug)}`)}
+                        key={post.slug}
                     >
                         <div className="image-container">
                             <Image

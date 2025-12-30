@@ -29,13 +29,15 @@
                 font-family: 'ivypresto';
                 color: var(--cw-brown-accent);
                 opacity: 0.25;
-                transition: opacity 0.1s ease, padding-left 0.1s ease;
+                transition:
+                    opacity 0.1s ease,
+                    padding-left 0.1s ease;
                 cursor: pointer;
 
                 &:hover {
                     opacity: 1;
                 }
-                
+
                 &.active {
                     font-size: 3rem;
                     opacity: 1;
@@ -71,7 +73,17 @@
                 border-radius: 0.5rem;
                 margin-bottom: 3.5rem;
                 overflow: hidden;
-                box-shadow: 0px 100px 123px rgba(58, 58, 58, 0.07), 0px 41.7776px 51.3865px rgba(58, 58, 58, 0.0503198), 0px 22.3363px 27.4737px rgba(58, 58, 58, 0.0417275), 0px 12.5216px 15.4015px rgba(58, 58, 58, 0.035), 0px 6.6501px 8.17963px rgba(58, 58, 58, 0.0282725), 0px 2.76726px 3.40373px rgba(58, 58, 58, 0.0196802);
+                box-shadow:
+                    0px 100px 123px rgba(58, 58, 58, 0.07),
+                    0px 41.7776px 51.3865px rgba(58, 58, 58, 0.0503198),
+                    0px 22.3363px 27.4737px rgba(58, 58, 58, 0.0417275),
+                    0px 12.5216px 15.4015px rgba(58, 58, 58, 0.035),
+                    0px 6.6501px 8.17963px rgba(58, 58, 58, 0.0282725),
+                    0px 2.76726px 3.40373px rgba(58, 58, 58, 0.0196802);
+
+                @media (max-width: 768px) {
+                    margin-bottom: 1rem;
+                }
 
                 img {
                     height: 100%;
@@ -83,7 +95,7 @@
             .year {
                 font-size: 16px;
                 text-transform: uppercase;
-                letter-spacing: 0.10em;
+                letter-spacing: 0.1em;
                 font-weight: 600;
                 margin-bottom: 1rem;
                 border-bottom: 1px solid var(--cw-light-brown-accent);
@@ -97,7 +109,8 @@
                 }
             }
 
-            h1, p {
+            h1,
+            p {
                 padding: 0 2rem;
 
                 @media (max-width: 768px) {

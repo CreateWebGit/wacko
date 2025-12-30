@@ -11,7 +11,8 @@ export const Products: CollectionConfig = {
             name: 'title',
             label: 'Titel',
             type: 'text',
-            required: true
+            required: true,
+            localized: true
         },
         {
             name: 'price',

@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { tSubcategory } from '@/lib/subcategoryTranslations'
 
 const formatSegment = (segment) => {
     try {
@@ -14,8 +15,11 @@ const formatSegment = (segment) => {
     }
 }
 
-export default function BreadcrumbsProducts({ margin, category, subCategory }) {
+export default function BreadcrumbsProducts({ margin, category, subCategory, locale }) {
     const pathname = usePathname()
+    const sp = useSearchParams()
+    const q = sp.get('q') || ''
+    const subLabel = q ? tSubcategory(q, locale) : locale === 'sv' ? 'Alla' : 'All'
     if (!pathname) return null
 
     const segments = pathname.split('/').filter(Boolean)
@@ -46,11 +50,11 @@ export default function BreadcrumbsProducts({ margin, category, subCategory }) {
                     )}
                 </div>
             ))} */}
-            <a href="">Kollektion</a>
+            <a href="">{locale === 'sv' ? 'Kollektion' : 'Collection'}</a>
             <span style={{opacity: 0.45}}>/</span>
             <a href="">{category}</a>
             <span style={{opacity: 0.45}}>/</span>
-            <span className="crumb-label">{subCategory}</span>
+            <span className="crumb-label">{subLabel}</span>
         </div>
     )
 }

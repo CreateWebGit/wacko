@@ -28,39 +28,39 @@ export default function Footer() {
                 </div>
                 <div className="link-container cw-col-6  cw-col-xs-12 cw-grid">
                     <div className="footer-item cw-col-4 cw-col-xs-12">
-                        <div className="item-title">SIDKARTA</div>
+                        <div className="item-title">{locale === 'sv' ? 'SIDKARTA' : 'SITE MAP'}</div>
                         <ul className="item-list">
                             <li className="item">
-                                <a href={withLocale('/herr')}>Kollektion</a>
+                                <a href={withLocale('/herr')}>{locale === 'sv' ? 'Kollektion' : 'Collection'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/nyheter')}>Nyheter</a>
+                                <a href={withLocale('/nyheter')}>{locale === 'sv' ? 'Nyheter' : 'News'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/om-oss')}>Om oss</a>
+                                <a href={withLocale('/om-oss')}>{locale === 'sv' ? 'Om oss' : 'About us'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/#hitta-hit')}>Hitta hit</a>
+                                <a href={withLocale('/#hitta-hit')}>{locale === 'sv' ? 'Hitta hit' : 'Find us'}</a>
                             </li>
                         </ul>
                     </div>
                     <div className="footer-item cw-col-4 cw-col-xs-12">
-                        <div className="item-title">SKINNKLÄDER</div>
+                        <div className="item-title">{locale === 'sv' ? 'SKINNKLÄDER' : 'LEATHERWEAR'}</div>
                         <ul className="item-list">
                             <li className="item">
-                                <a href={withLocale('/herr')}>Herr</a>
+                                <a href={withLocale('/herr')}>{locale === 'sv' ? 'Herr' : 'Men'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/dam')}>Dam</a>
+                                <a href={withLocale('/dam')}>{locale === 'sv' ? 'Dam' : 'Women'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/vaskor')}>Väskor</a>
+                                <a href={withLocale('/vaskor')}>{locale === 'sv' ? 'Väskor' : 'Bags'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/vinterdetaljer')}>Vinterdetaljer</a>
+                                <a href={withLocale('/vinterdetaljer')}>{locale === 'sv' ? 'Vinterdetaljer' : 'Winter Details'}</a>
                             </li>
                             <li className="item">
-                                <a href={withLocale('/accessoarer')}>Accessoarer</a>
+                                <a href={withLocale('/accessoarer')}>{locale === 'sv' ? 'Accessoarer' : 'Accessories'}</a>
                             </li>
                         </ul>
                     </div>
@@ -87,13 +87,13 @@ export default function Footer() {
             <div className="bottom-container">
                 <div className="item-title">
                     <div className="content">
-                        <div className="copyright-notice">&copy; WACKO 2025</div>
+                        <div className="copyright-notice">&copy; WACKO 2026</div>
                         <div className="createweb">
                             <a href="https://createweb.se" target="_blank">
-                                Skapad av CreateWeb
+                                {locale === 'sv' ? 'Skapad av Createweb' : 'Made by Createweb'}
                             </a>
                         </div>
-                        <div className="copyright-notice">Integritetspolicy</div>
+                        <div className="copyright-notice">{locale === 'sv' ? 'Integritetspolicy' : 'Privacy Policy'}</div>
                     </div>
                 </div>
             </div>

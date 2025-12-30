@@ -27,16 +27,17 @@ export default async function Home({ params }) {
         locale
     })
     const indexPageContent = result.indexPage
+    console.log(result)
     return (
         <>
             <Header />
             <Hero content={indexPageContent.hero} locale={locale} />
-            <Passion />
-            <Dignity locale={locale} />
+            <Passion content={indexPageContent.twoStores}/>
+            <Dignity content={indexPageContent.agingLeather} locale={locale} />
             <Smakprov locale={locale} />
             <CategoryButtons locale={locale} />
             <NewsListHome locale={locale} />
-            <Butiker />
+            <Butiker locale={locale} />
             <Footer />
             {/* <Banner/> */}
         </>

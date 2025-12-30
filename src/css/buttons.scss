@@ -72,6 +72,8 @@ button,
 
     &.subcategory-button {
         padding: 0.55rem 0.85rem;
+        color: black;
+        background-color: #efefef;
 
         &.active {
             background-color: var(--cw-light-brown-accent);
@@ -81,5 +83,10 @@ button,
 
     &.icon-button {
         background-color: transparent !important;
+    }
+
+    &.search {
+        background-color: #efefef;
+        color: black;
     }
 }

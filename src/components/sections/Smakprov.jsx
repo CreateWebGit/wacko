@@ -21,15 +21,18 @@ export default async function SectionSmakprov({ locale = DEFAULT_LOCALE }) {
 		<section className="cw-section--smakprov padding-left mb-2">
 		<div className="smakprov__text-container">
 			<div>
-			<h2>Ett smakprov ur kollektionen.</h2>
+                    <h2>{ locale === 'sv' ? 'Ett smakprov ur kollektionen.' : 'A preview of the collection'}</h2>
 			<p className="mt-2">
-				Vi uppdaterar vårt sortiment kontinuerligt med nya läderjackor, väskor och accessoarer –
-				alltid med säsongens behov i åtanke. Här hittar du ett urval av våra favoriter just nu.
+    			{
+                    locale === 'sv'
+                        ? 'Vi uppdaterar vårt sortiment kontinuerligt med nya läderjackor, väskor och accessoarer – alltid med säsongens behov i åtanke. Här hittar du ett urval av våra favoriter just nu.'
+                        : 'We continuously update our collection with new leather jackets, bags, and accessories — always with the needs of the season in mind. Here you’ll find a selection of our current favorites.'
+                }
 			</p>
 			</div>
 
 			<a className="hide-mobile" href={prefixPath(safeLocale, '/herr')}>
-			Se alla våra produkter -&gt;
+			{locale === 'sv' ? 'Se alla våra produkter' : 'See all of our products'} -&gt;
 			</a>
 		</div>
 		<div className="smakprov__product-container">

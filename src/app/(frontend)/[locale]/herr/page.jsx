@@ -48,20 +48,26 @@ const page = async ({ params }) => {
         <div>
             <Header lightHeader={true} />
             <BreadcrumbsProducts
+                locale={locale}
                 category={locale === 'sv' ? 'Herr' : 'Men'}
                 margin={true}
-                subCategory={'Alla'}
+                subCategory={locale === 'sv' ? 'Alla' : "All"}
             />
             <section className="cw-grid">
-                <div className="cw-col-12 mt-1 py-2">
+                <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
                     <h1>{locale === 'sv' ? 'Herrkläder' : "Men's Clothing"}</h1>
                 </div>
             </section>
             <section className="cw-grid pb-10">
                 <ProductList
+                    locale={locale}
                     products={postHerr}
                     title={locale === 'sv' ? 'Tidlös stil för honom' : 'Timeless style for him'}
-                    description={`Välkommen till vår herrkollektion - en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil. \n\n Oavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet. \n\n Skinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.`}
+                    description={
+                        locale === 'sv'
+                            ? 'Välkommen till vår herrkollektion - en hyllning till klassiskt hantverk och modern elegans. Här hittar du exklusiva skinnjackor, väskor och accessoarer, noggrant utvalda för att lyfta varje stil.\n\nOavsett om du söker en robust bikerjacka, en slimmad cityväska eller en tidlös weekendbag, är varje produkt tillverkad i äkta skinn med omsorg för detaljer och hållbar kvalitet.\n\nSkinn åldras med karaktär och blir bara vackrare med tiden – precis som stilen hos den man som bär det. Upptäck din nya favorit och investera i plagg som håller, säsong efter säsong.'
+                            : 'Welcome to our men’s collection — a tribute to classic craftsmanship and modern elegance. Here you’ll find exclusive leather jackets, bags, and accessories, carefully selected to elevate every style.\n\nWhether you’re looking for a rugged biker jacket, a sleek city bag, or a timeless weekend bag, each product is crafted from genuine leather with a strong focus on detail and lasting quality.\n\nLeather ages with character and only becomes more beautiful over time — just like the style of the man who wears it. Discover your new favorite and invest in pieces designed to last, season after season.'
+                    }
                 ></ProductList>
             </section>
             <Footer />

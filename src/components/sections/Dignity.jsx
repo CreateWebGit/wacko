@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { DEFAULT_LOCALE, prefixPath, validateLocale } from "@/lib/locales"
 
-export default function SectionDignity({ locale = DEFAULT_LOCALE }) {
+export default function SectionDignity({ locale = DEFAULT_LOCALE, content }) {
     const safeLocale = validateLocale(locale) ?? DEFAULT_LOCALE
 
     return (
@@ -11,10 +11,10 @@ export default function SectionDignity({ locale = DEFAULT_LOCALE }) {
             </div>
             <div className="dignity__text-container">
                 <div>
-                    <h2>Skinn som åldras med värdighet.</h2>
-                    <p className="mt-2">Vi tror på produkter som bara blir bättre med tiden. Därför arbetar vi med exklusivt kalvskinn och andra högkvalitativa material som valts ut med stor omsorg.</p>
+                    <h2>{content.heading}</h2>
+                    <p className="mt-2">{content.body}</p>
                 </div>
-                <a href={prefixPath(safeLocale, '/om-oss')}>Läs mer om våran historia -&gt;</a>
+                <a href={prefixPath(safeLocale, content.link[0].href)}>{content.link[0].text} -&gt;</a>
             </div>
         </section>
     )

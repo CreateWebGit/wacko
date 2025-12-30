@@ -33,17 +33,22 @@ const page = async ({ params }) => {
     return (
         <div>
             <Header lightHeader={true} />
-            <BreadcrumbsProducts category={'Väskor'} margin={true} subCategory={'Alla'} />
+            <BreadcrumbsProducts locale={locale} category={locale === 'sv' ? 'Väskor' : 'Bags'} margin={true} subCategory={locale === 'sv' ? 'Alla' : 'All'} />
             <section className="cw-grid">
-                <div className="cw-col-12 mt-1 py-2">
-                    <h1>Väskor</h1>
+                <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
+                    <h1>{locale === 'sv' ? 'Väskor' : 'Bags'}</h1>
                 </div>
             </section>
             <section className="cw-grid pb-10">
                 <ProductList
+                    locale={locale}
                     products={postVaskor}
-                    title={`Skinnväskor som håller`}
-                    description={`Utforska vår kollektion av väskor i äkta skinn – för både vardag och resor. Vi erbjuder allt från stilrena cityväskor till tåliga weekendbags, med fokus på funktion, form och hållbarhet. \n\n Varje väska är noggrant utvald för att kombinera design med slitstyrka. Rejäla dragkedjor, gedigna spännen och material som åldras vackert. \n\n Det är väskor att leva med – inte bara bära. Investera i något som följer med dig långt.`}
+                    title={locale === 'sv' ? `Skinnväskor som håller` : 'Leather Bags that last'}
+                    description={
+                        locale === 'sv'
+                            ? 'Utforska vår kollektion av väskor i äkta skinn – för både vardag och resor. Vi erbjuder allt från stilrena cityväskor till tåliga weekendbags, med fokus på funktion, form och hållbarhet.\n\nVarje väska är noggrant utvald för att kombinera design med slitstyrka. Rejäla dragkedjor, gedigna spännen och material som åldras vackert.\n\nDet är väskor att leva med – inte bara bära. Investera i något som följer med dig långt.'
+                            : 'Explore our collection of genuine leather bags — designed for both everyday use and travel. From sleek city bags to durable weekend bags, each piece balances function, form, and longevity.\n\nEvery bag is carefully selected to combine design with durability, featuring sturdy zippers, solid hardware, and materials that age beautifully.\n\nThese are bags made to live with — not just carry. Invest in something that will stay with you for the long run.'
+                    }
                 ></ProductList>
             </section>
             <Footer />

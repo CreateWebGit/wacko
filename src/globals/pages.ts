@@ -233,7 +233,8 @@ export const Pages: GlobalConfig = {
                                         {
                                             name: 'year',
                                             type: 'text',
-                                            label: 'Årtal/Etapp (t.ex. 1978, 1982, “Tidigt 90-tal”, “Nutid”)'
+                                            label: 'Årtal/Etapp (t.ex. 1978, 1982, “Tidigt 90-tal”, “Nutid”)',
+                                            localized: true
                                         },
                                         {
                                             name: 'title',

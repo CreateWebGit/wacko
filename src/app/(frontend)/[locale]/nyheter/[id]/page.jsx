@@ -52,7 +52,7 @@ export default async function NyheterPage({ params }) {
     return (
         <>
             <Header lightHeader={true} />
-            <Breadcrumbs margin={true} />
+            <Breadcrumbs margin={true} crumbLabel={post.title} />
             <section className="cw-section--newspost cw-grid">
                 <div className="cw-cs-3 cw-ce-11 mt-5 cw-col-xs-12">
                     <h1 className="h2 text-center">{post.title}</h1>
@@ -62,7 +62,7 @@ export default async function NyheterPage({ params }) {
                         <Image src={post.images[0].url} width={868} height={340} alt={post.title} />
                     </div>
                     <div className="social-share-container mt-4">
-                        <div className="share-text">DELA</div>
+                        <div className="share-text">{locale === 'sv' ? 'Dela' : 'Share'}</div>
                         <div className="social-media-icons">
                             <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`} target="_blank">
                                 <img src="/img/fb_icon.svg" alt="facebook icon" />

@@ -1,151 +1,149 @@
-"use client"
+'use client'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import { DEFAULT_LOCALE } from '@/lib/locales'
 import Image from 'next/image'
 
-export default function AboutSticky() {
+export default function AboutSticky({ introBlockContent, content, locale = DEFAULT_LOCALE }) {
+    const timelineItems = Array.isArray(content) ? content : (content?.timeline ?? [])
+    const introBlock = Array.isArray(content) ? null : content?.introBlock
+    const introHeading = introBlock?.heading ?? 'Fyrtio år av form, funktion och förtroende'
+    const introBody =
+        introBlock?.body ??
+        'Sedan starten på 80-talet har Wacko vuxit från ett litet skrädderi till ett etablerat namn inom svenskt skinnmode. Genom tid, trender och teknik har vi behållit vårt fokus: kompromisslös kvalitet, äkta material och stil som håller över tid. Följ vår utveckling – från första butiken till nästa digitala kapitel.'
+    const introParagraphs = splitParagraphs(introBody)
+
     useEffect(() => {
-        const items = document.querySelectorAll(".timeline-item");
-        const yearTexts = document.querySelectorAll(".year-text");
+        const items = document.querySelectorAll('.timeline-item')
+        const yearTexts = document.querySelectorAll('.year-text')
 
-        if (!items.length) return;
-
-        const idToLabelMap = {
-            "1978": "1978",
-            "1982": "1982",
-            "1986": "1986",
-            "1987": "1987",
-            "1990": "Tidigt 90-tal",
-            "1999": "1999",
-            "nutid": "Nutid",
-        };
+        if (!items.length) return
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                        const id = entry.target.id.split("-")[1].toLowerCase();
-                        const labelToActivate = idToLabelMap[id];
+                        const labelToActivate = entry.target.dataset.year
 
                         yearTexts.forEach((el) => {
-                            el.classList.toggle("active", el.textContent === labelToActivate);
-                        });
+                            el.classList.toggle('active', el.dataset.year === labelToActivate)
+                        })
                     }
-                });
+                })
             },
             {
                 threshold: 0.5,
-                root: null,
+                root: null
             }
-        );
+        )
 
-        items.forEach((item) => observer.observe(item));
+        items.forEach((item) => observer.observe(item))
 
-        return () => observer.disconnect();
-    }, []);
+        return () => observer.disconnect()
+    }, [timelineItems.length])
 
     return (
         <section className="cw-section--aboutsticky cw-grid full-width">
             <div className="sticky-container cw-col-5 hide-mobile">
-                <h1 className="h3">Fyrtio år av form, funktion och förtroende</h1>
-                <p className="mt-1">Sedan starten på 80-talet har Wacko vuxit från ett litet skrädderi till ett etablerat namn inom svenskt skinnmode. Genom tid, trender och teknik har vi behållit vårt fokus: kompromisslös kvalitet, äkta material och stil som håller över tid. Följ vår utveckling – från första butiken till nästa digitala kapitel.</p>
+                <h1 className="h3">{introBlockContent.heading}</h1>
+                <div className="mt-1">
+                    <p className="mt-2">{introBlockContent.body}</p>
+                </div>
                 <div className="timeline-year-container mt-3">
-                    <div className="year-text">1978</div>
-                    <div className="year-text">1982</div>
-                    <div className="year-text">1986</div>
-                    <div className="year-text">1987</div>
-                    <div className="year-text">Tidigt 90-tal</div>
-                    <div className="year-text">1999</div>
-                    <div className="year-text">Nutid</div>
-                </div>            
+                    {timelineItems.map((item, index) => {
+                        const yearLabel = item?.year ?? ''
+                        const yearValue = yearLabel || `item-${index}`
+                        return (
+                            <div
+                                className="year-text"
+                                data-year={yearValue}
+                                key={item?.id ?? yearValue}
+                            >
+                                {yearLabel}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <div className="timeline-container cw-col-7 cw-col-xs-12">
-                <div id="timeline-1978" className="timeline-item">
-                    <div className="intro-mobile hide-desktop py-xs-2">
-                        <h1 className="h3">Fyrtio år av form, funktion och förtroende</h1>
-                        <p className="mt-2">Sedan starten på 80-talet har Wacko vuxit från ett litet skrädderi till ett etablerat namn inom svenskt skinnmode. <br/> <br/>Genom tid, trender och teknik har vi behållit vårt fokus: kompromisslös kvalitet, äkta material och stil som håller över tid. Följ vår utveckling – från första butiken till nästa digitala kapitel.</p>
-                    </div>
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_1978.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1978</p>
-                        <h1 className="h3">En ny början i ett nytt land</h1>
-                    </div>
-                    <p>Abdo anländer till Sverige, driven av en vilja att skapa något eget. Men vägen dit är inte spikrak. De första tre åren präglas av väntan &mdash; på arbetstillstånd, på möjligheter, på att få börja bygga sitt liv på riktigt. 
-                    <br/> <br/>Trots utmaningarna tappar han aldrig riktningen. Istället börjar han planera. Tyst men målmedvetet.</p>
-                    <hr />
-                </div>
-                <div id="timeline-1982" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_1982.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1982</p>
-                        <h1 className="h3">Första skrädderiet på Tegnérgatan</h1>
-                    </div>
-                    <p>
-                        Med arbetstillståndet i handen öppnar Abdo sitt första skrädderi i en liten lokal på Tegnérgatan. Det är blygsamt, men varje meter är fylld av ambition. 
-                        <br/><br/>
-                        Här syr han upp kostymer, lagar plagg, bygger relationer. Kunderna uppskattar inte bara hans hantverk, utan också hans noggrannhet och ärlighet. Under tio år formas inte bara kläder – utan ett rykte.
-                    </p>
-                </div>
-                <div id="timeline-1986" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_1986.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1986</p>
-                        <h1 className="h3">Från skräddare till designer</h1>
-                    </div>
-                    <p>
-                        Efter flera år av kundarbete börjar Abdo designa egna jackor. Han inspireras av modeller från Istanbul – djärva snitt, ovanliga materialval och en annan typ av attityd. Många tycker de är svårsålda, för annorlunda. Men Abdo ser potentialen. Han vet hur man presenterar dem rätt. För honom är försäljning inte bara en affär – det är en konstform.</p>
-                </div>
-                <div id="timeline-1987" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_1987.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1987</p>
-                        <h1 className="h3">Första butiken på Drottninggatan</h1>
-                    </div>
-                    <p>
-                        Det stora genombrottet kommer när Abdo öppnar sin första butik – mitt på Drottninggatan. Han märker snabbt att han har en känsla för mer än bara design: han är också en naturlig säljare. Skinnet, som andra tyckte var svårt att jobba med, blev hans signatur. Snart hittar både kändisar och politiker till butiken. Det personliga bemötandet, det ärliga hantverket och den höga kvaliteten talar sitt tydliga språk.</p>
-                </div>
-                <div id="timeline-1990" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_90s.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1990</p>
-                        <h1 className="h3">Expansion till Gamla Brogatan</h1>
-                    </div>
-                    <p>
-                        Med växande efterfrågan tar Wacko steget vidare till Gamla Brogatan. Här fortsätter Abdo att bygga vidare på sitt varumärke. Fler jackor, fler kunder, samma kompromisslösa kvalitet. Det handlar inte längre bara om att sälja plagg – det handlar om att skapa förtroende och lojalitet. Ett besök hos Wacko är alltid mer än bara ett köp.</p>
-                </div>
-                <div id="timeline-1999" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_1999.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">1999</p>
-                        <h1 className="h3">Wacko öppnar i Jakobsbergs Galleria</h1>
-                    </div>
-                    <p>
-                        Nu är det dags att nå utanför innerstan. En ny butik öppnas i Jakobsbergs Galleria, och Wackos signum – hantverk, skinn och personlig service – möter en ny publik. Kunderna kommer från hela länet, många återvänder gång på gång. För Abdo är det aldrig kvantitet framför kvalitet – varje jacka ska kännas rätt, varje kund bemötas med respekt.</p>
-                </div>
-                <div id="timeline-nutid" className="timeline-item">
-                    <div className="timeline-image">
-                        <Image src="/img/wacko_timeline_now.jpg" width="802" height="327" alt=""/>
-                    </div>
-                    <div>
-                        <p className="year">Nutid</p>
-                        <h1 className="h3">En stilresa genom fyra decennier</h1>
-                    </div>
-                    <p>
-                        Från en liten butik i Stockholm till ett namn som förknippas med kvalitet och karaktär. Wacko har sedan 80-talet levererat skinnjackor, väskor och accessoarer som kombinerar hantverk med hållbar design. Vår resa handlar inte bara om mode – den handlar om förtroende, form och en kärlek till skinn som aldrig går ur tiden.</p>
-                </div>
+                {timelineItems.map((item, index) => {
+                    const yearLabel = item?.year ?? ''
+                    const yearValue = yearLabel || `item-${index}`
+                    const imageData = getImageData(item?.image)
+                    const bodyParagraphs = splitParagraphs(item?.body ?? '')
+                    return (
+                        <div
+                            id={`timeline-${item?.id ?? index}`}
+                            className="timeline-item"
+                            data-year={yearValue}
+                            key={item?.id ?? yearValue}
+                        >
+                            {index === 0 ? (
+                                <div className="intro-mobile hide-desktop py-xs-2">
+                                    <h1 className="h3">{introHeading}</h1>
+                                    {introParagraphs.length ? (
+                                        <div className="mt-2">
+                                            {introParagraphs.map((paragraph, paragraphIndex) => (
+                                                <p
+                                                    className={paragraphIndex ? 'mt-2' : undefined}
+                                                    key={`intro-mobile-${paragraphIndex}`}
+                                                >
+                                                    {paragraph}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    ) : null}
+                                </div>
+                            ) : null}
+                            <div className="timeline-image">
+                                <Image
+                                    src={imageData.url}
+                                    width={imageData.width ?? 802}
+                                    height={imageData.height ?? 327}
+                                    alt={imageData.alt}
+                                />
+                            </div>
+                            <div>
+                                <p className="year">{yearLabel}</p>
+                                <h1 className="h3">{item?.title}</h1>
+                            </div>
+                            <div>
+                                {bodyParagraphs.map((paragraph, paragraphIndex) => (
+                                    <p
+                                        className={paragraphIndex ? 'mt-2' : undefined}
+                                        key={`${item?.id ?? yearValue}-body-${paragraphIndex}`}
+                                    >
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                            {/* {index === 0 ? <hr /> : null} */}
+                        </div>
+                    )
+                })}
             </div>
         </section>
     )
+}
+
+const splitParagraphs = (text) => {
+    if (!text) return []
+    return text
+        .split(/\n\s*\n/)
+        .map((paragraph) => paragraph.trim())
+        .filter(Boolean)
+}
+
+const getImageData = (image) => {
+    if (!image) return null
+    if (typeof image === 'string') {
+        return { url: image, alt: '' }
+    }
+    if (!image.url) return null
+    return {
+        url: image.url,
+        alt: image.alt ?? '',
+        width: image.width,
+        height: image.height
+    }
 }

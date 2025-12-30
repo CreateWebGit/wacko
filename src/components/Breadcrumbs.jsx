@@ -13,7 +13,7 @@ const formatSegment = (segment) => {
     }
 }
 
-export default function Breadcrumbs({ margin }) {
+export default function Breadcrumbs({ margin, crumbLabel }) {
     const pathname = usePathname()
     if (!pathname) return null
 
@@ -46,7 +46,7 @@ export default function Breadcrumbs({ margin }) {
                             <span style={{ marginLeft: '0.5rem' }}>/</span>
                         </>
                     ) : (
-                        <span className="crumb-label">{crumb.label}</span>
+                        <span className="crumb-label">{crumbLabel || crumb.label}</span>
                     )}
                 </div>
             ))}

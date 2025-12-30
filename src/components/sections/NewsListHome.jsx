@@ -22,8 +22,24 @@ export default async function NewsListHome({ locale = DEFAULT_LOCALE }) {
     return (
         <section className="cw-section--newslisthome cw-grid gap-2 py-5">
             <div className="cw-col-12 cw-col-xs-12">
-                <h1 className="h2 text-accent text-center">Senaste nytt från Wacko</h1>
-                <p className="text-center mt-2">Vill du vara först med att veta när nya kollektioner landar i butik? Eller när vi fyller på lagret med <br/> efterfrågade modeller? Här delar vi nyheter, lanseringar, events och annat du inte vill missa.</p>
+                <h1 className="h2 text-accent text-center">{locale === 'sv' ? 'Senaste nytt från Wacko' : 'Latest news from Wacko'}</h1>
+                <p className="text-center mt-2">
+                    {
+                        locale === 'sv' ? (
+                            <>
+                                Vill du vara först med att veta när nya kollektioner landar i butik? Eller när vi fyller på lagret med
+                                <br />
+                                efterfrågade modeller? Här delar vi nyheter, lanseringar, events och annat du inte vill missa.
+                            </>
+                        ) : (
+                            <>
+                                Want to be the first to know when new collections arrive in store? Or when we restock
+                                <br />
+                                our most sought-after models? Here we share news, launches, events, and other things you won’t want to miss.
+                            </>
+                        )
+                    }
+                </p>
             </div>
             {posts.docs.map((post) => (
                 <Link className="cw-col-4 cw-col-xs-12 news-item mt-2" href={prefixPath(safeLocale, `/nyheter/${urlFormatter(post.title)}`)} key={post.title} >

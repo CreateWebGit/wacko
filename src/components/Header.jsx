@@ -128,11 +128,11 @@ export default function Header({ lightHeader = false }) {
                                 type="text"
                                 value={searchValue}
                                 onChange={(event) => setSearchValue(event.target.value)}
-                                placeholder="Sök produkter eller kategorier"
+                                placeholder={locale === 'sv' ? "Sök produkter eller kategorier" : 'Search products or categories'}
                                 aria-label="Sök"
                             />
                             <button type="submit" className="button dark sm">
-                                Sök
+                                {locale === 'sv' ? 'Sök' : 'Search'}
                             </button>
                         </form>
                     ) : (
@@ -214,7 +214,7 @@ export default function Header({ lightHeader = false }) {
                             placeholder={locale === 'sv' ? 'Sök' : 'Search...'}
                             aria-label="Sök"
                         />
-                        <button type="submit" className="button sm">
+                        <button type="submit" className="button sm search">
                             {locale === 'sv' ? 'Sök' : 'Search'}
                         </button>
                     </form>

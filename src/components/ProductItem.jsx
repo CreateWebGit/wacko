@@ -18,7 +18,11 @@ export default function ProductItem({ product }) {
     const productHref = prefixPath(locale, `/${product.categories}/${decodeURL(product.title)}`)
 
     return (
-        <a href={productHref} className="product-item-container cw-col-4 cw-col-xs-12 no-line">
+        <a
+            href={productHref}
+            hrefLang={locale}
+            className="product-item-container cw-col-4 cw-col-xs-12 no-line"
+        >
             <div className="images-container">
                 <div className="image-container">
                     <img src={selectedImage} width={281} height={335} alt={product.title} />
