@@ -1,5 +1,6 @@
 import React from 'react'
 import '@/css/main.scss'
+import { Suspense } from 'react'
 
 export const metadata = {
     title: 'Wacko - Tidlös elegans i äkta skinn',
@@ -28,7 +29,9 @@ export const viewport = {
 export default function FrontendRootLayout({ children }) {
     return (
         <html lang="sv">
-            <body>{children}</body>
+            <body>
+                <Suspense>{children}</Suspense>
+            </body>
         </html>
     )
 }
