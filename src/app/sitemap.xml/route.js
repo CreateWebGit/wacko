@@ -18,27 +18,27 @@ const STATIC_PATHS = [
     '/kontakta'
 ]
 
-const normalizeSlug = (value: string) =>
+const normalizeSlug = (value) =>
     value
         .trim()
         .replace(/\s+/g, '-')
         .toLowerCase()
 
-const toLastmod = (value?: string | Date | null) => {
+const toLastmod = (value) => {
     if (!value) return null
     const date = new Date(value)
     if (Number.isNaN(date.getTime())) return null
     return date.toISOString()
 }
 
-const buildEntry = (loc: string, lastmod?: string | null) => {
+const buildEntry = (loc, lastmod) => {
     return `  <url>\n    <loc>${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
 }
 
 export async function GET() {
     const payloadConfig = await config
     const payload = await getPayload({ config: payloadConfig })
-    const urls: string[] = []
+    const urls = []
 
     for (const locale of SUPPORTED_LOCALES) {
         for (const path of STATIC_PATHS) {
