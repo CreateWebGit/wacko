@@ -5,10 +5,28 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProductList from '@/components/ProductList'
 import BreadcrumbsProducts from '@/components/BreadcrumbsProducts'
-import { DEFAULT_LOCALE, validateLocale } from '@/lib/locales'
+import { DEFAULT_LOCALE, buildCanonical, validateLocale } from '@/lib/locales'
 
 export const viewport = {
     themeColor: '#8B645A'
+}
+
+export async function generateMetadata({ params }) {
+    const { locale: paramsLocale } = await params
+    const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
+    return {
+        title:
+            locale === 'sv'
+                ? 'Vinterdetaljer | Wacko – Stil och värme i exklusiva material'
+                : 'Winter Details | Wacko – Style and Warmth in Exclusive Materials',
+        description:
+            locale === 'sv'
+                ? 'Håll värmen med stil. Handskar, halsdukar och vinterdetaljer i exklusiva material från Wacko.'
+                : 'Stay warm in style. Gloves, scarves, and winter details in exclusive materials from Wacko.',
+        alternates: {
+            canonical: buildCanonical(locale, '/vinterdetaljer')
+        }
+    }
 }
 
 const page = async ({ params }) => {
@@ -31,7 +49,12 @@ const page = async ({ params }) => {
     return (
         <div>
             <Header lightHeader={true} />
-            <BreadcrumbsProducts locale={locale} category={locale === 'sv' ? 'Vinterdetaljer' : 'Winter Details'} margin={true} subCategory={locale === 'sv' ? 'Alla' : 'All'} />
+            <BreadcrumbsProducts
+                locale={locale}
+                category={locale === 'sv' ? 'Vinterdetaljer' : 'Winter Details'}
+                margin={true}
+                subCategory={locale === 'sv' ? 'Alla' : 'All'}
+            />
             <section className="cw-grid">
                 <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
                     <h1>{locale === 'sv' ? 'Vinterdetaljer' : 'Winter Details'}</h1>
@@ -41,7 +64,9 @@ const page = async ({ params }) => {
                 <ProductList
                     locale={locale}
                     products={postWinter}
-                    title={locale === 'sv' ? `Vinterdetaljer med stil` : 'Winter Details with style'}
+                    title={
+                        locale === 'sv' ? `Vinterdetaljer med stil` : 'Winter Details with style'
+                    }
                     description={
                         locale === 'sv'
                             ? 'När kylan drar in handlar det inte bara om att hålla sig varm – utan att göra det med finess. Våra vinterdetaljer kombinerar funktion och estetik i perfekt balans.\n\nUpptäck handskar i mjukt läder, fodrade mössor och halsdukar som ger både värme och karaktär till din vintergarderob. Varje detalj är noggrant utvald för sin kvalitet, passform och känsla – tillverkad för att tåla både väder och tid.\n\nDet är de små sakerna som gör den stora skillnaden. Låt dina vinteraccessoarer spegla samma elegans som resten av din stil – med genuina material, tidlös design och ett hantverk som märks.'

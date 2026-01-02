@@ -41,5 +41,9 @@ export const ROUTE_ALIASES = {
     vinterdetaljer: {
         sv: 'vinterdetaljer',
         en: 'winter-details'
+    },
+    integritetspolicy: {
+        sv: 'integritetspolicy',
+        en: 'privacy-policy'
     }
 }

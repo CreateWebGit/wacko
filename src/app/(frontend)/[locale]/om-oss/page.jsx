@@ -13,9 +13,14 @@ export async function generateMetadata({ params }) {
     const { locale: paramsLocale } = await params
     const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
     return {
-        title: 'Om Wacko - Svenskt hantverk och tidlös design i äkta skinn',
+        title:
+            locale === 'sv'
+                ? 'Om Wacko - Svenskt hantverk och tidlös design i äkta skinn'
+                : 'About Wacko – Swedish Craftsmanship and Timeless Design in Genuine Leather',
         description:
-            'Wacko - en svensk skinnbutik med passion för kvalitet, hantverk och tidlös design. Läs vår historia och filosofi.',
+            locale === 'sv'
+                ? 'Wacko - en svensk skinnbutik med passion för kvalitet, hantverk och tidlös design. Läs vår historia och filosofi.'
+                : 'Wacko – a Swedish leather brand with a passion for quality, craftsmanship, and timeless design. Read our story and philosophy.',
         alternates: {
             canonical: buildCanonical(locale, '/om-oss')
         }

@@ -11,9 +11,14 @@ export async function generateMetadata({ params }) {
     const { locale: paramsLocale } = await params
     const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
     return {
-        title: 'Accessoarer | Wacko – Detaljer som definierar din stil',
+        title:
+            locale === 'sv'
+                ? 'Accessoarer | Wacko – Detaljer som definierar din stil'
+                : 'Accessories | Wacko – Details That Define Your Style',
         description:
-            'Lyft varje outfit med Wackos accessoarer – bälten, smycken och detaljer som definierar din stil.',
+            locale === 'sv'
+                ? 'Lyft varje outfit med Wackos accessoarer – bälten, smycken och detaljer som definierar din stil.'
+                : 'Elevate every outfit with Wacko’s accessories – belts, jewelry, and details that define your style.',
         alternates: {
             canonical: buildCanonical(locale, '/accessoarer')
         }
@@ -46,7 +51,12 @@ const page = async ({ params }) => {
     return (
         <div>
             <Header lightHeader={true} />
-            <BreadcrumbsProducts locale={locale} category={locale === 'sv' ? 'Accessoarer' : 'Accessories'} margin={true} subCategory={'Alla'} />
+            <BreadcrumbsProducts
+                locale={locale}
+                category={locale === 'sv' ? 'Accessoarer' : 'Accessories'}
+                margin={true}
+                subCategory={'Alla'}
+            />
             <section className="cw-grid">
                 <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
                     <h1>{locale === 'sv' ? 'Accessoarer' : 'Accessories'}</h1>

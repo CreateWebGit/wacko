@@ -13,9 +13,14 @@ export async function generateMetadata({ params }) {
     const { locale: paramsLocale } = await params
     const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
     return {
-        title: 'Nyheter | Wacko - Senaste kollektionerna och trenderna',
+        title:
+            locale === 'sv'
+                ? 'Nyheter | Wacko - Senaste kollektionerna och trenderna'
+                : 'News | Wacko – The Latest Collections and Trends',
         description:
-            'Det senaste från Wacko - nya kollektioner, trender och inspiration i skinn, stil och kvalitet.',
+            locale === 'sv'
+                ? 'Det senaste från Wacko - nya kollektioner, trender och inspiration i skinn, stil och kvalitet.'
+                : 'The latest from Wacko – new collections, trends, and inspiration in leather, style, and quality.',
         alternates: {
             canonical: buildCanonical(locale, '/nyheter')
         }

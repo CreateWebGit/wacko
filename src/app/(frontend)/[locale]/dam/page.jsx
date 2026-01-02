@@ -11,9 +11,14 @@ export async function generateMetadata({ params }) {
     const { locale: paramsLocale } = await params
     const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
     return {
-        title: 'Damkollektion | Wacko - Tidlös elegans i äkta skinn',
+        title:
+            locale === 'sv'
+                ? 'Damkollektion | Wacko - Tidlös elegans i äkta skinn'
+                : 'Women’s Collection | Wacko – Timeless Elegance in Genuine Leather',
         description:
-            'Utforska damkollektionen från Wacko - skinnjackor, väskor och accessoarer i exklusiv design och tidlös kvalitet.',
+            locale === 'sv'
+                ? 'Utforska damkollektionen från Wacko - skinnjackor, väskor och accessoarer i exklusiv design och tidlös kvalitet.'
+                : 'Explore Wacko’s women’s collection – leather jackets, bags, and accessories in exclusive design and timeless quality.',
         alternates: {
             canonical: buildCanonical(locale, '/dam')
         }
@@ -44,7 +49,12 @@ const page = async ({ params }) => {
     return (
         <div>
             <Header lightHeader={true} />
-            <BreadcrumbsProducts locale={locale} category={locale === 'sv' ? 'Dam' : "Women"} margin={true} subCategory={locale === 'sv' ? 'Alla' : 'All'} />
+            <BreadcrumbsProducts
+                locale={locale}
+                category={locale === 'sv' ? 'Dam' : 'Women'}
+                margin={true}
+                subCategory={locale === 'sv' ? 'Alla' : 'All'}
+            />
             <section className="cw-grid">
                 <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
                     <h1>{locale === 'sv' ? 'Damkläder' : "Women's Clothing"}</h1>
@@ -54,7 +64,9 @@ const page = async ({ params }) => {
                 <ProductList
                     locale={locale}
                     products={postDam}
-                    title={locale === 'sv' ? `Tidlös elegans för henne` : 'Timeless elegance for her'}
+                    title={
+                        locale === 'sv' ? `Tidlös elegans för henne` : 'Timeless elegance for her'
+                    }
                     description={
                         locale === 'sv'
                             ? 'Välkommen till vår damkollektion – där klassiskt skinn möter modern form. Här hittar du jackor, kjolar, väskor och accessoarer skapade med känsla för stil, passform och kvalitet.\n\nOavsett om du söker en figursydd skinnjacka, en elegant handväska eller ett statementplagg med attityd, är varje produkt tillverkad i äkta skinn och designad för att hålla.\n\nSkinn utvecklas med dig – det får patina, personlighet och en historia. Upptäck din nya favorit och bär något som verkligen känns.'

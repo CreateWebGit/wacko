@@ -1,11 +1,9 @@
 import React from 'react'
 import '@/css/main.scss'
 import { Suspense } from 'react'
+import CookieConsent from './CookieConsent'
 
 export const metadata = {
-    title: 'Wacko - Tidlös elegans i äkta skinn',
-    description:
-        'Upptäck Wacko - exklusiva skinnjackor, väskor och accessoarer i tidlös design. Kvalitet, stil och attityd sedan 1989.',
     icons: [
         {
             rel: 'icon',
@@ -31,6 +29,7 @@ export default function FrontendRootLayout({ children }) {
         <html lang="sv">
             <body>
                 <Suspense>{children}</Suspense>
+                <CookieConsent />
             </body>
         </html>
     )

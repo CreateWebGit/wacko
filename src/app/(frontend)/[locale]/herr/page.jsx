@@ -14,9 +14,14 @@ export async function generateMetadata({ params }) {
     const { locale: paramsLocale } = await params
     const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
     return {
-        title: 'Herrkollektion | Wacko - Tidlös elegans i äkta skinn',
+        title:
+            locale === 'sv'
+                ? 'Herrkollektion | Wacko - Tidlös elegans i äkta skinn'
+                : 'Men’s Collection | Wacko – Timeless Elegance in Genuine Leather',
         description:
-            'Skinnjackor, väskor och accessoarer för honom. Upptäck herrkollektionen från Wacko - klassisk stil med modern edge.',
+            locale === 'sv'
+                ? 'Skinnjackor, väskor och accessoarer för honom. Upptäck herrkollektionen från Wacko - klassisk stil med modern edge.'
+                : 'Leather jackets, bags, and accessories for him. Discover Wacko’s men’s collection – classic style with a modern edge.',
         alternates: {
             canonical: buildCanonical(locale, '/herr')
         }
@@ -51,7 +56,7 @@ const page = async ({ params }) => {
                 locale={locale}
                 category={locale === 'sv' ? 'Herr' : 'Men'}
                 margin={true}
-                subCategory={locale === 'sv' ? 'Alla' : "All"}
+                subCategory={locale === 'sv' ? 'Alla' : 'All'}
             />
             <section className="cw-grid">
                 <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">

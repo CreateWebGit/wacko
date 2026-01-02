@@ -5,10 +5,28 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProductList from '@/components/ProductList'
 import BreadcrumbsProducts from '@/components/BreadcrumbsProducts'
-import { DEFAULT_LOCALE, validateLocale } from '@/lib/locales'
+import { DEFAULT_LOCALE, validateLocale, buildCanonical } from '@/lib/locales'
 
 export const viewport = {
     themeColor: '#8B645A'
+}
+
+export async function generateMetadata({ params }) {
+    const { locale: paramsLocale } = await params
+    const locale = validateLocale(paramsLocale) ?? DEFAULT_LOCALE
+    return {
+        title:
+            locale === 'sv'
+                ? 'Skinnväskor | Wacko – Hantverk och elegans i varje detalj'
+                : 'Leather Bags | Wacko – Craftsmanship and Elegance in Every Detail',
+        description:
+            locale === 'sv'
+                ? 'Väskor i äkta skinn med karaktär. Hitta din nya favoritväska från Wacko – där hantverk möter modern design.'
+                : 'Genuine leather bags with character. Find your new favorite bag from Wacko – where craftsmanship meets modern design.',
+        alternates: {
+            canonical: buildCanonical(locale, '/vaskor')
+        }
+    }
 }
 
 const page = async ({ params }) => {

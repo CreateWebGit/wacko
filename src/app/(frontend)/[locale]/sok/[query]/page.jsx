@@ -32,8 +32,12 @@ export async function generateMetadata({ params }) {
     const safeQuery = trimmedQuery || 'Sök'
 
     return {
-        title: `Sök: ${safeQuery} | Wacko`,
-        description: `Sökresultat för ${safeQuery} på Wacko Skinn.`,
+        title: locale === 'sv' ? `Sök: ${safeQuery} | Wacko` : `Search: ${safeQuery} | Wacko`,
+        description:
+            locale === 'sv'
+                ? `Sökresultat för ${safeQuery} på Wacko Skinn.`
+                : `Search results for ${safeQuery} on Wacko.`,
+
         alternates: {
             canonical: buildCanonical(locale, `/sok/${rawQuery}`)
         }
@@ -83,8 +87,12 @@ const SearchPage = async ({ params }) => {
     const displayQuery = trimmedQuery || 'din sökning'
     const resultsCount = products.docs?.length ?? 0
     const description = trimmedQuery
-        ? `Vi hittade ${resultsCount} träffar för "${displayQuery}". Justera sökningen eller filtrera med knapparna nedan för att hitta rätt produkt.`
-        : 'Skriv ett sökord i fältet högst upp för att komma igång.'
+        ? locale === 'sv'
+            ? `Vi hittade ${resultsCount} träffar för "${displayQuery}". Justera sökningen eller filtrera med knapparna nedan för att hitta rätt produkt.`
+            : `We found ${resultsCount} results for "${displayQuery}". Adjust your search or use the filters below to find the right product.`
+        : locale === 'sv'
+          ? 'Skriv ett sökord i fältet högst upp för att komma igång.'
+          : 'Enter a search term in the field at the top to get started.'
 
     return (
         <div>
@@ -92,12 +100,24 @@ const SearchPage = async ({ params }) => {
             <Breadcrumbs margin={true} />
             <section className="cw-grid">
                 <div className="cw-col-12 mt-1 py-2">
-                    <h1>Sökresultat</h1>
-                    <p className="mt-1">{trimmedQuery ? `Visar resultat för "${displayQuery}"` : 'Ingen sökterm angavs.'}</p>
+                    <h1>{locale === 'sv' ? 'Sökresultat' : 'Search Results'}</h1>
+                    <p className="mt-1">
+                        {trimmedQuery
+                            ? locale === 'sv'
+                                ? `Visar resultat för "${displayQuery}"`
+                                : `Showing results for "${displayQuery}"`
+                            : locale === 'sv'
+                              ? 'Ingen sökterm angavs.'
+                              : 'No search term was provided.'}
+                    </p>
                 </div>
             </section>
             <section className="cw-grid pb-10">
-                <ProductList products={products} title={`Sök: ${displayQuery}`} description={description} />
+                <ProductList
+                    products={products}
+                    title={`Sök: ${displayQuery}`}
+                    description={description}
+                />
             </section>
             <Footer />
         </div>
