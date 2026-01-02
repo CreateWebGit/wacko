@@ -32,8 +32,8 @@ header {
         background-color: white;
         transition: background-color 0.2s ease;
         // transition-delay: 0.1s;
-        padding-left: calc(50vw - calc(1312px / 2));
-        padding-right: calc(50vw - calc(1312px / 2));
+        padding-left: calc(50vw - calc(82rem / 2));
+        padding-right: calc(50vw - calc(82rem / 2));
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
 
@@ -140,6 +140,33 @@ header {
                 }
             }
 
+            .menu-divider {
+                width: 1px;
+                height: 32px;
+                background: rgba(0, 0, 0, 0.25);
+                margin-left: 0.5rem;
+            }
+
+            .language-switcher-container {
+                display: flex;
+                text-decoration: none;
+                align-items: center;
+                gap: 0.35rem;
+                color: white;
+                // margin-left: 1rem;
+                filter: invert(1);
+
+                .locale-text {
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    color: white;
+                }
+
+                @media (max-width: 768px) {
+                    order: -1;
+                }
+            }
+
             .button-container {
                 font-size: 14px;
                 text-transform: uppercase;
@@ -236,6 +263,14 @@ header {
             }
 
             .header__menu {
+                .menu-divider {
+                    background: rgba(255, 255, 255, 0.25);
+                }
+
+                .language-switcher-container {
+                    filter: invert(0);
+                }
+
                 .button {
                     background-color: white;
                     color: black;
@@ -253,8 +288,8 @@ header {
 
         .header__bottom-container {
             background-color: transparent;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            // border-top: 1px solid rgba(255, 255, 255, 0.1);
+            // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
             li {
                 a {
@@ -288,6 +323,14 @@ header {
             }
 
             .header__menu {
+                .menu-divider {
+                    background: rgba(0, 0, 0, 0.25);
+                }
+
+                .language-switcher-container {
+                    filter: invert(1);
+                }
+
                 .button-container {
                     color: black;
                 }
@@ -429,8 +472,8 @@ header {
     font-family: 'Inter Display';
     font-weight: 600;
     align-items: center;
-    padding-left: calc(50vw - calc(592px));
-    padding-right: calc(50vw - calc(592px));
+    padding-left: calc(50vw - calc(37rem));
+    padding-right: calc(50vw - calc(37rem));
     height: 3rem;
     border-top: 1px solid #e3e3e3;
     border-bottom: 1px solid #e3e3e3;

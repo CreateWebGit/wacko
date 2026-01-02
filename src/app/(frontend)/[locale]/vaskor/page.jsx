@@ -33,7 +33,12 @@ const page = async ({ params }) => {
     return (
         <div>
             <Header lightHeader={true} />
-            <BreadcrumbsProducts locale={locale} category={locale === 'sv' ? 'Väskor' : 'Bags'} margin={true} subCategory={locale === 'sv' ? 'Alla' : 'All'} />
+            <BreadcrumbsProducts
+                locale={locale}
+                category={locale === 'sv' ? 'Väskor' : 'Bags'}
+                margin={true}
+                subCategory={locale === 'sv' ? 'Alla' : 'All'}
+            />
             <section className="cw-grid">
                 <div className="cw-col-12 cw-col-xs-12 mt-1 py-2">
                     <h1>{locale === 'sv' ? 'Väskor' : 'Bags'}</h1>

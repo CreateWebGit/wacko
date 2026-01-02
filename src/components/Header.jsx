@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import NavLink from '@/components/NavLink'
 import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
 import { getLocaleFromPathname, prefixPath } from '@/lib/locales'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Header({ lightHeader = false }) {
     const router = useRouter()
@@ -128,7 +129,11 @@ export default function Header({ lightHeader = false }) {
                                 type="text"
                                 value={searchValue}
                                 onChange={(event) => setSearchValue(event.target.value)}
-                                placeholder={locale === 'sv' ? "Sök produkter eller kategorier" : 'Search products or categories'}
+                                placeholder={
+                                    locale === 'sv'
+                                        ? 'Sök produkter eller kategorier'
+                                        : 'Search products or categories'
+                                }
                                 aria-label="Sök"
                             />
                             <button type="submit" className="button dark sm">
@@ -158,12 +163,16 @@ export default function Header({ lightHeader = false }) {
                 <div className="header__menu pr-4">
                     <div className={`header__search ${searchOpen ? 'open' : ''}`}>
                         <button type="button" className="sm icon-button" onClick={toggleSearch}>
-                            <MagnifyingGlassIcon size={20} />
+                            <MagnifyingGlassIcon size={'1.25rem'} />
                         </button>
                     </div>
-                    <a href={withLocale('/#hitta-hit')} className="button dark sm hide-mobile">
+                    {/* <a
+                        href={withLocale('/#hitta-hit')}
+                        className="button dark sm hide-mobile find-us-btn"
+                    >
                         {locale === 'sv' ? 'Hitta hit' : 'Find us'}
-                    </a>
+                    </a> */}
+                    <div className="menu-divider hide-desktop"></div>
                     <div
                         onClick={() => toggleSlideMenu()}
                         className={`button-container hide-desktop ${slideMenuOpen ? 'open' : ''}`}
@@ -171,6 +180,7 @@ export default function Header({ lightHeader = false }) {
                         <div className="first">{locale === 'sv' ? 'MENY' : 'MENU'}</div>
                         <div className="second">{locale === 'sv' ? 'STÄNG' : 'CLOSE'}</div>
                     </div>
+                    <LanguageSwitcher />
                 </div>
             </div>
             <div className="header__bottom-container">

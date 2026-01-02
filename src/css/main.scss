@@ -14,17 +14,21 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 
+  // @media (min-width: 1920px) {
+  //   font-size: 0.85vw;
+  // }
+
   @media (min-width: 1920px) {
-    font-size: 16px;
+    font-size: 0.85vw;
   }
 
-  @media (max-width: 1312px) {
+  @media (max-width: 1312px) and (min-width: 769px) {
     font-size: 1.12vw;
   }
 
   @media (max-width: 768px) {
     font-size: 16px;
-    touch-action: pan-y;
+    // touch-action: pan-y;
   }
 }
 

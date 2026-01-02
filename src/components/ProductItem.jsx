@@ -12,10 +12,10 @@ export default function ProductItem({ product }) {
 
     const decodeURL = (str) => {
         str = str.replace(/\s+/g, '-')
-        return str
+        return str.toLowerCase()
     }
 
-    const productHref = prefixPath(locale, `/${product.categories}/${decodeURL(product.title)}`)
+    const productHref = prefixPath(locale, `/${product.categories}/${product.id + '-' + decodeURL(product.title)}`)
 
     return (
         <a

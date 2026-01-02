@@ -16,6 +16,18 @@ function buildPublicSlugFromInternal(locale, internalSlug) {
     return ROUTE_ALIASES?.[internalSlug]?.[locale] ?? internalSlug
 }
 
+function findInternalSlugFromAnyPublicSlug(publicSlug) {
+    // If someone uses another locale's public slug (e.g. "about-us" under /sv),
+    // figure out which internal slug it corresponds to ("om-oss").
+    for (const [internalSlug, byLocale] of Object.entries(ROUTE_ALIASES)) {
+        if (!byLocale) continue
+        for (const candidate of Object.values(byLocale)) {
+            if (candidate === publicSlug) return internalSlug
+        }
+    }
+    return null
+}
+
 export function middleware(req) {
     const { pathname } = req.nextUrl
 
@@ -23,7 +35,7 @@ export function middleware(req) {
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
-        pathname.startsWith('/admin') || //payload escape
+        pathname.startsWith('/admin') || // payload escape
         pathname.includes('.') // crude but effective for static files
     ) {
         return NextResponse.next()
@@ -46,35 +58,49 @@ export function middleware(req) {
         return NextResponse.next()
     }
 
-    // Build lookup maps
+    // Lookup maps
     const publicToInternal = invertAliasesForLocale(locale)
 
-    // If they visit a Swedish/internal slug under EN, redirect to the EN public slug
+    // Helper to keep the tail (/something/else) intact
+    const tail = segments.slice(2).join('/')
+    const withTail = (base) => (tail ? `${base}/${tail}` : base)
+
+    // 1) If they visit an INTERNAL slug, redirect to the locale’s PUBLIC slug (if different)
     // Example: /en/om-oss -> /en/about-us
-    for (const internalSlug of Object.keys(ROUTE_ALIASES)) {
-        if (slug === internalSlug) {
-            const desiredPublic = buildPublicSlugFromInternal(locale, internalSlug)
-            if (desiredPublic !== internalSlug) {
-                const url = req.nextUrl.clone()
-                url.pathname = `/${locale}/${desiredPublic}/${segments.slice(2).join('/')}`.replace(
-                    /\/$/,
-                    ''
-                )
-                return NextResponse.redirect(url)
-            }
+    if (Object.prototype.hasOwnProperty.call(ROUTE_ALIASES, slug)) {
+        const desiredPublic = buildPublicSlugFromInternal(locale, slug)
+
+        if (desiredPublic !== slug) {
+            const url = req.nextUrl.clone()
+            url.pathname = withTail(`/${locale}/${desiredPublic}`)
+            return NextResponse.redirect(url)
         }
+
+        // internal slug equals public for this locale -> just serve it
+        return NextResponse.next()
     }
 
-    // If the slug is a public alias for this locale, rewrite to internal route
-    // Example: /en/about-us -> rewrite to /en/om-oss (served by your existing folder)
+    // 2) If the slug is a PUBLIC alias for THIS locale, rewrite to internal route
+    // Example: /en/about-us -> rewrite to /en/om-oss (served by existing folder)
     const internalSlug = publicToInternal.get(slug)
     if (internalSlug && internalSlug !== slug) {
         const url = req.nextUrl.clone()
-        url.pathname = `/${locale}/${internalSlug}/${segments.slice(2).join('/')}`.replace(
-            /\/$/,
-            ''
-        )
+        url.pathname = withTail(`/${locale}/${internalSlug}`)
         return NextResponse.rewrite(url)
+    }
+
+    // 3) If the slug is a PUBLIC alias for SOME OTHER locale, redirect to THIS locale’s public slug
+    // Example: /sv/about-us -> /sv/om-oss
+    const internalFromAnyPublic = findInternalSlugFromAnyPublicSlug(slug)
+    if (internalFromAnyPublic) {
+        const desiredPublic = buildPublicSlugFromInternal(locale, internalFromAnyPublic)
+
+        // Only redirect if it actually changes something, otherwise we'd loop.
+        if (desiredPublic !== slug) {
+            const url = req.nextUrl.clone()
+            url.pathname = withTail(`/${locale}/${desiredPublic}`)
+            return NextResponse.redirect(url)
+        }
     }
 
     return NextResponse.next()

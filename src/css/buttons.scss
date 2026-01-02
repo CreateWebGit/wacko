@@ -83,10 +83,15 @@ button,
 
     &.icon-button {
         background-color: transparent !important;
+        padding-bottom: 0.5rem !important;
     }
 
     &.search {
         background-color: #efefef;
         color: black;
+    }
+
+    &.find-us-btn {
+        width: 5.625rem;
     }
 }

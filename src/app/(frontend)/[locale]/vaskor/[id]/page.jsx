@@ -13,32 +13,22 @@ export const viewport = {
 const page = async ({ params }) => {
     const resolvedParams = await params
     const locale = validateLocale(resolvedParams?.locale) ?? DEFAULT_LOCALE
-    const { id } = resolvedParams
-    const decodedID = decodeURI(id)
     const payloadConfig = await config
     const payload = await getPayload({ config: payloadConfig })
 
-    const helpFunc = (str) => {
-        str = str.replace(/-/g, ' ')
-        return str
+    const formattedId = (param) => {
+        return param.replace(/-.*/, '')
     }
 
-    const result = await payload.find({
+    const result = await payload.findByID({
         collection: 'products',
-        locale,
-
-        where: {
-            title: {
-                equals: helpFunc(decodedID)
-            }
-        }
+        id: formattedId(resolvedParams.id),
+        locale
     })
-
-    console.log('results', result)
     return (
         <div>
             <Header lightHeader={true} />
-            <Product data={result} />
+            <Product locale={locale} data={result} />
             <Footer />
         </div>
     )

@@ -8,7 +8,7 @@
 @use './sections/butiker.scss' as *;
 
 section {
-  max-width: 1312px;
+  max-width: 82rem;
   padding-left: 4rem;
   padding-right: 4rem;
   margin: auto;
@@ -21,8 +21,8 @@ section {
   }
 
   &.full-width {
-    padding-left: calc(50vw - calc(1312px / 2));
-    padding-right: calc(50vw - calc(1312px / 2));
+    padding-left: calc(50vw - calc(82rem / 2));
+    padding-right: calc(50vw - calc(82rem / 2));
     margin: unset;
     max-width: unset;
   }
@@ -35,14 +35,14 @@ section {
 
   &.padding-left {
     max-width: unset;
-    padding-left: calc(50vw - calc(1312px / 2));
+    padding-left: calc(50vw - calc(82rem / 2));
     padding-right: 0;
     margin: unset;
   }
 
   &.padding-right {
     max-width: unset;
-    padding-right: calc(50vw - calc(1312px / 2));
+    padding-right: calc(50vw - calc(82rem / 2));
     padding-left: 0;
     margin: unset;
   }
