@@ -8,7 +8,7 @@ import ProductList from '@/components/ProductList'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { DEFAULT_LOCALE, buildCanonical, validateLocale } from '@/lib/locales'
 
-const categorySlugs = ['herr', 'dam', 'vaskor', 'vinterdetaljer', 'accessoarer']
+const categorySlugs = ['herr', 'dam', 'vaskor', 'vinterdetaljer', 'accessoarer', 'jackor']
 
 const normalize = (value) =>
     value
@@ -61,6 +61,11 @@ const SearchPage = async ({ params }) => {
         const filters = [
             {
                 title: {
+                    like: trimmedQuery
+                }
+            },
+            {
+                subCategory: {
                     like: trimmedQuery
                 }
             }
