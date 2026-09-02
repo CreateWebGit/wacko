@@ -141,7 +141,7 @@ export const Pages: GlobalConfig = {
                                     fields: [
                                         {
                                             name: 'opening-hours',
-                                            type: 'text',
+                                            type: 'textarea',
                                             label: 'Öppettider',
                                             localized: true
                                         }

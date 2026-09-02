@@ -53,7 +53,7 @@ export default async function OmOss({ params }) {
             />
             <Smakprov locale={locale} />
             <CategoryButtons locale={locale} />
-            <Footer />
+            <Footer locale={locale} />
         </>
     )
 }

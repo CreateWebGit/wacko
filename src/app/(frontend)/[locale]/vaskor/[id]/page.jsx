@@ -29,7 +29,7 @@ const page = async ({ params }) => {
         <div>
             <Header lightHeader={true} />
             <Product locale={locale} data={result} />
-            <Footer />
+            <Footer locale={locale} />
         </div>
     )
 }

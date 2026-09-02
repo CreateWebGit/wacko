@@ -74,7 +74,7 @@ export default async function Nyheter({ params }) {
                     </Link>
                 ))}
             </section>
-            <Footer />
+            <Footer locale={locale} />
         </>
     )
 }

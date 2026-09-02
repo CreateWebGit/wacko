@@ -39,6 +39,10 @@ footer {
                 display: flex;
                 flex-direction: column;
                 gap: 0.75rem;
+
+                .opening-hours {
+                    white-space: pre-line;
+                }
             }
         }
 

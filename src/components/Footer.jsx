@@ -1,11 +1,16 @@
-'use client'
+import { getPayload } from 'payload'
+import config from '@/payload.config'
+import { prefixPath } from '@/lib/locales'
+import { getOpeningHours } from '@/lib/opening-hours'
 
-import { usePathname } from 'next/navigation'
-import { getLocaleFromPathname, prefixPath } from '@/lib/locales'
-
-export default function Footer() {
-    const pathname = usePathname()
-    const locale = getLocaleFromPathname(pathname || '/')
+export default async function Footer({ locale }) {
+    const payloadConfig = await config
+    const payload = await getPayload({ config: payloadConfig })
+    const pages = await payload.findGlobal({
+        slug: 'pages',
+        locale
+    })
+    const openingHours = getOpeningHours(pages, locale)
     const withLocale = (path) => prefixPath(locale, path)
 
     return (
@@ -19,13 +24,7 @@ export default function Footer() {
                             <p>Götgatan 35, 116 21 Stockholm</p>
                             <a href="telto:084111553">08-411 15 53</a>
                         </div>
-                        <div>
-                            <p>
-                                {locale === 'sv' ? 'Mån - Fre:' : 'Mon - Fri'} 11:00 &mdash; 18:00
-                            </p>
-                            <p>{locale === 'sv' ? 'Lör:' : 'Sat:'} 11:00 &mdash; 16:00</p>
-                            <p>{locale === 'sv' ? 'Sön: Stängt' : 'Sun: Closed'}</p>
-                        </div>
+                        <p className="opening-hours">{openingHours}</p>
                     </div>
                 </div>
                 <div className="link-container cw-col-6  cw-col-xs-12 cw-grid">

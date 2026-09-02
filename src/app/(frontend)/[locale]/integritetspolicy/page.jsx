@@ -87,7 +87,7 @@ export default async function page({ params }) {
                 </div>
             </section>
 
-            <Footer />
+            <Footer locale={locale} />
         </>
     )
 }

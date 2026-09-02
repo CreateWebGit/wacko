@@ -79,7 +79,7 @@ export default async function NyheterPage({ params }) {
                     <div className="news-divider-line mt-4 mb-5"></div>
                 </div>
             </section>
-            <Footer />
+            <Footer locale={locale} />
         </>
     )
 }

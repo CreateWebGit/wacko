@@ -12,6 +12,7 @@ import CategoryButtons from '@/components/sections/CategoryButtons'
 import NewsListHome from '@/components/sections/NewsListHome'
 import Butiker from '@/components/sections/Butiker'
 import Footer from '@/components/Footer'
+import { getOpeningHours } from '@/lib/opening-hours'
 
 export const viewport = {
     themeColor: '#8B645A'
@@ -45,6 +46,7 @@ export default async function Home({ params }) {
         locale
     })
     const indexPageContent = result.indexPage
+    const openingHours = getOpeningHours(result, locale)
     console.log(result)
     return (
         <>
@@ -55,8 +57,8 @@ export default async function Home({ params }) {
             <Smakprov locale={locale} />
             <CategoryButtons locale={locale} />
             <NewsListHome locale={locale} />
-            <Butiker locale={locale} />
-            <Footer />
+            <Butiker locale={locale} openingHours={openingHours} />
+            <Footer locale={locale} />
             {/* <Banner/> */}
         </>
     )

@@ -75,7 +75,7 @@ const page = async ({ params }) => {
                     }
                 ></ProductList>
             </section>
-            <Footer />
+            <Footer locale={locale} />
         </div>
     )
 }

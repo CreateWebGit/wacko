@@ -124,7 +124,7 @@ const SearchPage = async ({ params }) => {
                     description={description}
                 />
             </section>
-            <Footer />
+            <Footer locale={locale} />
         </div>
     )
 }
